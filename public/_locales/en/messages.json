@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "Tab Rename Wiz",
+    "description": "Extension name"
+  },
+  "appDescription": {
+    "message": "Customize browser tab titles and icons",
+    "description": "Extension description"
+  },
+  "tabTitle": {
+    "message": "Tab Title",
+    "description": "Tab title field"
+  },
+  "faviconEmoji": {
+    "message": "Icon Emoji",
+    "description": "Icon emoji field"
+  },
+  "matchMode": {
+    "message": "Match Mode",
+    "description": "Match mode field"
+  },
+  "exactMatch": {
+    "message": "Exact Match",
+    "description": "Exact match option"
+  },
+  "startsWithMatch": {
+    "message": "Starts With",
+    "description": "Starts with option"
+  },
+  "endsWithMatch": {
+    "message": "Ends With",
+    "description": "Ends with option"
+  },
+  "containsMatch": {
+    "message": "Contains",
+    "description": "Contains option"
+  },
+  "urlPattern": {
+    "message": "URL Pattern",
+    "description": "URL pattern field"
+  },
+  "saveRule": {
+    "message": "Save Rule",
+    "description": "Save rule button"
+  },
+  "manageRules": {
+    "message": "Manage Rules",
+    "description": "Manage rules button"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Rename Wiz - 规则管理</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Tab Rename Wiz - 规则管理</h1>
+    </header>
+    
+    <main>
+      <div class="rules-container" id="rules-container">
+        <div class="loading">加载中...</div>
+      </div>
+      
+      <div class="empty-state" id="empty-state" style="display: none;">
+        <p>暂无保存的规则</p>
+        <button id="add-rule-btn">添加规则</button>
+      </div>
+    </main>
+    
+    <div class="modal" id="confirm-modal">
+      <div class="modal-content">
+        <h3>确认删除</h3>
+        <p>确定要删除这条规则吗？此操作无法撤销。</p>
+        <div class="modal-actions">
+          <button id="cancel-delete-btn">取消</button>
+          <button id="confirm-delete-btn">删除</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./index.ts"></script>
+</body>
+</html>

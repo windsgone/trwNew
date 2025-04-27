@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "Tab Rename Wiz",
+    "description": "扩展名称"
+  },
+  "appDescription": {
+    "message": "自定义浏览器标签页的标题和图标",
+    "description": "扩展描述"
+  },
+  "tabTitle": {
+    "message": "标签标题",
+    "description": "标签标题字段"
+  },
+  "faviconEmoji": {
+    "message": "图标 Emoji",
+    "description": "图标 Emoji 字段"
+  },
+  "matchMode": {
+    "message": "匹配模式",
+    "description": "匹配模式字段"
+  },
+  "exactMatch": {
+    "message": "精确匹配",
+    "description": "精确匹配选项"
+  },
+  "startsWithMatch": {
+    "message": "开头匹配",
+    "description": "开头匹配选项"
+  },
+  "endsWithMatch": {
+    "message": "结尾匹配",
+    "description": "结尾匹配选项"
+  },
+  "containsMatch": {
+    "message": "包含匹配",
+    "description": "包含匹配选项"
+  },
+  "urlPattern": {
+    "message": "URL 模式",
+    "description": "URL 模式字段"
+  },
+  "saveRule": {
+    "message": "保存规则",
+    "description": "保存规则按钮"
+  },
+  "manageRules": {
+    "message": "管理规则",
+    "description": "管理规则按钮"
+  }
+}
