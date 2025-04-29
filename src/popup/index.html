@@ -5,34 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tab Rename Wiz</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./emoji-picker.css">
 </head>
 <body>
   <div class="container">
     <header class="header">
       <h1>Tab Rename Wiz</h1>
       <div class="settings-icon" id="options-btn">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
-        </svg>
+        <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M34.0003 41L44 24L34.0003 7H14.0002L4 24L14.0002 41H34.0003Z" fill="none" stroke="#3498DB" stroke-width="3" stroke-linejoin="round"></path>
+          <path d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z" fill="none" stroke="#3498DB" stroke-width="3" stroke-linejoin="round"></path>
+      </svg>
       </div>
     </header>
     
     <form id="rule-form">
       <div class="url-input-group" id="url-input-group">
-        <div class="url-label">URL
-          <div class="toggle-btn" id="toggle-url-btn">
-            <svg viewBox="0 0 24 24" width="24" height="24">
-              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-            </svg>
-          </div>
+        <div class="url-label">URL</div>
+        <div class="match-mode-display" id="match-mode-display">is</div>
+        <div class="url-display" id="url-display"><span></span></div>
+        <div class="toggle-btn" id="toggle-url-btn">
+          <svg t="1745900337784" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1454" width="200" height="200"><path d="M512 611.872L226.752 318.592A48.48 48.48 0 0 0 192 304c-26.496 0-48 21.056-48 47.008 0 12.064 4.736 23.68 13.248 32.416l308.416 317.12q18.88 19.456 46.336 19.456 27.424 0 46.336-19.456l308.384-317.12c8.544-8.736 13.28-20.352 13.28-32.416 0-25.952-21.504-47.008-48-47.008-13.12 0-25.696 5.28-34.752 14.592L512 611.84z" fill="#999999" p-id="1455"></path></svg>
         </div>
-        <div class="match-mode-select">
-          <select id="matchMode" name="matchMode">
-            <option value="startsWith">starts with</option>
-            <option value="exact">exact</option>
-            <option value="endsWith">ends with</option>
-            <option value="contains">contains</option>
-          </select>
+        <div class="match-mode-buttons" id="match-mode-buttons">
+          <label class="match-mode-btn">
+            <input type="radio" name="matchMode" value="exact" id="mode-exact" checked>
+            <span>is</span>
+          </label>
+          <label class="match-mode-btn">
+            <input type="radio" name="matchMode" value="startsWith" id="mode-startsWith">
+            <span>starts with</span>
+          </label>
+          <label class="match-mode-btn">
+            <input type="radio" name="matchMode" value="endsWith" id="mode-endsWith">
+            <span>ends with</span>
+          </label>
+          <label class="match-mode-btn">
+            <input type="radio" name="matchMode" value="contains" id="mode-contains">
+            <span>contains</span>
+          </label>
         </div>
         <div class="url-input">
           <input type="text" id="urlPattern" name="urlPattern" required>
@@ -45,7 +56,11 @@
         </div>
         <div class="title-input">
           <input type="text" id="title" name="title" required>
-          <button type="button" class="clear-btn" id="clear-title">×</button>
+          <button type="button" class="clear-btn" id="clear-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+            </svg>
+          </button>
         </div>
       </div>
       

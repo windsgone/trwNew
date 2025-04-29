@@ -1,0 +1,123 @@
+/* 表情选择器容器 */
+.emoji-picker-container {
+  position: fixed;
+  z-index: 1000;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+/* 表情选择器 */
+.emoji-picker {
+  width: 350px;
+  max-height: 450px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 分类标签栏 */
+.emoji-tabs {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.emoji-tab {
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  height: 40px;
+}
+
+.emoji-tab.active {
+  background: #e6f7ff;
+}
+
+/* 搜索框 */
+.emoji-search {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon-container {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  width: 16px;
+  height: 16px;
+}
+
+.search-icon-container svg {
+  fill: #999;
+  width: 100%;
+  height: 100%;
+}
+
+.emoji-search input {
+  width: 100%;
+  padding: 8px 8px 8px 36px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 40px;
+}
+
+/* 表情容器 */
+.emoji-container {
+  padding: 8px 12px;
+  overflow-y: auto;
+  max-height: 350px;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* 隐藏 Webkit 浏览器的滚动条 */
+.emoji-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 表情分类 */
+.emoji-category {
+  margin-bottom: 12px;
+}
+
+.emoji-category h3 {
+  font-size: 14px;
+  margin: 0 0 8px 0;
+  color: #666;
+}
+
+/* 表情网格 */
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 3px 0;
+}
+
+/* 表情项 */
+.emoji-item {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.emoji-item:hover {
+  background: #f0f0f0;
+}

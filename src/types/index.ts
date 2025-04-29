@@ -17,3 +17,5 @@ export interface CreateTabRuleInput {
   title: string;
   faviconEmoji: string;
 }
+
+export type RecentEmojis = string[];
