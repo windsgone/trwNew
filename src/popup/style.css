@@ -8,14 +8,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #fff;
   color: #333;
-  min-height: 550px;
+  min-height: auto;
   overflow-y: auto;
 }
 
 .container {
   width: 350px;
-  min-height: 550px;
-  position: relative;
+  min-height: auto;
+  position: relative; /* 确保 container 是定位上下文 */
 }
 
 .header {
@@ -59,7 +59,6 @@ form {
     "label mode display toggle"
     "buttons buttons buttons buttons"
     "input input input input";
-  overflow: hidden;
   position: relative;
 }
 
@@ -163,30 +162,30 @@ form {
 }
 
 .match-mode-btn input:checked + span {
-  color: #1677FF;
+  color: #3498db;
 }
 
 .match-mode-btn.active {
   background-color: #fff;
-  border-color: #1677FF;
+  border-color: #3498db;
   z-index: 1;
 }
 
 .match-mode-btn.active:not(:last-child) {
-  border-right: 1px solid #1677FF;
+  border-right: 1px solid #3498db;
   margin-right: -1px;
 }
 
 .match-mode-btn.active:last-child {
-  border-right: 1px solid #1677FF;
+  border-right: 1px solid #3498db;
 }
 
 .match-mode-btn:hover {
-  color: #1677FF;
+  color: #3498db;
 }
 
 .match-mode-btn.active:hover {
-  color: #1677FF;
+  color: #3498db;
 }
 
 .match-mode-btn:first-child {
@@ -215,6 +214,12 @@ form {
   border-radius: 5px;
   outline: none;
   font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.url-input input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 1px #3498db;
 }
 
 /* 收起状态 - 默认 */
@@ -271,11 +276,17 @@ form {
   justify-content: center;
   border: 1px solid #DDDDDD;
   border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.favicon-preview.active {
+  border: 2px solid #3498db;
 }
 
 .favicon-preview img {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .title-input {
@@ -284,6 +295,12 @@ form {
   border: 1px solid #DDDDDD;
   border-radius: 5px;
   overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.title-input:focus-within {
+  border-color: #3498db;
+  box-shadow: 0 0 0 1px #3498db;
 }
 
 .title-input input {

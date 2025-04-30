@@ -11,75 +11,58 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       const pendingMessage = pendingMessages.get(tabId);
       try {
         chrome.tabs.sendMessage(tabId, pendingMessage).catch(error => {
-          console.log(`重试发送消息到标签 ${tabId} 失败: ${error.message}`);
+          console.error(`[BACKGROUND] Failed to resend pending message to tab ${tabId}: ${error.message}`);
         });
       } catch (error) {
-        console.log(`重试发送消息到标签 ${tabId} 时出错: ${error}`);
+        console.error(`[BACKGROUND] Error resending pending message to tab ${tabId}:`, error);
       }
       pendingMessages.delete(tabId);
     }
     sendResponse({ success: true });
     return true;
   } else if (message.type === 'UPDATE_RULE') {
-    // 处理更新规则的消息
     updateRule(message.payload)
       .then(() => {
-        console.log(`已更新规则: ${message.payload.id}`);
         if (sendResponse) sendResponse({ success: true });
       })
       .catch(error => {
-        console.error(`更新规则失败: ${error.message}`);
+        console.error(`[BACKGROUND] Failed to update rule ${message.payload.id}: ${error.message}`);
         if (sendResponse) sendResponse({ success: false, error: error.message });
       });
     return true;
+  } else if (message.type === 'APPLY_RULE_NOW' && message.payload && message.payload.tabId && message.payload.rule) {
+    const { tabId, rule } = message.payload;
+    sendMessageToTab(tabId, { type: 'APPLY_TAB_RULE', payload: rule });
+    if (sendResponse) sendResponse({ success: true });
+    return true;
   }
-  return false; // 添加默认返回值
+  return false; // Indicate async response is not sent for unhandled messages
 });
 
 async function sendMessageToTab(tabId: number, message: any) {
   try {
-    await chrome.tabs.sendMessage(tabId, message).catch(() => {
-      console.log(`将消息添加到待处理队列: 标签 ${tabId}`);
+    await chrome.tabs.sendMessage(tabId, message);
+  } catch (error: any) {
+    if (error.message?.includes('Could not establish connection') || error.message?.includes('Receiving end does not exist')) {
       pendingMessages.set(tabId, message);
-    });
-  } catch (error) {
-    console.log(`发送消息到标签 ${tabId} 时出错，添加到待处理队列`);
-    pendingMessages.set(tabId, message);
+    } else {
+      console.error(`[BACKGROUND] Error sending message to tab ${tabId}, adding to pending queue:`, error);
+      pendingMessages.set(tabId, message); // Still add to pending for other errors, maybe temporary
+    }
   }
 }
 
-chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://')) {
-    const rules = await getAllRules();
-    const bestMatchRule = findBestMatchRule(tab.url, rules);
-    
-    if (bestMatchRule) {
-      const message = {
-        type: 'APPLY_TAB_RULE',
-        payload: bestMatchRule
-      };
-      
-      setTimeout(() => {
-        sendMessageToTab(tabId, message);
-      }, 500); // 给内容脚本一些时间来加载
-    }
-  }
+chrome.tabs.onUpdated.addListener(async (_tabId, _changeInfo, _tab) => {
 });
 
 chrome.webNavigation.onCompleted.addListener(async (details) => {
-  if (details.frameId === 0 && !details.url.startsWith('chrome://')) {
+  if (details.frameId === 0 && details.url && !details.url.startsWith('chrome://') && !details.url.startsWith('edge://') && !details.url.startsWith('about:')) {
     const rules = await getAllRules();
     const bestMatchRule = findBestMatchRule(details.url, rules);
-    
+
     if (bestMatchRule) {
-      const message = {
-        type: 'APPLY_TAB_RULE',
-        payload: bestMatchRule
-      };
-      
-      setTimeout(() => {
-        sendMessageToTab(details.tabId, message);
-      }, 500); // 给内容脚本一些时间来加载
+      const message = { type: 'APPLY_TAB_RULE', payload: bestMatchRule };
+      sendMessageToTab(details.tabId, message); // Send directly
     }
   }
 });

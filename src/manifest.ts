@@ -38,7 +38,8 @@ export default defineManifest({
   ],
   web_accessible_resources: [
     {
-      resources: ['icons/*'],
+      // Allow web pages to load icons and JS assets (needed for CRXJS content script loading)
+      resources: ['icons/*', 'assets/*.js'],
       matches: ['<all_urls>'],
     },
   ],

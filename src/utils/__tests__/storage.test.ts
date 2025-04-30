@@ -1,4 +1,4 @@
-import { getAllRules, saveRule, deleteRule } from '../storage';
+import { getAllRules, createNewRule, deleteRule } from '../storage';
 import { CreateTabRuleInput, TabRule } from '../../types';
 
 describe('存储接口测试', () => {
@@ -43,7 +43,7 @@ describe('存储接口测试', () => {
     expect(result).toEqual([]);
   });
 
-  test('saveRule应创建新规则并保存到存储中', async () => {
+  test('createNewRule应创建新规则并保存到存储中', async () => {
     const existingRules: TabRule[] = [];
     
     (chrome.storage.local.get as jest.Mock).mockImplementation(() => {
@@ -73,7 +73,7 @@ describe('存储接口测试', () => {
       updatedAt: 1234567890
     };
 
-    const result = await saveRule(input);
+    const result = await createNewRule(input);
     
     expect(chrome.storage.local.get).toHaveBeenCalledWith(RULES_KEY);
     expect(chrome.storage.local.set).toHaveBeenCalledWith({

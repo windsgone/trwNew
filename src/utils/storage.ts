@@ -2,14 +2,15 @@ import { TabRule, CreateTabRuleInput, RecentEmojis } from '../types';
 
 const RULES_KEY = 'tab_rename_rules';
 const RECENT_EMOJIS_KEY = 'recent_emojis';
-const MAX_RECENT_EMOJIS = 18; // 最多存储20个最近使用的表情
+const MAX_RECENT_EMOJIS = 18; 
 
 export async function getAllRules(): Promise<TabRule[]> {
   const result = await chrome.storage.local.get(RULES_KEY);
   return result[RULES_KEY] || [];
 }
 
-export async function saveRule(input: CreateTabRuleInput): Promise<TabRule> {
+// 重命名函数：创建新规则
+export async function createNewRule(input: CreateTabRuleInput): Promise<TabRule> {
   const rules = await getAllRules();
   
   const newRule: TabRule = {
