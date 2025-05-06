@@ -3,7 +3,7 @@ import { defineManifest } from '@crxjs/vite-plugin';
 export default defineManifest({
   manifest_version: 3,
   name: 'Tab Rename Wiz',
-  version: '3.0.0',
+  version: '2.0.0',
   description: '修改浏览器标签页的标题和图标',
   default_locale: 'en',
   permissions: ['tabs', 'scripting', 'storage', 'activeTab', 'webNavigation'],

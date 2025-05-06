@@ -4,18 +4,15 @@ import { getAllRules, deleteRule } from '../utils/storage';
 let ruleIdToDelete: string | null = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const rulesContainer = document.getElementById('rules-container') as HTMLDivElement;
+  const rulesTable = document.getElementById('rules-table') as HTMLTableElement;
+  const rulesTableBody = document.getElementById('rules-table-body') as HTMLTableSectionElement;
+  const loadingState = document.getElementById('loading-state') as HTMLDivElement;
   const emptyState = document.getElementById('empty-state') as HTMLDivElement;
-  const addRuleBtn = document.getElementById('add-rule-btn') as HTMLButtonElement;
   const confirmModal = document.getElementById('confirm-modal') as HTMLDivElement;
   const cancelDeleteBtn = document.getElementById('cancel-delete-btn') as HTMLButtonElement;
   const confirmDeleteBtn = document.getElementById('confirm-delete-btn') as HTMLButtonElement;
   
   loadRules();
-  
-  addRuleBtn.addEventListener('click', () => {
-    chrome.tabs.create({ url: chrome.runtime.getURL('src/popup/index.html') });
-  });
   
   cancelDeleteBtn.addEventListener('click', () => {
     hideModal();
@@ -30,73 +27,81 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
   
   async function loadRules() {
+    if (!rulesTable || !rulesTableBody || !loadingState || !emptyState) {
+      console.error('无法找到必要的DOM元素');
+      return;
+    }
+    rulesTable.style.display = 'none';
+    emptyState.style.display = 'none';
+    loadingState.style.display = 'block';
+
     try {
       const rules = await getAllRules();
       
       if (rules.length === 0) {
-        rulesContainer.style.display = 'none';
-        emptyState.style.display = 'block';
-        return;
+        rulesTable.style.display = 'none';
+        emptyState.style.display = 'flex'; // Use flex for better centering if styles support it
+      } else {
+        rulesTable.style.display = 'table'; // Or 'block' if table is styled as block
+        emptyState.style.display = 'none';
+        renderRules(rules, rulesTableBody);
       }
-      
-      rulesContainer.style.display = 'block';
-      emptyState.style.display = 'none';
-      
-      renderRules(rules);
     } catch (error) {
       console.error('加载规则失败:', error);
-      rulesContainer.innerHTML = '<div class="loading">加载失败</div>';
+      emptyState.style.display = 'flex';
+      emptyState.querySelector('p')!.textContent = '加载规则失败，请稍后重试。';
+    } finally {
+      loadingState.style.display = 'none';
     }
   }
   
-  function renderRules(rules: TabRule[]) {
-    rulesContainer.innerHTML = '';
+  function renderRules(rules: TabRule[], tableBody: HTMLTableSectionElement) {
+    tableBody.innerHTML = ''; // 清空现有的行
     
-    rules.forEach(rule => {
-      const ruleCard = document.createElement('div');
-      ruleCard.className = 'rule-card';
-      
-      const faviconPreview = document.createElement('div');
-      faviconPreview.className = 'favicon-preview';
-      faviconPreview.textContent = rule.faviconEmoji;
-      
-      const ruleDetails = document.createElement('div');
-      ruleDetails.className = 'rule-details';
-      
-      const ruleTitle = document.createElement('div');
-      ruleTitle.className = 'rule-title';
-      ruleTitle.textContent = rule.title;
-      
-      const ruleUrl = document.createElement('div');
-      ruleUrl.className = 'rule-url';
-      ruleUrl.textContent = `${getMatchModeText(rule.matchMode)}: ${rule.urlPattern}`;
-      
-      const ruleMeta = document.createElement('div');
-      ruleMeta.className = 'rule-meta';
-      ruleMeta.textContent = `创建于: ${new Date(rule.updatedAt).toLocaleString()}`;
-      
-      ruleDetails.appendChild(ruleTitle);
-      ruleDetails.appendChild(ruleUrl);
-      ruleDetails.appendChild(ruleMeta);
-      
-      const ruleActions = document.createElement('div');
-      ruleActions.className = 'rule-actions';
-      
+    rules.forEach((rule, index) => {
+      const tr = document.createElement('tr');
+      tr.dataset.ruleId = rule.id;
+
+      // 1. 序号
+      const tdIndex = document.createElement('td');
+      tdIndex.textContent = (index + 1).toString();
+      tr.appendChild(tdIndex);
+
+      // 2. 新 Title
+      const tdTitle = document.createElement('td');
+      tdTitle.textContent = rule.title;
+      tr.appendChild(tdTitle);
+
+      // 3. 新 Favicon
+      const tdFavicon = document.createElement('td');
+      // 为了保持简洁，这里直接显示emoji字符。如果需要更复杂的渲染，可以修改。
+      tdFavicon.textContent = rule.faviconEmoji;
+      tdFavicon.style.textAlign = 'center'; // Center emoji
+      tr.appendChild(tdFavicon);
+
+      // 4. 匹配模式
+      const tdMatchMode = document.createElement('td');
+      tdMatchMode.textContent = getMatchModeText(rule.matchMode);
+      tr.appendChild(tdMatchMode);
+
+      // 5. URL Pattern
+      const tdUrlPattern = document.createElement('td');
+      tdUrlPattern.textContent = rule.urlPattern;
+      tr.appendChild(tdUrlPattern);
+
+      // 6. 删除按钮
+      const tdActions = document.createElement('td');
       const deleteBtn = document.createElement('button');
-      deleteBtn.className = 'delete-btn';
+      deleteBtn.className = 'delete-btn'; // 可以复用之前的样式或创建新的
       deleteBtn.textContent = '删除';
       deleteBtn.addEventListener('click', () => {
         ruleIdToDelete = rule.id;
         showModal();
       });
+      tdActions.appendChild(deleteBtn);
+      tr.appendChild(tdActions);
       
-      ruleActions.appendChild(deleteBtn);
-      
-      ruleCard.appendChild(faviconPreview);
-      ruleCard.appendChild(ruleDetails);
-      ruleCard.appendChild(ruleActions);
-      
-      rulesContainer.appendChild(ruleCard);
+      tableBody.appendChild(tr);
     });
   }
   

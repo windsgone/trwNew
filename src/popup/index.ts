@@ -294,8 +294,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     e.preventDefault();
 
     try {
-      if (!urlPatternInput.value || !titleInput.value) {
-        showStatus('请填写必填字段', 'error');
+      if (!urlPatternInput.value.trim()) {
+        showStatus('请填写 URL 匹配模式', 'error');
+        return;
+      }
+      if (!titleInput.value.trim()) {
+        showStatus('请填写页面标题', 'error');
         return;
       }
 

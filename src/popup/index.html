@@ -19,7 +19,7 @@
       </div>
     </header>
     
-    <form id="rule-form">
+    <form id="rule-form" novalidate>
       <div class="url-input-group" id="url-input-group">
         <div class="url-label">URL</div>
         <div class="match-mode-display" id="match-mode-display">is</div>
@@ -64,10 +64,11 @@
         </div>
       </div>
       
-      <button type="submit" id="save-btn">Save</button>
+      <div class="form-group text-center">
+        <button type="submit" id="save-btn">Save</button>
+        <div id="status-message"></div>
+      </div>
     </form>
-    
-    <div id="status-message"></div>
   </div>
   <script type="module" src="./index.ts"></script>
 </body>

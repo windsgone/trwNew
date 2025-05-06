@@ -3,23 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tab Rename Wiz - 规则管理</title>
+  <title>Tab Rename Wiz - 保存的规则</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Tab Rename Wiz - 规则管理</h1>
+      <h1>Tab Rename Wiz - 保存的规则</h1>
+      <div class="bmc-container">
+        <a href="https://www.buymeacoffee.com/johnnyfan" target="_blank" class="bmc-button">
+          ☕️ Buy me a coffee
+        </a>
+      </div>
     </header>
     
     <main>
-      <div class="rules-container" id="rules-container">
-        <div class="loading">加载中...</div>
+      <div class="rules-table-container">
+        <table id="rules-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>标题</th>
+              <th>图标</th>
+              <th>匹配模式</th>
+              <th>URL</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="rules-table-body">
+            <!-- 规则将通过 JavaScript 动态插入到这里 -->
+          </tbody>
+        </table>
+        <div class="loading" id="loading-state" style="display: none;">加载中...</div>
       </div>
       
       <div class="empty-state" id="empty-state" style="display: none;">
         <p>暂无保存的规则</p>
-        <button id="add-rule-btn">添加规则</button>
       </div>
     </main>
     

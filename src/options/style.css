@@ -12,72 +12,121 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
+  min-width: 800px;
   margin: 0 auto;
   padding: 24px;
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 24px;
-  text-align: center;
+  text-align: left;
 }
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.bmc-button {
+  padding: 7px 15px;
+  background-color: #FFDD00; 
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.bmc-button:hover {
+  background-color: #f0cf00;
+}
+
 
 h1 {
   font-size: 24px;
-  color: #333;
+  color: #3498DB;
 }
 
-.rules-container {
+.rules-table-container {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  overflow-x: auto; 
+  border: #ddd 1px solid;
 }
 
-.rule-card {
-  padding: 16px;
+#rules-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+}
+
+#rules-table th,
+#rules-table td {
+  padding: 12px 15px;
+  text-align: left;
   border-bottom: 1px solid #eee;
-  display: flex;
-  align-items: center;
+  vertical-align: middle;
+  word-wrap: break-word; 
+  font-size: 14px; 
 }
 
-.rule-card:last-child {
-  border-bottom: none;
-}
-
-.favicon-preview {
-  width: 32px;
-  height: 32px;
-  margin-right: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-}
-
-.rule-details {
-  flex: 1;
-}
-
-.rule-title {
+#rules-table th {
+  background-color: #D2EDFF; 
+  color: #3498DB; 
   font-weight: 600;
-  margin-bottom: 4px;
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
 }
 
-.rule-url {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 4px;
-  word-break: break-all;
+
+
+#rules-table th:first-child, 
+#rules-table td:first-child {
+  width: 10%; 
+  text-align: center;
 }
 
-.rule-meta {
-  font-size: 12px;
-  color: #999;
+#rules-table th:nth-child(2), 
+#rules-table td:nth-child(2) {
+  width: 20%; 
 }
 
-.rule-actions {
-  margin-left: 16px;
+#rules-table th:nth-child(3), 
+#rules-table td:nth-child(3) {
+  width: 10%; 
+  text-align: center;
+}
+
+#rules-table th:nth-child(4), 
+#rules-table td:nth-child(4) {
+  width: 15%; 
+}
+
+#rules-table th:nth-child(5), 
+#rules-table td:nth-child(5) {
+  width: 25%; 
+}
+
+#rules-table th:last-child, 
+#rules-table td:last-child {
+  width: 20%; 
+  text-align: center;
+}
+
+#rules-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; 
+}
+
+#rules-table tbody tr:hover {
+  background-color: #f1f1f1; 
 }
 
 .delete-btn {
@@ -95,29 +144,25 @@ h1 {
 }
 
 .empty-state {
-  text-align: center;
   padding: 48px 0;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px; 
 }
 
 .empty-state p {
   margin-bottom: 16px;
   color: #666;
-}
-
-#add-rule-btn {
-  background-color: #4285f4;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
   font-size: 14px;
 }
 
 .loading {
   text-align: center;
-  padding: 24px;
+  padding: 48px 0; 
   color: #666;
+  min-height: 100px; 
 }
 
 .modal {
@@ -148,10 +193,12 @@ h1 {
   border-radius: 8px;
   width: 100%;
   max-width: 400px;
+  font-size: 14px;
 }
 
 .modal-content h3 {
   margin-bottom: 16px;
+  font-size: 16px;
 }
 
 .modal-actions {
@@ -177,4 +224,14 @@ h1 {
 #confirm-delete-btn {
   background-color: #f44336;
   color: white;
+}
+
+#add-rule-btn {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }

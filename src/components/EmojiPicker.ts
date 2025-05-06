@@ -282,6 +282,13 @@ function createSearchInput(options: EmojiPickerOptions) {
       const gridElement = document.createElement('div');
       gridElement.className = 'emoji-grid';
       searchResultsElement.appendChild(gridElement);
+
+      // 新增：没有找到表情的提示元素
+      const noResultsMessageElement = document.createElement('p');
+      noResultsMessageElement.id = 'no-results-message';
+      noResultsMessageElement.textContent = '没有找到相关表情';
+      noResultsMessageElement.style.display = 'none'; // 初始隐藏
+      searchResultsElement.appendChild(noResultsMessageElement);
       
       document.querySelector('.emoji-container')?.appendChild(searchResultsElement);
     }
@@ -317,6 +324,14 @@ function createSearchInput(options: EmojiPickerOptions) {
     
     // 显示搜索结果分类
     searchResultsElement.style.display = 'block';
+    
+    // 如果没有找到表情，则显示提示
+    const noResultsMessage = searchResultsElement.querySelector('#no-results-message') as HTMLElement;
+    if (noResultsMessage && gridElement?.children.length === 0) {
+      noResultsMessage.style.display = 'block';
+    } else if (noResultsMessage) {
+      noResultsMessage.style.display = 'none';
+    }
   });
   
   return searchElement;

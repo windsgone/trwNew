@@ -355,20 +355,25 @@ form {
   background-color: #2980b9;
 }
 
+.form-group.text-center {
+  position: relative;
+}
+
 #status-message {
-  margin: 0 16px 16px;
-  padding: 8px;
-  font-size: 12px;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
   text-align: left;
-  display: none;
+  font-size: 12px;
 }
 
 .success {
-  color: #155724;
+  color: #4CAF50;
   display: block !important;
 }
 
 .error {
-  color: #721c24;
+  color: #ff4444;
   display: block !important;
 }
