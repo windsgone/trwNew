@@ -6,3 +6,4 @@ dist/
 .windsurfrules
 itp.md
 plan.md
+package-lock.json

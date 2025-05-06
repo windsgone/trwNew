@@ -23,19 +23,26 @@
 
 .emoji-tabs {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden; 
   padding: 0;
   border-bottom: 1px solid #eee;
   flex-shrink: 0; 
   justify-content: space-between;
+  width: 100%; 
 }
 
 .emoji-tab {
-  padding: 4px 8px;
+  padding: 4px 0; 
   cursor: pointer;
   border-radius: 5px;
   font-size: 18px;
   height: 40px;
+  flex: 1; 
+  text-align: center; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  min-width: 0; 
 }
 
 .emoji-tab:hover {
