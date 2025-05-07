@@ -1,0 +1,146 @@
+{
+    "appName": {
+      "message": "Tab Rename Wiz - タブのタイトルとアイコンを変更"
+    },
+    "appDescription": {
+      "message": "永続的なタブタイトルとアイコン：ブラウザをカスタマイズ。"
+    },
+    "popupTitle": {
+      "message": "Tab Rename Wiz"
+    },
+    "exactMatch": {
+      "message": "は"
+    },
+    "startsWithMatch": {
+      "message": "で始まる"
+    },
+    "endsWithMatch": {
+      "message": "で終わる"
+    },
+    "containsMatch": {
+      "message": "を含む"
+    },
+    "urlPattern": {
+      "message": "URL"
+    },
+    "saveRule": {
+      "message": "保存"
+    },
+    "errorUrlPatternRequired": {
+      "message": "URLを入力してください"
+    },
+    "errorTitleRequired": {
+      "message": "ページタイトルを入力してください"
+    },
+    "successRuleUpdated": {
+      "message": "ルールを更新しました！"
+    },
+    "successRuleSaved": {
+      "message": "ルールを保存しました！"
+    },
+    "errorSavingRule": {
+      "message": "ルールの保存に失敗しました"
+    },
+    "errorLoadingFailed": {
+      "message": "読み込みに失敗しました。もう一度お試しください"
+    },
+    "errorInitPopupFailed": {
+      "message": "ポップアップの初期化に失敗しました："
+    },
+    "errorSaveRuleFailed": {
+      "message": "ルールの保存に失敗しました："
+    },
+    "emojiCategoryRecent": {
+      "message": "最近使用した絵文字"
+    },
+    "emojiCategorySmileys": {
+      "message": "スマイリーと人々"
+    },
+    "emojiCategoryAnimals": {
+      "message": "動物と自然"
+    },
+    "emojiCategoryFood": {
+      "message": "食べ物と飲み物"
+    },
+    "emojiCategoryActivity": {
+      "message": "アクティビティ"
+    },
+    "emojiCategoryTravel": {
+      "message": "旅行と場所"
+    },
+    "emojiCategoryObjects": {
+      "message": "オブジェクト"
+    },
+    "emojiCategorySymbols": {
+      "message": "記号"
+    },
+    "emojiCategoryFlags": {
+      "message": "旗"
+    },
+    "emojiSearchResults": {
+      "message": "検索結果"
+    },
+    "emojiNoResults": {
+      "message": "絵文字が見つかりません"
+    },
+    "optionsTitle": {
+      "message": "Tab Rename Wiz - 保存されたルール"
+    },
+    "buyMeCoffee": {
+      "message": "☕️ コーヒーをおごってください"
+    },
+    "columnNumber": {
+      "message": "No."
+    },
+    "columnTitle": {
+      "message": "タイトル"
+    },
+    "columnIcon": {
+      "message": "アイコン"
+    },
+    "columnMatchMode": {
+      "message": "一致モード"
+    },
+    "columnUrl": {
+      "message": "URL"
+    },
+    "columnActions": {
+      "message": "アクション"
+    },
+    "loading": {
+      "message": "読み込み中..."
+    },
+    "noRules": {
+      "message": "保存されたルールはありません"
+    },
+    "confirmDeleteTitle": {
+      "message": "削除の確認"
+    },
+    "confirmDeleteMessage": {
+      "message": "このルールを削除してもよろしいですか？この操作は元に戻せません。"
+    },
+    "cancelButton": {
+      "message": "キャンセル"
+    },
+    "deleteButton": {
+      "message": "削除"
+    },
+    "errorLoadingRules": {
+      "message": "ルールの読み込みに失敗しました。後でもう一度お試しください。"
+    },
+    "exactMatchText": {
+      "message": "は"
+    },
+    "startsWithMatchText": {
+      "message": "で始まる"
+    },
+    "endsWithMatchText": {
+      "message": "で終わる"
+    },
+    "containsMatchText": {
+      "message": "を含む"
+    },
+    "errorUnsupportedPage": {
+      "message": "このページは変更できません。"
+    }
+  }

@@ -1,0 +1,146 @@
+{
+    "appName": {
+      "message": "Tab Rename Wiz - Modifier les titres et les icônes des onglets"
+    },
+    "appDescription": {
+      "message": "Titres et icônes d'onglet persistants : Personnalisez votre navigateur."
+    },
+    "popupTitle": {
+      "message": "Tab Rename Wiz"
+    },
+    "exactMatch": {
+      "message": "est"
+    },
+    "startsWithMatch": {
+      "message": "commence par"
+    },
+    "endsWithMatch": {
+      "message": "finit par"
+    },
+    "containsMatch": {
+      "message": "contient"
+    },
+    "urlPattern": {
+      "message": "URL"
+    },
+    "saveRule": {
+      "message": "Enregistrer"
+    },
+    "errorUrlPatternRequired": {
+      "message": "Veuillez remplir l'URL"
+    },
+    "errorTitleRequired": {
+      "message": "Veuillez remplir le titre de la page"
+    },
+    "successRuleUpdated": {
+      "message": "Règle mise à jour avec succès !"
+    },
+    "successRuleSaved": {
+      "message": "Règle enregistrée avec succès !"
+    },
+    "errorSavingRule": {
+      "message": "Échec de l'enregistrement de la règle"
+    },
+    "errorLoadingFailed": {
+      "message": "Le chargement a échoué, veuillez réessayer"
+    },
+    "errorInitPopupFailed": {
+      "message": "Échec de l'initialisation de la fenêtre contextuelle :"
+    },
+    "errorSaveRuleFailed": {
+      "message": "Échec de l'enregistrement de la règle :"
+    },
+    "emojiCategoryRecent": {
+      "message": "Récemment utilisés"
+    },
+    "emojiCategorySmileys": {
+      "message": "Smileys et personnes"
+    },
+    "emojiCategoryAnimals": {
+      "message": "Animaux et nature"
+    },
+    "emojiCategoryFood": {
+      "message": "Nourriture et boissons"
+    },
+    "emojiCategoryActivity": {
+      "message": "Activité"
+    },
+    "emojiCategoryTravel": {
+      "message": "Voyages et lieux"
+    },
+    "emojiCategoryObjects": {
+      "message": "Objets"
+    },
+    "emojiCategorySymbols": {
+      "message": "Symboles"
+    },
+    "emojiCategoryFlags": {
+      "message": "Drapeaux"
+    },
+    "emojiSearchResults": {
+      "message": "Résultats de la recherche"
+    },
+    "emojiNoResults": {
+      "message": "Aucun emoji trouvé"
+    },
+    "optionsTitle": {
+      "message": "Tab Rename Wiz - Règles enregistrées"
+    },
+    "buyMeCoffee": {
+      "message": "☕️ Offrez-moi un café"
+    },
+    "columnNumber": {
+      "message": "N°"
+    },
+    "columnTitle": {
+      "message": "Titre"
+    },
+    "columnIcon": {
+      "message": "Icône"
+    },
+    "columnMatchMode": {
+      "message": "Mode de correspondance"
+    },
+    "columnUrl": {
+      "message": "URL"
+    },
+    "columnActions": {
+      "message": "Actions"
+    },
+    "loading": {
+      "message": "Chargement..."
+    },
+    "noRules": {
+      "message": "Aucune règle enregistrée"
+    },
+    "confirmDeleteTitle": {
+      "message": "Confirmer la suppression"
+    },
+    "confirmDeleteMessage": {
+      "message": "Êtes-vous sûr de vouloir supprimer cette règle ? Cette action est irréversible."
+    },
+    "cancelButton": {
+      "message": "Annuler"
+    },
+    "deleteButton": {
+      "message": "Supprimer"
+    },
+    "errorLoadingRules": {
+      "message": "Échec du chargement des règles, veuillez réessayer ultérieurement."
+    },
+    "exactMatchText": {
+      "message": "est"
+    },
+    "startsWithMatchText": {
+      "message": "commence par"
+    },
+    "endsWithMatchText": {
+      "message": "finit par"
+    },
+    "containsMatchText": {
+      "message": "contient"
+    },
+    "errorUnsupportedPage": {
+      "message": "Cette page ne peut pas être modifiée."
+    }
+  }

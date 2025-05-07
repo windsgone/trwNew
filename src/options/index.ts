@@ -1,9 +1,13 @@
 import { TabRule } from '../types';
 import { getAllRules, deleteRule } from '../utils/storage';
+import { applyLocalization, getMessage } from '../utils/i18nUtils';
 
 let ruleIdToDelete: string | null = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
+  // 应用国际化
+  applyLocalization();
+  
   const rulesTable = document.getElementById('rules-table') as HTMLTableElement;
   const rulesTableBody = document.getElementById('rules-table-body') as HTMLTableSectionElement;
   const loadingState = document.getElementById('loading-state') as HTMLDivElement;
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
       console.error('加载规则失败:', error);
       emptyState.style.display = 'flex';
-      emptyState.querySelector('p')!.textContent = '加载规则失败，请稍后重试。';
+      emptyState.querySelector('p')!.textContent = getMessage('errorLoadingRules');
     } finally {
       loadingState.style.display = 'none';
     }
@@ -93,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const tdActions = document.createElement('td');
       const deleteBtn = document.createElement('button');
       deleteBtn.className = 'delete-btn'; // 可以复用之前的样式或创建新的
-      deleteBtn.textContent = '删除';
+      deleteBtn.textContent = getMessage('deleteButton');
       deleteBtn.addEventListener('click', () => {
         ruleIdToDelete = rule.id;
         showModal();
@@ -107,10 +111,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   function getMatchModeText(matchMode: string): string {
     switch (matchMode) {
-      case 'exact': return '精确匹配';
-      case 'startsWith': return '开头匹配';
-      case 'endsWith': return '结尾匹配';
-      case 'contains': return '包含匹配';
+      case 'exact': return getMessage('exactMatchText');
+      case 'startsWith': return getMessage('startsWithMatchText');
+      case 'endsWith': return getMessage('endsWithMatchText');
+      case 'contains': return getMessage('containsMatchText');
       default: return matchMode;
     }
   }

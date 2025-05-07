@@ -1,0 +1,146 @@
+{
+    "appName": {
+      "message": "Tab Rename Wiz - 修改分頁標題與圖示"
+    },
+    "appDescription": {
+      "message": "持久的分頁標題與圖示：自訂您的瀏覽器。"
+    },
+    "popupTitle": {
+      "message": "Tab Rename Wiz"
+    },
+    "exactMatch": {
+      "message": "是"
+    },
+    "startsWithMatch": {
+      "message": "開頭為"
+    },
+    "endsWithMatch": {
+      "message": "結尾為"
+    },
+    "containsMatch": {
+      "message": "包含"
+    },
+    "urlPattern": {
+      "message": "網址"
+    },
+    "saveRule": {
+      "message": "儲存"
+    },
+    "errorUrlPatternRequired": {
+      "message": "請填寫網址"
+    },
+    "errorTitleRequired": {
+      "message": "請填寫頁面標題"
+    },
+    "successRuleUpdated": {
+      "message": "規則已成功更新！"
+    },
+    "successRuleSaved": {
+      "message": "規則已成功儲存！"
+    },
+    "errorSavingRule": {
+      "message": "儲存規則失敗"
+    },
+    "errorLoadingFailed": {
+      "message": "載入失敗，請重試"
+    },
+    "errorInitPopupFailed": {
+      "message": "初始化彈出視窗失敗："
+    },
+    "errorSaveRuleFailed": {
+      "message": "儲存規則失敗："
+    },
+    "emojiCategoryRecent": {
+      "message": "最近使用過的表情符號"
+    },
+    "emojiCategorySmileys": {
+      "message": "表情符號與人物"
+    },
+    "emojiCategoryAnimals": {
+      "message": "動物與自然"
+    },
+    "emojiCategoryFood": {
+      "message": "食物與飲品"
+    },
+    "emojiCategoryActivity": {
+      "message": "活動"
+    },
+    "emojiCategoryTravel": {
+      "message": "旅行與地點"
+    },
+    "emojiCategoryObjects": {
+      "message": "物品"
+    },
+    "emojiCategorySymbols": {
+      "message": "符號"
+    },
+    "emojiCategoryFlags": {
+      "message": "旗幟"
+    },
+    "emojiSearchResults": {
+      "message": "搜尋結果"
+    },
+    "emojiNoResults": {
+      "message": "找不到表情符號"
+    },
+    "optionsTitle": {
+      "message": "Tab Rename Wiz - 已儲存規則"
+    },
+    "buyMeCoffee": {
+      "message": "☕️ 請我喝杯咖啡"
+    },
+    "columnNumber": {
+      "message": "編號"
+    },
+    "columnTitle": {
+      "message": "標題"
+    },
+    "columnIcon": {
+      "message": "圖示"
+    },
+    "columnMatchMode": {
+      "message": "比對模式"
+    },
+    "columnUrl": {
+      "message": "網址"
+    },
+    "columnActions": {
+      "message": "操作"
+    },
+    "loading": {
+      "message": "載入中..."
+    },
+    "noRules": {
+      "message": "沒有已儲存的規則"
+    },
+    "confirmDeleteTitle": {
+      "message": "確認刪除"
+    },
+    "confirmDeleteMessage": {
+      "message": "您確定要刪除此規則嗎？此操作無法復原。"
+    },
+    "cancelButton": {
+      "message": "取消"
+    },
+    "deleteButton": {
+      "message": "刪除"
+    },
+    "errorLoadingRules": {
+      "message": "載入規則失敗，請稍後再試。"
+    },
+    "exactMatchText": {
+      "message": "是"
+    },
+    "startsWithMatchText": {
+      "message": "開頭為"
+    },
+    "endsWithMatchText": {
+      "message": "結尾為"
+    },
+    "containsMatchText": {
+      "message": "包含"
+    },
+    "errorUnsupportedPage": {
+      "message": "此頁面無法修改。"
+    }
+  }

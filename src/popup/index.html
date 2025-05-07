@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tab Rename Wiz</title>
+  <title data-i18n="appName">Tab Rename Wiz</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./emoji-picker.css">
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <h1>Tab Rename Wiz</h1>
+      <h1 data-i18n="popupTitle">Tab Rename Wiz</h1>
       <div class="settings-icon" id="options-btn">
         <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M34.0003 41L44 24L34.0003 7H14.0002L4 24L14.0002 41H34.0003Z" fill="none" stroke="#3498DB" stroke-width="3" stroke-linejoin="round"></path>
@@ -18,6 +18,10 @@
       </svg>
       </div>
     </header>
+    
+    <div id="unsupported-page-notice" class="unsupported-page-notice" style="display: none;">
+      <div class="notice-text" data-i18n="errorUnsupportedPage">This page cannot be modified.</div>
+    </div>
     
     <form id="rule-form" novalidate>
       <div class="url-input-group" id="url-input-group">
@@ -30,23 +34,23 @@
         <div class="match-mode-buttons" id="match-mode-buttons">
           <label class="match-mode-btn">
             <input type="radio" name="matchMode" value="exact" id="mode-exact" checked>
-            <span>is</span>
+            <span data-i18n="exactMatch">Exact Match</span>
           </label>
           <label class="match-mode-btn">
             <input type="radio" name="matchMode" value="startsWith" id="mode-startsWith">
-            <span>starts with</span>
+            <span data-i18n="startsWithMatch">Starts With</span>
           </label>
           <label class="match-mode-btn">
             <input type="radio" name="matchMode" value="endsWith" id="mode-endsWith">
-            <span>ends with</span>
+            <span data-i18n="endsWithMatch">Ends With</span>
           </label>
           <label class="match-mode-btn">
             <input type="radio" name="matchMode" value="contains" id="mode-contains">
-            <span>contains</span>
+            <span data-i18n="containsMatch">Contains</span>
           </label>
         </div>
         <div class="url-input">
-          <input type="text" id="urlPattern" name="urlPattern" required>
+          <input type="text" id="urlPattern" name="urlPattern"  required>
         </div>
       </div>
       
@@ -65,7 +69,7 @@
       </div>
       
       <div class="form-group text-center">
-        <button type="submit" id="save-btn">Save</button>
+        <button type="submit" id="save-btn" data-i18n="saveRule">Save Rule</button>
         <div id="status-message"></div>
       </div>
     </form>

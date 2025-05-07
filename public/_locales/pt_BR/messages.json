@@ -1,0 +1,146 @@
+{
+    "appName": {
+      "message": "Tab Rename Wiz - Modificar Títulos e Ícones de Abas"
+    },
+    "appDescription": {
+      "message": "Títulos e Ícones de Abas Persistentes: Personalize Seu Navegador."
+    },
+    "popupTitle": {
+      "message": "Tab Rename Wiz"
+    },
+    "exactMatch": {
+      "message": "é"
+    },
+    "startsWithMatch": {
+      "message": "começa com"
+    },
+    "endsWithMatch": {
+      "message": "termina com"
+    },
+    "containsMatch": {
+      "message": "contém"
+    },
+    "urlPattern": {
+      "message": "URL"
+    },
+    "saveRule": {
+      "message": "Salvar"
+    },
+    "errorUrlPatternRequired": {
+      "message": "Por favor, preencha a URL"
+    },
+    "errorTitleRequired": {
+      "message": "Por favor, preencha o título da página"
+    },
+    "successRuleUpdated": {
+      "message": "Regra atualizada com sucesso!"
+    },
+    "successRuleSaved": {
+      "message": "Regra salva com sucesso!"
+    },
+    "errorSavingRule": {
+      "message": "Falha ao salvar a regra"
+    },
+    "errorLoadingFailed": {
+      "message": "Falha ao carregar, por favor, tente novamente"
+    },
+    "errorInitPopupFailed": {
+      "message": "Falha ao inicializar o popup:"
+    },
+    "errorSaveRuleFailed": {
+      "message": "Falha ao salvar a regra:"
+    },
+    "emojiCategoryRecent": {
+      "message": "Usados recentemente"
+    },
+    "emojiCategorySmileys": {
+      "message": "Smileys e pessoas"
+    },
+    "emojiCategoryAnimals": {
+      "message": "Animais e natureza"
+    },
+    "emojiCategoryFood": {
+      "message": "Comida e bebida"
+    },
+    "emojiCategoryActivity": {
+      "message": "Atividade"
+    },
+    "emojiCategoryTravel": {
+      "message": "Viagens e lugares"
+    },
+    "emojiCategoryObjects": {
+      "message": "Objetos"
+    },
+    "emojiCategorySymbols": {
+      "message": "Símbolos"
+    },
+    "emojiCategoryFlags": {
+      "message": "Bandeiras"
+    },
+    "emojiSearchResults": {
+      "message": "Resultados da pesquisa"
+    },
+    "emojiNoResults": {
+      "message": "Nenhum emoji encontrado"
+    },
+    "optionsTitle": {
+      "message": "Tab Rename Wiz - Regras Salvas"
+    },
+    "buyMeCoffee": {
+      "message": "☕️ Me pague um café"
+    },
+    "columnNumber": {
+      "message": "No."
+    },
+    "columnTitle": {
+      "message": "Título"
+    },
+    "columnIcon": {
+      "message": "Ícone"
+    },
+    "columnMatchMode": {
+      "message": "Modo de Correspondência"
+    },
+    "columnUrl": {
+      "message": "URL"
+    },
+    "columnActions": {
+      "message": "Ações"
+    },
+    "loading": {
+      "message": "Carregando..."
+    },
+    "noRules": {
+      "message": "Nenhuma regra salva"
+    },
+    "confirmDeleteTitle": {
+      "message": "Confirmar Exclusão"
+    },
+    "confirmDeleteMessage": {
+      "message": "Tem certeza de que deseja excluir esta regra? Esta ação não pode ser desfeita."
+    },
+    "cancelButton": {
+      "message": "Cancelar"
+    },
+    "deleteButton": {
+      "message": "Excluir"
+    },
+    "errorLoadingRules": {
+      "message": "Falha ao carregar as regras, por favor, tente novamente mais tarde."
+    },
+    "exactMatchText": {
+      "message": "é"
+    },
+    "startsWithMatchText": {
+      "message": "começa com"
+    },
+    "endsWithMatchText": {
+      "message": "termina com"
+    },
+    "containsMatchText": {
+      "message": "contém"
+    },
+    "errorUnsupportedPage": {
+      "message": "Esta página não pode ser modificada."
+    }
+  }

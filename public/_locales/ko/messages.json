@@ -1,0 +1,146 @@
+{
+    "appName": {
+      "message": "Tab Rename Wiz - 탭 제목 및 아이콘 변경"
+    },
+    "appDescription": {
+      "message": "영구적인 탭 제목 및 아이콘: 브라우저를 사용자 지정하세요."
+    },
+    "popupTitle": {
+      "message": "Tab Rename Wiz"
+    },
+    "exactMatch": {
+      "message": "일치"
+    },
+    "startsWithMatch": {
+      "message": "으로 시작"
+    },
+    "endsWithMatch": {
+      "message": "으로 끝남"
+    },
+    "containsMatch": {
+      "message": "포함"
+    },
+    "urlPattern": {
+      "message": "URL"
+    },
+    "saveRule": {
+      "message": "저장"
+    },
+    "errorUrlPatternRequired": {
+      "message": "URL을 입력하세요"
+    },
+    "errorTitleRequired": {
+      "message": "페이지 제목을 입력하세요"
+    },
+    "successRuleUpdated": {
+      "message": "규칙이 성공적으로 업데이트되었습니다!"
+    },
+    "successRuleSaved": {
+      "message": "규칙이 성공적으로 저장되었습니다!"
+    },
+    "errorSavingRule": {
+      "message": "규칙 저장 실패"
+    },
+    "errorLoadingFailed": {
+      "message": "로드 실패, 다시 시도해주세요"
+    },
+    "errorInitPopupFailed": {
+      "message": "팝업 초기화 실패:"
+    },
+    "errorSaveRuleFailed": {
+      "message": "규칙 저장 실패:"
+    },
+    "emojiCategoryRecent": {
+      "message": "최근 사용한 이모티콘"
+    },
+    "emojiCategorySmileys": {
+      "message": "스마일리 및 사람"
+    },
+    "emojiCategoryAnimals": {
+      "message": "동물 및 자연"
+    },
+    "emojiCategoryFood": {
+      "message": "음식 및 음료"
+    },
+    "emojiCategoryActivity": {
+      "message": "활동"
+    },
+    "emojiCategoryTravel": {
+      "message": "여행 및 장소"
+    },
+    "emojiCategoryObjects": {
+      "message": "개체"
+    },
+    "emojiCategorySymbols": {
+      "message": "기호"
+    },
+    "emojiCategoryFlags": {
+      "message": "국기"
+    },
+    "emojiSearchResults": {
+      "message": "검색 결과"
+    },
+    "emojiNoResults": {
+      "message": "이모티콘을 찾을 수 없습니다"
+    },
+    "optionsTitle": {
+      "message": "Tab Rename Wiz - 저장된 규칙"
+    },
+    "buyMeCoffee": {
+      "message": "☕️ 커피 한 잔 사주세요"
+    },
+    "columnNumber": {
+      "message": "No."
+    },
+    "columnTitle": {
+      "message": "제목"
+    },
+    "columnIcon": {
+      "message": "아이콘"
+    },
+    "columnMatchMode": {
+      "message": "일치 모드"
+    },
+    "columnUrl": {
+      "message": "URL"
+    },
+    "columnActions": {
+      "message": "액션"
+    },
+    "loading": {
+      "message": "로드 중..."
+    },
+    "noRules": {
+      "message": "저장된 규칙 없음"
+    },
+    "confirmDeleteTitle": {
+      "message": "삭제 확인"
+    },
+    "confirmDeleteMessage": {
+      "message": "이 규칙을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+    },
+    "cancelButton": {
+      "message": "취소"
+    },
+    "deleteButton": {
+      "message": "삭제"
+    },
+    "errorLoadingRules": {
+      "message": "규칙 로드 실패, 나중에 다시 시도해주세요."
+    },
+    "exactMatchText": {
+      "message": "정확히 일치"
+    },
+    "startsWithMatchText": {
+      "message": "다음으로 시작"
+    },
+    "endsWithMatchText": {
+      "message": "다음으로 끝"
+    },
+    "containsMatchText": {
+      "message": "다음 포함"
+    },
+    "errorUnsupportedPage": {
+      "message": "이 페이지는 수정할 수 없습니다."
+    }
+  }

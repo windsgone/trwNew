@@ -1,0 +1,146 @@
+{
+  "appName": {
+    "message": "Tab Rename Wiz - Seitentitel & Icons ändern"
+  },
+  "appDescription": {
+    "message": "Permanente Seitentitel & Icons: Passe deinen Browser an."
+  },
+  "popupTitle": {
+    "message": "Tab Rename Wiz"
+  },
+  "exactMatch": {
+    "message": "ist"
+  },
+  "startsWithMatch": {
+    "message": "beginnt mit"
+  },
+  "endsWithMatch": {
+    "message": "endet mit"
+  },
+  "containsMatch": {
+    "message": "enthält"
+  },
+  "urlPattern": {
+    "message": "URL-Muster"
+  },
+  "saveRule": {
+    "message": "Speichern"
+  },
+  "errorUrlPatternRequired": {
+    "message": "Bitte gib die URL ein"
+  },
+  "errorTitleRequired": {
+    "message": "Bitte gib den Seitentitel ein"
+  },
+  "successRuleUpdated": {
+    "message": "Regel erfolgreich aktualisiert!"
+  },
+  "successRuleSaved": {
+    "message": "Regel erfolgreich gespeichert!"
+  },
+  "errorSavingRule": {
+    "message": "Fehler beim Speichern der Regel"
+  },
+  "errorLoadingFailed": {
+    "message": "Laden fehlgeschlagen, bitte versuche es erneut"
+  },
+  "errorInitPopupFailed": {
+    "message": "Fehler beim Initialisieren des Popups:"
+  },
+  "errorSaveRuleFailed": {
+    "message": "Fehler beim Speichern der Regel:"
+  },
+  "emojiCategoryRecent": {
+    "message": "Kürzlich verwendet"
+  },
+  "emojiCategorySmileys": {
+    "message": "Smileys & Personen"
+  },
+  "emojiCategoryAnimals": {
+    "message": "Tiere & Natur"
+  },
+  "emojiCategoryFood": {
+    "message": "Essen & Trinken"
+  },
+  "emojiCategoryActivity": {
+    "message": "Aktivität"
+  },
+  "emojiCategoryTravel": {
+    "message": "Reisen & Orte"
+  },
+  "emojiCategoryObjects": {
+    "message": "Objekte"
+  },
+  "emojiCategorySymbols": {
+    "message": "Symbole"
+  },
+  "emojiCategoryFlags": {
+    "message": "Flaggen"
+  },
+  "emojiSearchResults": {
+    "message": "Suchergebnisse"
+  },
+  "emojiNoResults": {
+    "message": "Keine Emojis gefunden"
+  },
+  "optionsTitle": {
+    "message": "Tab Rename Wiz - Gespeicherte Regeln"
+  },
+  "buyMeCoffee": {
+    "message": "☕️ Kauf mir einen Kaffee"
+  },
+  "columnNumber": {
+    "message": "Nr."
+  },
+  "columnTitle": {
+    "message": "Titel"
+  },
+  "columnIcon": {
+    "message": "Symbol"
+  },
+  "columnMatchMode": {
+    "message": "Übereinstimmungsmodus"
+  },
+  "columnUrl": {
+    "message": "URL"
+  },
+  "columnActions": {
+    "message": "Aktionen"
+  },
+  "loading": {
+    "message": "Wird geladen..."
+  },
+  "noRules": {
+    "message": "Keine gespeicherten Regeln"
+  },
+  "confirmDeleteTitle": {
+    "message": "Löschen bestätigen"
+  },
+  "confirmDeleteMessage": {
+    "message": "Bist du sicher, dass du diese Regel löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden."
+  },
+  "cancelButton": {
+    "message": "Abbrechen"
+  },
+  "deleteButton": {
+    "message": "Löschen"
+  },
+  "errorLoadingRules": {
+    "message": "Fehler beim Laden der Regeln, bitte versuche es später erneut."
+  },
+  "exactMatchText": {
+    "message": "ist"
+  },
+  "startsWithMatchText": {
+    "message": "beginnt mit"
+  },
+  "endsWithMatchText": {
+    "message": "endet mit"
+  },
+  "containsMatchText": {
+    "message": "enthält"
+  },
+  "errorUnsupportedPage": {
+    "message": "Diese Seite kann nicht geändert werden."
+  }
+}

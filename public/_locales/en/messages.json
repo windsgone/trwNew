@@ -1,50 +1,146 @@
 {
   "appName": {
-    "message": "Tab Rename Wiz",
-    "description": "Extension name"
+    "message": "Tab Rename Wiz - Modify Tab Titles & Icons"
   },
   "appDescription": {
-    "message": "Customize browser tab titles and icons",
-    "description": "Extension description"
+    "message": "Persistent Tab Titles & Icons: Customize Your Browser."
   },
-  "tabTitle": {
-    "message": "Tab Title",
-    "description": "Tab title field"
-  },
-  "faviconEmoji": {
-    "message": "Icon Emoji",
-    "description": "Icon emoji field"
-  },
-  "matchMode": {
-    "message": "Match Mode",
-    "description": "Match mode field"
+  "popupTitle": {
+    "message": "Tab Rename Wiz"
   },
   "exactMatch": {
-    "message": "Exact Match",
-    "description": "Exact match option"
+    "message": "is"
   },
   "startsWithMatch": {
-    "message": "Starts With",
-    "description": "Starts with option"
+    "message": "starts with"
   },
   "endsWithMatch": {
-    "message": "Ends With",
-    "description": "Ends with option"
+    "message": "ends with"
   },
   "containsMatch": {
-    "message": "Contains",
-    "description": "Contains option"
+    "message": "contains"
   },
   "urlPattern": {
-    "message": "URL Pattern",
-    "description": "URL pattern field"
+    "message": "URL Pattern"
   },
   "saveRule": {
-    "message": "Save Rule",
-    "description": "Save rule button"
+    "message": "Save"
   },
-  "manageRules": {
-    "message": "Manage Rules",
-    "description": "Manage rules button"
+  "errorUrlPatternRequired": {
+    "message": "Please fill in the URL pattern"
+  },
+  "errorTitleRequired": {
+    "message": "Please fill in the page title"
+  },
+  "successRuleUpdated": {
+    "message": "Rule updated successfully!"
+  },
+  "successRuleSaved": {
+    "message": "Rule saved successfully!"
+  },
+  "errorSavingRule": {
+    "message": "Failed to save rule"
+  },
+  "errorLoadingFailed": {
+    "message": "Loading failed, please try again"
+  },
+  "errorInitPopupFailed": {
+    "message": "Failed to initialize popup:"
+  },
+  "errorSaveRuleFailed": {
+    "message": "Failed to save rule:"
+  },
+  "emojiCategoryRecent": {
+    "message": "Recently Used"
+  },
+  "emojiCategorySmileys": {
+    "message": "Smileys & People"
+  },
+  "emojiCategoryAnimals": {
+    "message": "Animals & Nature"
+  },
+  "emojiCategoryFood": {
+    "message": "Food & Drink"
+  },
+  "emojiCategoryActivity": {
+    "message": "Activity"
+  },
+  "emojiCategoryTravel": {
+    "message": "Travel & Places"
+  },
+  "emojiCategoryObjects": {
+    "message": "Objects"
+  },
+  "emojiCategorySymbols": {
+    "message": "Symbols"
+  },
+  "emojiCategoryFlags": {
+    "message": "Flags"
+  },
+  "emojiSearchResults": {
+    "message": "Search Results"
+  },
+  "emojiNoResults": {
+    "message": "No emoji found"
+  },
+  "optionsTitle": {
+    "message": "Tab Rename Wiz - Saved Rules"
+  },
+  "buyMeCoffee": {
+    "message": "☕️ Buy me a coffee"
+  },
+  "columnNumber": {
+    "message": "No."
+  },
+  "columnTitle": {
+    "message": "Title"
+  },
+  "columnIcon": {
+    "message": "Icon"
+  },
+  "columnMatchMode": {
+    "message": "Match Mode"
+  },
+  "columnUrl": {
+    "message": "URL"
+  },
+  "columnActions": {
+    "message": "Actions"
+  },
+  "loading": {
+    "message": "Loading..."
+  },
+  "noRules": {
+    "message": "No saved rules"
+  },
+  "confirmDeleteTitle": {
+    "message": "Confirm Delete"
+  },
+  "confirmDeleteMessage": {
+    "message": "Are you sure you want to delete this rule? This action cannot be undone."
+  },
+  "cancelButton": {
+    "message": "Cancel"
+  },
+  "deleteButton": {
+    "message": "Delete"
+  },
+  "errorLoadingRules": {
+    "message": "Failed to load rules, please try again later."
+  },
+  "exactMatchText": {
+    "message": "is"
+  },
+  "startsWithMatchText": {
+    "message": "starts with"
+  },
+  "endsWithMatchText": {
+    "message": "ends with"
+  },
+  "containsMatchText": {
+    "message": "contains"
+  },
+  "errorUnsupportedPage": {
+    "message": "This page cannot be modified."
   }
 }

@@ -40,7 +40,7 @@ export async function updateRule(updatedRule: TabRule): Promise<TabRule> {
     return rules[index];
   }
   
-  throw new Error(`未找到ID为 ${updatedRule.id} 的规则`);
+  throw new Error(`can't find ${updatedRule.id} rule`);
 }
 
 export async function deleteRule(id: string): Promise<void> {

@@ -1,50 +1,146 @@
 {
   "appName": {
-    "message": "Tab Rename Wiz",
-    "description": "扩展名称"
+    "message": "标签修改精灵 - 修改标签名称和图标"
   },
   "appDescription": {
-    "message": "自定义浏览器标签页的标题和图标",
-    "description": "扩展描述"
+    "message": "轻松修改标签名称和图标！下次打开时还在！"
   },
-  "tabTitle": {
-    "message": "标签标题",
-    "description": "标签标题字段"
-  },
-  "faviconEmoji": {
-    "message": "图标 Emoji",
-    "description": "图标 Emoji 字段"
-  },
-  "matchMode": {
-    "message": "匹配模式",
-    "description": "匹配模式字段"
+  "popupTitle": {
+    "message": "标签修改精灵"
   },
   "exactMatch": {
-    "message": "精确匹配",
-    "description": "精确匹配选项"
+    "message": "等于"
   },
   "startsWithMatch": {
-    "message": "开头匹配",
-    "description": "开头匹配选项"
+    "message": "开头是"
   },
   "endsWithMatch": {
-    "message": "结尾匹配",
-    "description": "结尾匹配选项"
+    "message": "结尾是"
   },
   "containsMatch": {
-    "message": "包含匹配",
-    "description": "包含匹配选项"
+    "message": "包含"
   },
   "urlPattern": {
-    "message": "URL 模式",
-    "description": "URL 模式字段"
+    "message": "URL"
   },
   "saveRule": {
-    "message": "保存规则",
-    "description": "保存规则按钮"
+    "message": "保存"
   },
-  "manageRules": {
-    "message": "管理规则",
-    "description": "管理规则按钮"
+  "errorUrlPatternRequired": {
+    "message": "请填写 URL"
+  },
+  "errorTitleRequired": {
+    "message": "请填写页面标题"
+  },
+  "successRuleUpdated": {
+    "message": "规则更新成功！"
+  },
+  "successRuleSaved": {
+    "message": "规则保存成功！"
+  },
+  "errorSavingRule": {
+    "message": "保存规则失败"
+  },
+  "errorLoadingFailed": {
+    "message": "加载失败，请稍后重试"
+  },
+  "errorInitPopupFailed": {
+    "message": "初始化弹窗失败："
+  },
+  "errorSaveRuleFailed": {
+    "message": "保存规则失败："
+  },
+  "emojiCategoryRecent": {
+    "message": "最近使用"
+  },
+  "emojiCategorySmileys": {
+    "message": "表情与人物"
+  },
+  "emojiCategoryAnimals": {
+    "message": "动物与自然"
+  },
+  "emojiCategoryFood": {
+    "message": "食物与饮品"
+  },
+  "emojiCategoryActivity": {
+    "message": "活动"
+  },
+  "emojiCategoryTravel": {
+    "message": "旅行与地点"
+  },
+  "emojiCategoryObjects": {
+    "message": "物品"
+  },
+  "emojiCategorySymbols": {
+    "message": "符号"
+  },
+  "emojiCategoryFlags": {
+    "message": "旗帜"
+  },
+  "emojiSearchResults": {
+    "message": "搜索结果"
+  },
+  "emojiNoResults": {
+    "message": "没有找到表情"
+  },
+  "optionsTitle": {
+    "message": "标签修改精灵 - 已保存规则"
+  },
+  "buyMeCoffee": {
+    "message": "☕️ 给我买杯咖啡"
+  },
+  "columnNumber": {
+    "message": "序号"
+  },
+  "columnTitle": {
+    "message": "标题"
+  },
+  "columnIcon": {
+    "message": "图标"
+  },
+  "columnMatchMode": {
+    "message": "匹配模式"
+  },
+  "columnUrl": {
+    "message": "URL"
+  },
+  "columnActions": {
+    "message": "操作"
+  },
+  "loading": {
+    "message": "加载中..."
+  },
+  "noRules": {
+    "message": "没有已保存的规则"
+  },
+  "confirmDeleteTitle": {
+    "message": "确认删除"
+  },
+  "confirmDeleteMessage": {
+    "message": "您确定要删除此规则吗？此操作无法撤销。"
+  },
+  "cancelButton": {
+    "message": "取消"
+  },
+  "deleteButton": {
+    "message": "删除"
+  },
+  "errorLoadingRules": {
+    "message": "加载规则失败，请稍后重试。"
+  },
+  "exactMatchText": {
+    "message": "等于"
+  },
+  "startsWithMatchText": {
+    "message": "开头等于"
+  },
+  "endsWithMatchText": {
+    "message": "结尾等于"
+  },
+  "containsMatchText": {
+    "message": "包含"
+  },
+  "errorUnsupportedPage": {
+    "message": "此页面无法修改。"
   }
 }

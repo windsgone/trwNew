@@ -1,5 +1,6 @@
 import emojiData from '../emoji/emojiData';
 import { getRecentEmojis, addRecentEmoji } from '../utils/storage';
+import { getMessage } from '../utils/i18nUtils';
 
 interface EmojiPickerOptions {
   container: HTMLElement;
@@ -9,15 +10,15 @@ interface EmojiPickerOptions {
 
 // 表情分类
 const CATEGORIES: Record<string, string> = {
-  recent: '最近使用',
-  smileys: '笑脸与情感',
-  animals: '动物与自然',
-  food: '食物与饮料',
-  activity: '活动',
-  travel: '旅行与地点',
-  objects: '物品',
-  symbols: '符号',
-  flags: '旗帜'
+  recent: getMessage('emojiCategoryRecent') || 'Recently Used',
+  smileys: getMessage('emojiCategorySmileys') || 'Smileys & People',
+  animals: getMessage('emojiCategoryAnimals') || 'Animals & Nature',
+  food: getMessage('emojiCategoryFood') || 'Food & Drink',
+  activity: getMessage('emojiCategoryActivity') || 'Activity',
+  travel: getMessage('emojiCategoryTravel') || 'Travel & Places',
+  objects: getMessage('emojiCategoryObjects') || 'Objects',
+  symbols: getMessage('emojiCategorySymbols') || 'Symbols',
+  flags: getMessage('emojiCategoryFlags') || 'Flags'
 };
 
 // 分类对应的图标
@@ -25,7 +26,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   recent: '🕒',
   smileys: '😀',
   animals: '🐱',
-  food: '🍔',
+  food: '🍎',
   activity: '⚽',
   travel: '🚗',
   objects: '💡',
@@ -47,6 +48,11 @@ export function createEmojiPicker(options: EmojiPickerOptions) {
   // 创建表情容器
   const emojiContainerElement = document.createElement('div');
   emojiContainerElement.className = 'emoji-container';
+  
+  // 添加滚动事件监听器，用于更新分类标签的激活状态
+  emojiContainerElement.addEventListener('scroll', () => {
+    updateActiveTabOnScroll(emojiContainerElement, pickerElement);
+  });
   
   // 组装DOM
   pickerElement.appendChild(tabsElement);
@@ -179,6 +185,68 @@ function renderEmojiCategory(
   container.appendChild(categoryElement);
 }
 
+// 根据滚动位置更新激活的标签
+function updateActiveTabOnScroll(containerElement: HTMLElement, pickerElement: HTMLElement) {
+  // 获取所有分类元素
+  const categories = Array.from(containerElement.querySelectorAll('.emoji-category'));
+  
+  // 如果没有分类，直接返回
+  if (categories.length === 0) return;
+  
+  // 获取容器的滚动位置和高度
+  const containerTop = containerElement.scrollTop;
+  const containerHeight = containerElement.clientHeight;
+  const containerBottom = containerTop + containerHeight;
+  
+  // 找到当前可见的分类
+  let visibleCategory = null;
+  
+  // 首先检查是否有分类完全在视口内
+  for (const category of categories) {
+    const rect = category.getBoundingClientRect();
+    const categoryTop = rect.top - containerElement.getBoundingClientRect().top + containerElement.scrollTop;
+    const categoryBottom = categoryTop + rect.height;
+    
+    // 如果分类的顶部在容器内，并且底部也在容器内或者超出容器底部
+    if (categoryTop >= containerTop && categoryTop < containerBottom && categoryBottom > containerTop) {
+      visibleCategory = category;
+      break;
+    }
+  }
+  
+  // 如果没有找到完全在视口内的分类，找到第一个部分可见的分类
+  if (!visibleCategory && categories.length > 0) {
+    for (const category of categories) {
+      const rect = category.getBoundingClientRect();
+      const categoryTop = rect.top - containerElement.getBoundingClientRect().top + containerElement.scrollTop;
+      const categoryBottom = categoryTop + rect.height;
+      
+      // 如果分类的一部分在容器内
+      if ((categoryTop < containerBottom && categoryBottom > containerTop)) {
+        visibleCategory = category;
+        break;
+      }
+    }
+  }
+  
+  // 如果找到了可见分类，更新激活的标签
+  if (visibleCategory) {
+    const categoryId = visibleCategory.id;
+    const categoryName = categoryId.replace('category-', '');
+    
+    // 移除所有标签的激活状态
+    pickerElement.querySelectorAll('.emoji-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    
+    // 激活对应的标签
+    const activeTab = pickerElement.querySelector(`.emoji-tab[data-category="${categoryName}"]`);
+    if (activeTab) {
+      activeTab.classList.add('active');
+    }
+  }
+}
+
 // 创建分类标签栏
 function createCategoryTabs() {
   const tabsElement = document.createElement('div');
@@ -217,6 +285,22 @@ function createCategoryTabs() {
   return tabsElement;
 }
 
+// 防抖函数
+function debounce<T extends (...args: any[]) => any>(func: T, delay: number): (...args: Parameters<T>) => void {
+  let timer: number | null = null;
+  
+  return function(...args: Parameters<T>) {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    
+    timer = window.setTimeout(() => {
+      func(...args);
+      timer = null;
+    }, delay);
+  };
+}
+
 // 创建搜索输入框
 function createSearchInput(options: EmojiPickerOptions) {
   const searchElement = document.createElement('div');
@@ -245,8 +329,8 @@ function createSearchInput(options: EmojiPickerOptions) {
   searchElement.appendChild(searchIconContainer);
   searchElement.appendChild(inputElement);
   
-  // 搜索功能
-  inputElement.addEventListener('input', (e) => {
+  // 搜索处理函数
+  const handleSearch = (e: Event) => {
     const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
     
     if (!searchTerm) {
@@ -276,7 +360,7 @@ function createSearchInput(options: EmojiPickerOptions) {
       searchResultsElement.id = 'category-search-results';
       
       const titleElement = document.createElement('h3');
-      titleElement.textContent = '搜索结果';
+      titleElement.textContent = getMessage('emojiSearchResults') || 'search result';
       searchResultsElement.appendChild(titleElement);
       
       const gridElement = document.createElement('div');
@@ -286,7 +370,7 @@ function createSearchInput(options: EmojiPickerOptions) {
       // 新增：没有找到表情的提示元素
       const noResultsMessageElement = document.createElement('p');
       noResultsMessageElement.id = 'no-results-message';
-      noResultsMessageElement.textContent = '没有找到相关表情';
+      noResultsMessageElement.textContent = getMessage('emojiNoResults') || 'no emoji found';
       noResultsMessageElement.style.display = 'none'; // 初始隐藏
       searchResultsElement.appendChild(noResultsMessageElement);
       
@@ -332,7 +416,14 @@ function createSearchInput(options: EmojiPickerOptions) {
     } else if (noResultsMessage) {
       noResultsMessage.style.display = 'none';
     }
-  });
+  };
+  
+  
+  // 使用防抖函数包装搜索处理函数，设置300毫秒的延迟
+  const debouncedSearch = debounce(handleSearch, 300);
+  
+  // 为输入框添加防抖后的搜索事件监听器
+  inputElement.addEventListener('input', debouncedSearch);
   
   return searchElement;
 }
