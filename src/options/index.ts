@@ -16,6 +16,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   const cancelDeleteBtn = document.getElementById('cancel-delete-btn') as HTMLButtonElement;
   const confirmDeleteBtn = document.getElementById('confirm-delete-btn') as HTMLButtonElement;
   
+  // 匹配模式提示框相关元素
+  const matchModeHelp = document.getElementById('match-mode-help') as HTMLSpanElement;
+  const matchModeTooltip = document.getElementById('match-mode-tooltip') as HTMLDivElement;
+  
+  // 添加鼠标悬停事件
+  if (matchModeHelp && matchModeTooltip) {
+    matchModeHelp.addEventListener('mouseenter', () => {
+      const rect = matchModeHelp.getBoundingClientRect();
+      matchModeTooltip.style.display = 'block';
+      matchModeTooltip.style.left = `${rect.left - 150 + rect.width / 2}px`; // 居中显示
+      matchModeTooltip.style.top = `${rect.bottom + 10}px`; // 在元素下方显示
+    });
+    
+    matchModeHelp.addEventListener('mouseleave', () => {
+      matchModeTooltip.style.display = 'none';
+    });
+  }
+  
   loadRules();
   
   cancelDeleteBtn.addEventListener('click', () => {

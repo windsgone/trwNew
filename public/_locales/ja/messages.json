@@ -102,7 +102,7 @@
       "message": "一致モード"
     },
     "columnUrl": {
-      "message": "URL"
+      "message": "URLキーワード"
     },
     "columnActions": {
       "message": "アクション"
@@ -142,5 +142,17 @@
     },
     "errorUnsupportedPage": {
       "message": "このページは変更できません。"
-    }
+    },
+      "matchModePriorityDesc": {
+        "message": "複数のルールが同じURLパターンを持つ場合、次の優先順位に従って最も適切なルールが選ばれます："
+      },
+      "matchModePriority1": {
+        "message": "より厳密な一致モードが優先されます（完全一致 > 前方/後方一致 > 含む）"
+      },
+      "matchModePriority2": {
+        "message": "キーワードが長いほど、より具体的で優先されます"
+      },
+      "matchModePriority3": {
+        "message": "すべてが同じ場合は、最後に更新されたルールが優先されます"
+      }
   }

@@ -102,7 +102,7 @@
     "message": "匹配模式"
   },
   "columnUrl": {
-    "message": "URL"
+    "message": "网址关键词"
   },
   "columnActions": {
     "message": "操作"
@@ -142,5 +142,17 @@
   },
   "errorUnsupportedPage": {
     "message": "此页面无法修改。"
+  },
+  "matchModePriorityDesc": {
+    "message": "当多个规则共享相同的URL关键词时，插件会根据以下优先级选择最合适的规则："
+  },
+  "matchModePriority1": {
+    "message": "更精确的匹配模式优先（等于 > 开头等于/结尾等于 > 包含）"
+  },
+  "matchModePriority2": {
+    "message": "更长的关键词被视为更具体，优先级更高"
+  },
+  "matchModePriority3": {
+    "message": "如果其他条件相同，则最近更新的规则获胜"
   }
 }

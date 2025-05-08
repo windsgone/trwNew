@@ -102,7 +102,7 @@
       "message": "Modo de Correspondência"
     },
     "columnUrl": {
-      "message": "URL"
+      "message": "Padrão de URL"
     },
     "columnActions": {
       "message": "Ações"
@@ -142,5 +142,17 @@
     },
     "errorUnsupportedPage": {
       "message": "Esta página não pode ser modificada."
-    }
+    },
+      "matchModePriorityDesc": {
+        "message": "Quando várias regras compartilham o mesmo padrão de URL, o plugin seleciona a mais apropriada com base na seguinte prioridade:"
+      },
+      "matchModePriority1": {
+        "message": "Modos de correspondência mais precisos têm prioridade (Exato > Começa com / Termina com > Contém)"
+      },
+      "matchModePriority2": {
+        "message": "Palavras-chave mais longas são consideradas mais específicas e têm maior prioridade"
+      },
+      "matchModePriority3": {
+        "message": "Se tudo for igual, a regra mais recentemente atualizada será escolhida"
+      }
   }

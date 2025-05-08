@@ -102,7 +102,7 @@
       "message": "일치 모드"
     },
     "columnUrl": {
-      "message": "URL"
+      "message": "URL 키워드"
     },
     "columnActions": {
       "message": "액션"
@@ -142,5 +142,17 @@
     },
     "errorUnsupportedPage": {
       "message": "이 페이지는 수정할 수 없습니다."
-    }
+    },
+      "matchModePriorityDesc": {
+        "message": "여러 규칙에 동일한 URL 패턴이 있을 경우, 다음 우선순위에 따라 가장 적합한 규칙이 선택됩니다:"
+      },
+      "matchModePriority1": {
+        "message": "보다 정확한 일치 방식이 우선됩니다 (정확히 일치 > 시작/끝 일치 > 포함)"
+      },
+      "matchModePriority2": {
+        "message": "키워드가 길수록 더 구체적으로 간주되어 우선됩니다"
+      },
+      "matchModePriority3": {
+        "message": "모든 조건이 동일한 경우, 가장 최근에 수정된 규칙이 우선됩니다"
+      }
   }

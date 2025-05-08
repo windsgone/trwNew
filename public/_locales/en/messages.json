@@ -102,7 +102,7 @@
     "message": "Match Mode"
   },
   "columnUrl": {
-    "message": "URL"
+    "message": "URL Pattern"
   },
   "columnActions": {
     "message": "Actions"
@@ -142,5 +142,17 @@
   },
   "errorUnsupportedPage": {
     "message": "This page cannot be modified."
+  },
+  "matchModePriorityDesc": {
+    "message": "When multiple rules share the same URL pattern, the plugin selects the most appropriate one based on the following priority:"
+  },
+  "matchModePriority1": {
+    "message": "More precise match modes take precedence (Exact > Starts With / Ends With > Contains)"
+  },
+  "matchModePriority2": {
+    "message": "Longer keywords are considered more specific and take priority"
+  },
+  "matchModePriority3": {
+    "message": "If all else is equal, the most recently updated rule wins"
   }
 }

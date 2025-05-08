@@ -102,7 +102,7 @@
       "message": "Modo de Coincidencia"
     },
     "columnUrl": {
-      "message": "URL"
+      "message": "Patrón de URL"
     },
     "columnActions": {
       "message": "Acciones"
@@ -142,5 +142,17 @@
     },
     "errorUnsupportedPage": {
       "message": "Esta página no se puede modificar."
+    },
+    "matchModePriorityDesc": {
+      "message": "Cuando hay varias reglas con el mismo patrón de URL, el plugin elige la más adecuada según el siguiente orden de prioridad:"
+    },
+    "matchModePriority1": {
+      "message": "Tienen prioridad los modos de coincidencia más precisos (Exacta > Comienza con / Termina con > Contiene)"
+    },
+    "matchModePriority2": {
+      "message": "Las palabras clave más largas se consideran más específicas y tienen mayor prioridad"
+    },
+    "matchModePriority3": {
+      "message": "Si todo es igual, se elige la regla modificada más recientemente"
     }
-  }
+}

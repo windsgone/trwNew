@@ -102,7 +102,7 @@
     "message": "Übereinstimmungsmodus"
   },
   "columnUrl": {
-    "message": "URL"
+    "message": "URL-Muster"
   },
   "columnActions": {
     "message": "Aktionen"
@@ -142,5 +142,17 @@
   },
   "errorUnsupportedPage": {
     "message": "Diese Seite kann nicht geändert werden."
-  }
+  },
+    "matchModePriorityDesc": {
+      "message": "Wenn mehrere Regeln das gleiche URL-Muster haben, wählt das Plugin die passendste Regel nach folgender Priorität:"
+    },
+    "matchModePriority1": {
+      "message": "Genauere Übereinstimmungsmodi haben Vorrang (Exakt > Beginnt mit / Endet mit > Enthält)"
+    },
+    "matchModePriority2": {
+      "message": "Längere Schlüsselwörter gelten als spezifischer und werden bevorzugt"
+    },
+    "matchModePriority3": {
+      "message": "Wenn alles gleich ist, wird die zuletzt aktualisierte Regel verwendet"
+    }
 }

@@ -102,7 +102,7 @@
       "message": "比對模式"
     },
     "columnUrl": {
-      "message": "網址"
+      "message": "網址關鍵字"
     },
     "columnActions": {
       "message": "操作"
@@ -142,5 +142,17 @@
     },
     "errorUnsupportedPage": {
       "message": "此頁面無法修改。"
+    },
+    "matchModePriorityDesc": {
+      "message": "當多個規則具有相同的 URL 模式時，插件會依照以下優先順序選擇最合適的一條："
+    },
+    "matchModePriority1": {
+      "message": "匹配方式越精確優先級越高（完全匹配 > 開頭/結尾匹配 > 包含）"
+    },
+    "matchModePriority2": {
+      "message": "關鍵字越長，代表越具體，優先級越高"
+    },
+    "matchModePriority3": {
+      "message": "若皆相同，則選擇最近修改的規則"
     }
-  }
+}

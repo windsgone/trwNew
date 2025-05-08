@@ -25,7 +25,13 @@
               <th data-i18n="columnNumber">No.</th>
               <th data-i18n="columnIcon">icon</th>
               <th data-i18n="columnTitle">title</th>
-              <th data-i18n="columnMatchMode">match mode</th>
+              <th id="match-mode-th"><span data-i18n="columnMatchMode">match mode</span> <span class="help-icon" id="match-mode-help">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </span></th>
               <th data-i18n="columnUrl">URL</th>
               <th data-i18n="columnActions">action</th>
             </tr>
@@ -50,6 +56,18 @@
           <button id="cancel-delete-btn" data-i18n="cancelButton">cancle</button>
           <button id="confirm-delete-btn" data-i18n="deleteButton">delete</button>
         </div>
+      </div>
+    </div>
+    
+    <!-- 自定义提示框 -->
+    <div class="custom-tooltip" id="match-mode-tooltip">
+      <div class="tooltip-content">
+        <p data-i18n="matchModePriorityDesc">When multiple rules share the same URL pattern, the plugin selects the most appropriate one based on the following priority:</p>
+        <ol>
+          <li data-i18n="matchModePriority1">More precise match modes take precedence (Exact > Starts With / Ends With > Contains)</li>
+          <li data-i18n="matchModePriority2">Longer keywords are considered more specific and take priority</li>
+          <li data-i18n="matchModePriority3">If all else is equal, the most recently updated rule wins</li>
+        </ol>
       </div>
     </div>
   </div>
