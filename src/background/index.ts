@@ -1,6 +1,21 @@
-import { getAllRules } from '../utils/storage';
+import { getAllRules, updateRule } from '../utils/storage';
 import { findBestMatchRule } from '../utils/rules';
-import { updateRule } from '../utils/storage';
+import { migrateDataIfNeeded } from '../utils/migration';
+
+// 在扩展安装或更新时触发数据迁移
+chrome.runtime.onInstalled.addListener(async (details) => {
+  console.log(`扩展${details.reason === 'install' ? '安装' : '更新'}完成，版本: ${chrome.runtime.getManifest().version}`);
+  
+  if (details.reason === 'install' || details.reason === 'update') {
+    try {
+      console.log('start...');
+      await migrateDataIfNeeded();
+      console.log('done');
+    } catch (error) {
+      console.error('failed:', error);
+    }
+  }
+});
 
 const pendingMessages = new Map<number, any>();
 

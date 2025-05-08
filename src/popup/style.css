@@ -50,6 +50,10 @@ form {
   gap: 16px;
 }
 
+input {
+  font-family: inherit;
+}
+
 .url-input-group {
   display: grid;
   grid-template-columns: auto auto 1fr auto;

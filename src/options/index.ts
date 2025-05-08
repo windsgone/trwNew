@@ -71,17 +71,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       tdIndex.textContent = (index + 1).toString();
       tr.appendChild(tdIndex);
 
-      // 2. 新 Title
-      const tdTitle = document.createElement('td');
-      tdTitle.textContent = rule.title;
-      tr.appendChild(tdTitle);
-
-      // 3. 新 Favicon
+      // 2. 新 Favicon
       const tdFavicon = document.createElement('td');
       // 为了保持简洁，这里直接显示emoji字符。如果需要更复杂的渲染，可以修改。
       tdFavicon.textContent = rule.faviconEmoji;
       tdFavicon.style.textAlign = 'center'; // Center emoji
       tr.appendChild(tdFavicon);
+
+      // 3. 新 Title
+      const tdTitle = document.createElement('td');
+      tdTitle.textContent = rule.title;
+      tr.appendChild(tdTitle);
 
       // 4. 匹配模式
       const tdMatchMode = document.createElement('td');
