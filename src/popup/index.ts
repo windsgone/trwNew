@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   const statusMessage = document.getElementById('status-message') as HTMLDivElement;
   const saveBtn = document.getElementById('save-btn') as HTMLButtonElement;
   const container = document.querySelector('.container') as HTMLDivElement;
+  
+  // 确保设置按钮在任何页面都能正常工作
+  optionsBtn.addEventListener('click', () => {
+    chrome.runtime.openOptionsPage();
+  });
 
   
   let emojiPicker: { destroy: () => void } | null = null;
@@ -388,9 +393,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  optionsBtn.addEventListener('click', () => {
-    chrome.runtime.openOptionsPage();
-  });
+  // 设置按钮的事件监听器已移至页面加载初始化阶段
 
   function showStatus(message: string, type: 'success' | 'error') {
     statusMessage.textContent = message;
