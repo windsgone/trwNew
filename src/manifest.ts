@@ -6,7 +6,7 @@ export default defineManifest({
   version: '2.0.0',
   description: '__MSG_appDescription__',
   default_locale: 'en',
-  permissions: ['tabs', 'scripting', 'storage', 'activeTab', 'webNavigation'],
+  permissions: ['tabs', 'storage', 'activeTab', 'webNavigation'],
   host_permissions: ['<all_urls>'],
   background: {
     service_worker: 'src/background/index.ts',
