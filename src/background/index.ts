@@ -1,4 +1,4 @@
-import { getAllRules, updateRule } from '../utils/storage';
+import { getAllRules, updateRule, savePageInfo } from '../utils/storage';
 import { findBestMatchRule } from '../utils/rules';
 import { migrateDataIfNeeded } from '../utils/migration';
 
@@ -20,15 +20,25 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 const pendingMessages = new Map<number, any>();
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === 'CONTENT_SCRIPT_READY' && sender.tab && sender.tab.id) {
+  if (message.type === 'CONTENT_SCRIPT_READY' && sender?.tab?.id) {
     const tabId = sender.tab.id;
+    
+    // 处理页面信息
+    if (message.payload?.pageInfo && sender.tab?.url) {
+      // 保存页面信息到存储
+      savePageInfo(sender.tab.url!, message.payload.pageInfo)
+        .catch((error: Error) => {
+          console.error(`[BACKGROUND] Failed to save page info for ${sender.tab?.url}: ${error.message}`);
+        });
+    }
+    
     if (pendingMessages.has(tabId)) {
       const pendingMessage = pendingMessages.get(tabId);
       try {
-        chrome.tabs.sendMessage(tabId, pendingMessage).catch(error => {
+        chrome.tabs.sendMessage(tabId, pendingMessage).catch((error: Error) => {
           console.error(`[BACKGROUND] Failed to resend pending message to tab ${tabId}: ${error.message}`);
         });
-      } catch (error) {
+      } catch (error: unknown) {
         console.error(`[BACKGROUND] Error resending pending message to tab ${tabId}:`, error);
       }
       pendingMessages.delete(tabId);
@@ -50,6 +60,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     sendMessageToTab(tabId, { type: 'APPLY_TAB_RULE', payload: rule });
     if (sendResponse) sendResponse({ success: true });
     return true;
+  } else if (message.action === 'openOptionsPageAndShowLlm') {
+    const optionsUrl = chrome.runtime.getURL('src/options/index.html?tab=llm');
+
+    chrome.tabs.query({ url: chrome.runtime.getURL('src/options/index.html*') }, (tabs) => {
+      if (tabs.length > 0) {
+        // 如果选项页面已打开，则更新其URL并激活
+        chrome.tabs.update(tabs[0].id!, { active: true, url: optionsUrl });
+      } else {
+        // 否则，打开新的选项页面
+        chrome.tabs.create({ url: optionsUrl });
+      }
+    });
+    return true; 
   }
   return false; // Indicate async response is not sent for unhandled messages
 });

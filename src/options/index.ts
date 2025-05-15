@@ -1,13 +1,64 @@
 import { TabRule } from '../types';
 import { getAllRules, deleteRule } from '../utils/storage';
 import { applyLocalization, getMessage } from '../utils/i18nUtils';
+import { initLLMSettings } from './llm-settings';
 
 let ruleIdToDelete: string | null = null;
+
+/**
+ * 切换到LLM设置标签页
+ */
+function switchToLLMTab() {
+  console.log('尝试切换到LLM设置标签页');
+  const llmNavButton = document.getElementById('nav-llm');
+  if (llmNavButton) {
+    console.log('找到LLM导航按钮，点击切换');
+    // 直接切换标签页，而不是模拟点击
+    const llmTab = document.getElementById('llm-tab');
+    if (llmTab) {
+      // 隐藏所有标签页
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      // 显示LLM标签页
+      llmTab.classList.add('active');
+      // 更新导航按钮状态
+      document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+      llmNavButton.classList.add('active');
+      console.log('LLM标签页切换成功');
+    } else {
+      console.error('未找到LLM标签页内容元素');
+    }
+  } else {
+    console.error('未找到LLM导航按钮');
+  }
+}
+
+// 添加消息监听器，用于接收从popup页面发送的消息
+chrome.runtime.onMessage.addListener((message) => {
+  console.log('收到消息:', message);
+  // 保留 return true 如果还有其他消息需要异步响应，否则可以移除整个 listener 如果这是唯一的 action
+  // 假设可能还有其他 action，暂时保留框架
+  if (message.action === 'someOtherAction') {
+    // handle other actions
+  }
+  return true; 
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
   // 应用国际化
   applyLocalization();
   
+  // 检查URL参数，如果有tab=llm参数，则自动切换到LLM设置标签页
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('tab') === 'llm') {
+    // 使用setTimeout确保DOM完全加载后再执行
+    setTimeout(switchToLLMTab, 100);
+  }
+  
+  // 导航和标签页切换相关元素
+  const navButtons = document.querySelectorAll('.nav-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  // 规则管理相关元素
   const rulesTable = document.getElementById('rules-table') as HTMLTableElement;
   const rulesTableBody = document.getElementById('rules-table-body') as HTMLTableSectionElement;
   const loadingState = document.getElementById('loading-state') as HTMLDivElement;
@@ -20,7 +71,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   const matchModeHelp = document.getElementById('match-mode-help') as HTMLSpanElement;
   const matchModeTooltip = document.getElementById('match-mode-tooltip') as HTMLDivElement;
   
-  // 添加鼠标悬停事件
+  
+  // 初始化标签页切换功能
+  initTabNavigation();
+  
+  // 初始化 LLM 设置页面
+  initLLMSettings();
+  
+  // 添加匹配模式提示框鼠标悬停事件
   if (matchModeHelp && matchModeTooltip) {
     matchModeHelp.addEventListener('mouseenter', () => {
       const rect = matchModeHelp.getBoundingClientRect();
@@ -34,8 +92,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   
+  // 加载规则数据
   loadRules();
   
+  // 删除规则相关事件监听
   cancelDeleteBtn.addEventListener('click', () => {
     hideModal();
   });
@@ -47,6 +107,34 @@ document.addEventListener('DOMContentLoaded', async () => {
       loadRules();
     }
   });
+  
+  /**
+   * 初始化标签页导航功能
+   */
+  function initTabNavigation() {
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // 移除所有导航按钮的活动状态
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        // 为当前点击的按钮添加活动状态
+        button.classList.add('active');
+        
+        // 获取目标标签页ID
+        const targetTabId = button.getAttribute('data-tab');
+        
+        // 隐藏所有标签页内容
+        tabContents.forEach(tab => tab.classList.remove('active'));
+        
+        // 显示目标标签页内容
+        if (targetTabId) {
+          const targetTab = document.getElementById(targetTabId);
+          if (targetTab) {
+            targetTab.classList.add('active');
+          }
+        }
+      });
+    });
+  }
   
   async function loadRules() {
     if (!rulesTable || !rulesTableBody || !loadingState || !emptyState) {

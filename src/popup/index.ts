@@ -4,6 +4,8 @@ import { createEmojiPicker } from '../components/EmojiPicker';
 import { emojiToFaviconDataUrl } from '../utils/emoji';
 import { findBestMatchRule } from '../utils/rules';
 import { applyLocalization, getMessage } from '../utils/i18nUtils';
+import { llmManager } from '../utils/llm/llm-manager';
+import { PageInfo } from '../utils/llm/types';
 
 document.addEventListener('DOMContentLoaded', async () => {
   
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const optionsBtn = document.getElementById('options-btn') as HTMLElement;
   const statusMessage = document.getElementById('status-message') as HTMLDivElement;
   const saveBtn = document.getElementById('save-btn') as HTMLButtonElement;
+  const aiGenerateBtn = document.getElementById('ai-generate-btn') as HTMLButtonElement;
   const container = document.querySelector('.container') as HTMLDivElement;
   
   // 确保设置按钮在任何页面都能正常工作
@@ -394,6 +397,89 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // 设置按钮的事件监听器已移至页面加载初始化阶段
+
+  // 初始化LLM管理器
+  try {
+    await llmManager.initialize();
+    console.log('LLM管理器初始化成功');
+  } catch (error) {
+    console.error('LLM管理器初始化失败:', error);
+  }
+
+  // AI生成按钮点击事件
+  aiGenerateBtn.addEventListener('click', async () => {
+    try {
+      // 检查URL是否有效
+      if (!urlPatternInput.value.trim()) {
+        showStatus('请先输入URL模式', 'error');
+        return;
+      }
+
+      // 设置生成中状态
+      aiGenerateBtn.classList.add('generating');
+      aiGenerateBtn.disabled = true;
+      showStatus('正在生成标题...', 'success');
+
+      // 检查LLM管理器是否初始化
+      const settings = llmManager.getSettings();
+      if (!settings) {
+        console.log('重新初始化LLM管理器...');
+        await llmManager.initialize();
+      }
+
+      // 检查是否有API密钥
+      const currentSettings = llmManager.getSettings();
+      if (!currentSettings) {
+        throw new Error('LLM设置未初始化');
+      }
+      
+      const activeProvider = currentSettings.activeProvider;
+      const providerSettings = currentSettings.providers[activeProvider];
+      
+      if (!providerSettings || !providerSettings.apiKey) {
+        // 显示更明确的错误消息
+        showStatus('请先配置API密钥才能使用AI生成功能', 'error');
+        
+        // 延迟发送消息，给用户时间看到错误消息，并让后台脚本处理打开/切换到LLM标签页
+        setTimeout(() => {
+          chrome.runtime.sendMessage({ action: 'openOptionsPageAndShowLlm' });
+        }, 2000);
+        
+        return; // 提前返回，不再继续执行
+      }
+
+      // 构建页面信息
+      const pageInfo: PageInfo = {
+        url: urlPatternInput.value,
+        title: titleInput.value || document.title || '',
+        description: ''
+      };
+
+      // 调用LLM生成标题
+      console.log('开始生成标题...');
+      const response = await llmManager.generateText(pageInfo, {
+        maxTokens: 50,
+        temperature: 0.7,
+        timeoutMs: 15000
+      });
+      console.log('生成标题成功:', response);
+
+      // 填充生成的标题到标题输入框
+      if (response && response.content) {
+        titleInput.value = response.content.trim();
+        showStatus('标题生成成功', 'success');
+      } else {
+        showStatus('生成标题失败，请重试', 'error');
+      }
+    } catch (error) {
+      console.error('生成标题时出错:', error);
+      showStatus('生成标题失败: ' + (error instanceof Error ? error.message : '未知错误'), 'error');
+    } finally {
+      // 恢复按钮状态
+      aiGenerateBtn.classList.remove('generating');
+      aiGenerateBtn.disabled = false;
+    }
+  });
 
   function showStatus(message: string, type: 'success' | 'error') {
     statusMessage.textContent = message;

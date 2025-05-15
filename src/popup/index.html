@@ -69,7 +69,14 @@
       </div>
       
       <div class="form-group text-center">
-        <button type="submit" id="save-btn" data-i18n="saveRule">Save Rule</button>
+        <div class="button-group">
+          <button type="submit" id="save-btn" data-i18n="saveRule">Save Rule</button>
+          <button type="button" id="ai-generate-btn" title="AI生成标题" aria-label="AI生成标题">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path d="M13.5,1C11.57,1,10,2.57,10,4.5V9H4.5C2.57,9,1,10.57,1,12.5S2.57,16,4.5,16H10v4.5c0,1.93,1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5V16h5.5c1.93,0,3.5-1.57,3.5-3.5S24.43,9,22.5,9H17V4.5C17,2.57,15.43,1,13.5,1z"/>
+            </svg>
+          </button>
+        </div>
         <div id="status-message"></div>
       </div>
     </form>

@@ -1,5 +1,6 @@
 import { TabRule } from '../types';
 import { emojiToFaviconDataUrl } from '../utils/emoji';
+import { getPageInfoWithTimestamp } from '../utils/pageInfo';
 
 let observer: MutationObserver | null = null;
 let currentRule: TabRule | null = null;
@@ -256,7 +257,14 @@ function setupMessageListener() {
 
 function notifyBackgroundScriptReady() {
   try {
-    chrome.runtime.sendMessage({ type: 'CONTENT_SCRIPT_READY' }, _response => {
+    // 提取页面信息
+    const pageInfo = getPageInfoWithTimestamp();
+    
+    // 发送内容脚本就绪消息和页面信息
+    chrome.runtime.sendMessage({ 
+      type: 'CONTENT_SCRIPT_READY',
+      payload: { pageInfo }
+    }, _response => {
       if (chrome.runtime.lastError) {
         setTimeout(notifyBackgroundScriptReady, 1000);
       }

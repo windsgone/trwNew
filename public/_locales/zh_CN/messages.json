@@ -84,7 +84,7 @@
     "message": "没有找到表情"
   },
   "optionsTitle": {
-    "message": "标签修改精灵 - 已保存规则"
+    "message": "标签修改精灵 - 设置"
   },
   "buyMeCoffee": {
     "message": "☕️ 给我买杯咖啡"
@@ -154,5 +154,80 @@
   },
   "matchModePriority3": {
     "message": "如果其他条件相同，则最近更新的规则获胜"
+  },
+  "navRules": {
+    "message": "规则管理"
+  },
+  "navLLM": {
+    "message": "LLM 设置"
+  },
+  "llmSettingsTitle": {
+    "message": "LLM 设置"
+  },
+  "apiKeySettings": {
+    "message": "API Key 设置"
+  },
+  "apiKeyLabel": {
+    "message": "OpenAI API Key:"
+  },
+  "apiKeyPlaceholder": {
+    "message": "sk-..."
+  },
+  "testApiKey": {
+    "message": "测试"
+  },
+  "clearApiKey": {
+    "message": "清除"
+  },
+  "apiKeyHelp": {
+    "message": "API Key 仅保存在本地，用于 AI 生成功能调用。"
+  },
+  "modelSelectLabel": {
+    "message": "选择模型:"
+  },
+  "modelGpt4o": {
+    "message": "GPT-4o"
+  },
+  "modelGpt4oMini": {
+    "message": "GPT-4o-mini"
+  },
+  "modelGpt35Turbo": {
+    "message": "GPT-3.5-turbo"
+  },
+  "promptSettings": {
+    "message": "Prompt 设置"
+  },
+  "systemPromptLabel": {
+    "message": "System Prompt:"
+  },
+  "systemPromptPlaceholder": {
+    "message": "设置 LLM 角色和行为..."
+  },
+  "userPromptLabel": {
+    "message": "User Prompt:"
+  },
+  "userPromptPlaceholder": {
+    "message": "明确生成任务与语气..."
+  },
+  "promptVariablesHelp": {
+    "message": "可用变量: {{title}}, {{url}}, {{descriptions}}"
+  },
+  "resetPrompts": {
+    "message": "恢复默认"
+  },
+  "saveSettings": {
+    "message": "保存设置"
+  },
+  "apiKeyInvalid": {
+    "message": "API Key 无效或已过期"
+  },
+  "apiKeyValid": {
+    "message": "API Key 有效"
+  },
+  "settingsSaved": {
+    "message": "设置保存成功"
+  },
+  "errorSavingSettings": {
+    "message": "保存设置失败"
   }
 }

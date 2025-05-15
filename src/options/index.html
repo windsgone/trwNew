@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="optionsTitle">Tab Rename Wiz - saved rules</title>
+  <title data-i18n="optionsTitle">Tab Rename Wiz - Options</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1 data-i18n="optionsTitle">Tab Rename Wiz - saved rules</h1>
+      <h1 data-i18n="optionsTitle">Tab Rename Wiz - Options</h1>
       <div class="bmc-container">
         <a href="https://www.buymeacoffee.com/johnnyfan" target="_blank" class="bmc-button" data-i18n="buyMeCoffee">
           ☕️ Buy me a coffee
@@ -17,36 +17,104 @@
       </div>
     </header>
     
-    <main>
-      <div class="rules-table-container">
-        <table id="rules-table">
-          <thead>
-            <tr>
-              <th data-i18n="columnNumber">No.</th>
-              <th data-i18n="columnIcon">icon</th>
-              <th data-i18n="columnTitle">title</th>
-              <th id="match-mode-th"><span data-i18n="columnMatchMode">match mode</span> <span class="help-icon" id="match-mode-help">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-              </span></th>
-              <th data-i18n="columnUrl">URL</th>
-              <th data-i18n="columnActions">action</th>
-            </tr>
-          </thead>
-          <tbody id="rules-table-body">
-            <!-- 规则将通过 JavaScript 动态插入到这里 -->
-          </tbody>
-        </table>
-        <div class="loading" id="loading-state" style="display: none;" data-i18n="loading">加载中...</div>
-      </div>
+    <div class="options-layout">
+      <!-- 左侧导航栏 -->
+      <nav class="sidebar">
+        <ul class="nav-menu">
+          <li>
+            <button id="nav-rules" class="nav-button active" data-tab="rules-tab" data-i18n="navRules">规则管理</button>
+          </li>
+          <li>
+            <button id="nav-llm" class="nav-button" data-tab="llm-tab" data-i18n="navLLM">LLM 设置</button>
+          </li>
+        </ul>
+      </nav>
       
-      <div class="empty-state" id="empty-state" style="display: none;">
-        <p data-i18n="noRules">no saved rules</p>
-      </div>
-    </main>
+      <!-- 主内容区域 -->
+      <main class="content-area">
+        <!-- 规则管理标签页 -->
+        <div id="rules-tab" class="tab-content active">
+          <div class="rules-table-container">
+            <table id="rules-table">
+              <thead>
+                <tr>
+                  <th data-i18n="columnNumber">No.</th>
+                  <th data-i18n="columnIcon">icon</th>
+                  <th data-i18n="columnTitle">title</th>
+                  <th id="match-mode-th"><span data-i18n="columnMatchMode">match mode</span> <span class="help-icon" id="match-mode-help">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                  </span></th>
+                  <th data-i18n="columnUrl">URL</th>
+                  <th data-i18n="columnActions">action</th>
+                </tr>
+              </thead>
+              <tbody id="rules-table-body">
+                <!-- 规则将通过 JavaScript 动态插入到这里 -->
+              </tbody>
+            </table>
+            <div class="loading" id="loading-state" style="display: none;" data-i18n="loading">加载中...</div>
+          </div>
+          
+          <div class="empty-state" id="empty-state" style="display: none;">
+            <p data-i18n="noRules">no saved rules</p>
+          </div>
+        </div>
+        
+        <!-- LLM 设置标签页 -->
+        <div id="llm-tab" class="tab-content">
+          <div class="llm-settings-container">
+            <h2 data-i18n="llmSettingsTitle">LLM 设置</h2>
+            
+            <div class="settings-section">
+              <h3 data-i18n="apiKeySettings">API Key 设置</h3>
+              <div class="form-group">
+                <label for="api-key" data-i18n="apiKeyLabel">OpenAI API Key:</label>
+                <div class="input-with-buttons">
+                  <input type="password" id="api-key" placeholder="sk-..." data-i18n-placeholder="apiKeyPlaceholder">
+                  <button id="test-api-key" class="secondary-btn" data-i18n="testApiKey">测试</button>
+                  <button id="clear-api-key" class="secondary-btn danger" data-i18n="clearApiKey">清除</button>
+                </div>
+                <p class="help-text" data-i18n="apiKeyHelp">API Key 仅保存在本地，用于 AI 生成功能调用。</p>
+              </div>
+              
+              <div class="form-group">
+                <label for="model-select" data-i18n="modelSelectLabel">选择模型:</label>
+                <select id="model-select">
+                  <option value="gpt-4o" data-i18n="modelGpt4o">GPT-4o</option>
+                  <option value="gpt-4o-mini" data-i18n="modelGpt4oMini">GPT-4o-mini</option>
+                  <option value="gpt-3.5-turbo" data-i18n="modelGpt35Turbo">GPT-3.5-turbo</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="settings-section">
+              <h3 data-i18n="promptSettings">Prompt 设置</h3>
+              
+              <div class="form-group">
+                <label for="system-prompt" data-i18n="systemPromptLabel">System Prompt:</label>
+                <textarea id="system-prompt" rows="4" placeholder="设置 LLM 角色和行为..." data-i18n-placeholder="systemPromptPlaceholder"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="user-prompt" data-i18n="userPromptLabel">User Prompt:</label>
+                <textarea id="user-prompt" rows="4" placeholder="明确生成任务与语气..." data-i18n-placeholder="userPromptPlaceholder"></textarea>
+                <p class="help-text" data-i18n="promptVariablesHelp">可用变量: {{title}}, {{url}}, {{descriptions}}</p>
+              </div>
+              
+              <button id="reset-prompts" class="secondary-btn" data-i18n="resetPrompts">恢复默认</button>
+            </div>
+            
+            <div class="form-actions">
+              <button id="save-llm-settings" class="primary-btn" data-i18n="saveSettings">保存设置</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
     
     <div class="modal" id="confirm-modal">
       <div class="modal-content">

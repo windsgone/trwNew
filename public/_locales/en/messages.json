@@ -84,7 +84,7 @@
     "message": "No emoji found"
   },
   "optionsTitle": {
-    "message": "Tab Rename Wiz - Saved Rules"
+    "message": "Tab Rename Wiz - Settings"
   },
   "buyMeCoffee": {
     "message": "☕️ Buy me a coffee"
@@ -154,5 +154,86 @@
   },
   "matchModePriority3": {
     "message": "If all else is equal, the most recently updated rule wins"
+  },
+  "navRules": {
+    "message": "Saved Rules"
+  },
+  "navLLM": {
+    "message": "AI Settings"
+  },
+  "llmSettingsTitle": {
+    "message": "AI Settings"
+  },
+  "apiKeySettings": {
+    "message": "API Key Settings"
+  },
+  "apiKeyLabel": {
+    "message": "OpenAI API Key:"
+  },
+  "apiKeyPlaceholder": {
+    "message": "sk-..."
+  },
+  "testApiKey": {
+    "message": "Test"
+  },
+  "clearApiKey": {
+    "message": "Clear"
+  },
+  "apiKeyHelp": {
+    "message": "API Key is stored locally and used for AI title generation."
+  },
+  "modelSelectLabel": {
+    "message": "Select Model:"
+  },
+  "modelGpt4o": {
+    "message": "GPT-4o"
+  },
+  "modelGpt4oMini": {
+    "message": "GPT-4o-mini"
+  },
+  "modelGpt35Turbo": {
+    "message": "GPT-3.5-turbo"
+  },
+  "promptSettings": {
+    "message": "Prompt Settings"
+  },
+  "systemPromptLabel": {
+    "message": "System Prompt:"
+  },
+  "systemPromptPlaceholder": {
+    "message": "Define LLM role and behavior..."
+  },
+  "userPromptLabel": {
+    "message": "User Prompt:"
+  },
+  "userPromptPlaceholder": {
+    "message": "Specify generation task and tone..."
+  },
+  "promptVariablesHelp": {
+    "message": "Available variables: {{title}}, {{url}}, {{descriptions}}"
+  },
+  "resetPrompts": {
+    "message": "Reset to Default"
+  },
+  "saveSettings": {
+    "message": "Save Settings"
+  },
+  "apiKeyInvalid": {
+    "message": "API Key is invalid or expired"
+  },
+  "apiKeyValid": {
+    "message": "API Key is valid"
+  },
+  "settingsSaved": {
+    "message": "Settings saved successfully"
+  },
+  "errorSavingSettings": {
+    "message": "Failed to save settings"
+  },
+  "promptsReset": {
+    "message": "Prompts reset to default"
+  },
+  "errorResettingPrompts": {
+    "message": "Failed to reset prompts"
   }
 }
