@@ -205,6 +205,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       delete form.dataset.matchedRuleId; 
     }
 
+    // 在初始内容（如图标、标题等）加载并填充到表单后，
+    // 确保 titleInput 的高度被重置为单行。
+    resetTextareaHeight(titleInput);
+
   } catch (error) {
     console.error(getMessage('errorInitPopupFailed'), error);
     showStatus(getMessage('errorLoadingFailed'), 'error');
@@ -412,32 +416,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     textarea.style.height = '';
   }
 
-  // 为标题输入框添加自动调整高度的事件
-  titleInput.addEventListener('input', () => {
-    autoResizeTextarea(titleInput);
-  });
-
-  // 在获得焦点时调整高度
-  titleInput.addEventListener('focus', () => {
-    autoResizeTextarea(titleInput);
-  });
-
-  // 在失去焦点时恢复单行高度
-  titleInput.addEventListener('blur', () => {
-    resetTextareaHeight(titleInput);
-  });
-
-  // 初始化时调整一次高度（如果有初始内容）
-  if (titleInput.value) {
-    autoResizeTextarea(titleInput);
-  }
+  // 为标题输入框添加动态高度调整的事件监听器
+  titleInput.addEventListener('focus', () => autoResizeTextarea(titleInput));
+  titleInput.addEventListener('input', () => autoResizeTextarea(titleInput));
+  titleInput.addEventListener('blur', () => resetTextareaHeight(titleInput));
 
   // 初始化LLM管理器
   try {
     await llmManager.initialize();
-    console.log('LLM管理器初始化成功');
+    console.log(getMessage('successLlmManagerInitialized'));
   } catch (error) {
-    console.error('LLM管理器初始化失败:', error);
+    console.error(getMessage('errorLlmManagerInitFailed'), error);
   }
 
   // AI生成按钮点击事件
@@ -445,7 +434,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
       // 检查URL是否有效
       if (!urlPatternInput.value.trim()) {
-        showStatus('请先输入URL模式', 'error');
+        showStatus(getMessage('errorUrlPatternRequired'), 'error');
         return;
       }
 
@@ -457,19 +446,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       const titleInputContainer = document.querySelector('.title-input') as HTMLElement;
       titleInputContainer.classList.add('ai-generating');
       
-      showStatus('正在生成标题...', 'success');
+      showStatus(getMessage('generatingTitle'), 'success');
 
       // 检查LLM管理器是否初始化
       const settings = llmManager.getSettings();
       if (!settings) {
-        console.log('重新初始化LLM管理器...');
+        console.log(getMessage('reinitializingLlmManager'));
         await llmManager.initialize();
       }
 
       // 检查是否有API密钥
       const currentSettings = llmManager.getSettings();
       if (!currentSettings) {
-        throw new Error('LLM设置未初始化');
+        throw new Error(getMessage('errorLlmSettingsNotInitialized'));
       }
       
       const activeProvider = currentSettings.activeProvider;
@@ -477,7 +466,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       if (!providerSettings || !providerSettings.apiKey) {
         // 显示更明确的错误消息
-        showStatus('请先配置API密钥才能使用AI生成功能', 'error');
+        showStatus(getMessage('errorApiKeyRequired'), 'error');
         
         // 延迟发送消息，给用户时间看到错误消息，并让后台脚本处理打开/切换到LLM标签页
         setTimeout(() => {
@@ -508,10 +497,10 @@ document.addEventListener('DOMContentLoaded', async () => {
               description: response.pageInfo.description || ''
             };
           } else {
-            throw new Error('无法从内容脚本获取页面信息');
+            throw new Error(getMessage('errorCannotGetPageInfo'));
           }
         } else {
-          throw new Error('无法获取当前标签页');
+          throw new Error(getMessage('errorCannotGetCurrentTab'));
         }
       } catch (error) {
         // 如果无法获取完整页面信息，则使用默认值
@@ -532,12 +521,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       // 填充生成的标题到标题输入框
       if (response && response.content) {
         titleInput.value = response.content.trim();
-        showStatus('标题生成成功', 'success');
+        showStatus(getMessage('successTitleGenerated'), 'success');
       } else {
-        showStatus('生成标题失败，请重试', 'error');
+        showStatus(getMessage('errorGeneratingTitle'), 'error');
       }
     } catch (error) {
-      showStatus('生成标题失败: ' + (error instanceof Error ? error.message : '未知错误'), 'error');
+      showStatus(getMessage('errorGeneratingTitleWithReason', [(error instanceof Error ? error.message : getMessage('unknownError'))]), 'error');
     } finally {
       // 恢复按钮状态
       aiGenerateBtn.classList.remove('generating');

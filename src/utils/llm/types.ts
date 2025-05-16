@@ -109,12 +109,16 @@ export interface ProviderSettings {
  * 默认系统提示词
  */
 export const DEFAULT_SYSTEM_PROMPT = 
-  'You are a helpful assistant that summarizes webpage content to generate clear and concise tab titles. ' +
-  'The language of the generated title should be the same as the original title language.';
+  'You are a web page title optimization assistant. Your task is to rewrite original tab titles to make them more concise, informative, and easier to distinguish. Focus on extracting key information from the original title without fabricating content. Avoid generic or redundant terms and help users quickly identify each tab at a glance.The language of the generated title should be the same as the original title language.';
 
 /**
  * 默认用户提示词
  */
 export const DEFAULT_USER_PROMPT = 
-  'Generate a short and descriptive tab title based on the {{title}}. ' +
-  'Prioritize clarity and recognizability.';
+  `Based on the original title: \`{{title}}\`, generate a new browser tab title that is:
+  1. Concise (ideally under 60 characters);
+  2. Clear and easy to distinguish;
+  3. Stripped of generic modifiers (e.g., "Official Site", "Home", "Welcome");
+  4. Focused on the topic if it's an article or news;
+  5. Focused on core function if it's a tool or web app;
+  6. Do not include summaries or unrelated information.`;

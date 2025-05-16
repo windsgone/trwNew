@@ -84,7 +84,7 @@
       "message": "找不到表情符號"
     },
     "optionsTitle": {
-      "message": "Tab Rename Wiz - 已儲存規則"
+      "message": "Tab Rename Wiz - 设定"
     },
     "buyMeCoffee": {
       "message": "☕️ 請我喝杯咖啡"
@@ -154,5 +154,202 @@
     },
     "matchModePriority3": {
       "message": "若皆相同，則選擇最近修改的規則"
+    },
+    "navRules": {
+      "message": "已儲存規則"
+    },
+    "navLLM": {
+      "message": "AI 設定"
+    },
+    "llmSettingsTitle": {
+      "message": "AI 設定"
+    },
+    "rulesSettingsTitle": {
+      "message": "已儲存規則"
+    },
+    "apiKeySettings": {
+      "message": "API 金鑰設定"
+    },
+    "apiKeyLabel": {
+      "message": "API 金鑰："
+    },
+    "apiKeyPlaceholder": {
+      "message": "sk-..."
+    },
+    "testApiKey": {
+      "message": "測試"
+    },
+    "clearApiKey": {
+      "message": "清除"
+    },
+    "apiKeyHelp": {
+      "message": "API 金鑰儲存在本地，用於 AI 標題生成。"
+    },
+    "modelSelectLabel": {
+      "message": "選擇模型："
+    },
+    "modelGpt4o": {
+      "message": "GPT-4o"
+    },
+    "modelGpt4oMini": {
+      "message": "GPT-4o-mini"
+    },
+    "modelGpt35Turbo": {
+      "message": "GPT-3.5-turbo"
+    },
+    "promptSettings": {
+      "message": "提示詞設定"
+    },
+    "generatingTitle": {
+      "message": "正在生成標題..."
+    },
+    "reinitializingLlmManager": {
+      "message": "正在重新初始化 LLM 管理器..."
+    },
+    "errorLlmSettingsNotInitialized": {
+      "message": "LLM 設定未初始化"
+    },
+    "errorApiKeyRequired": {
+      "message": "請先配置 API 金鑰以使用 AI 生成"
+    },
+    "errorCannotGetPageInfo": {
+      "message": "無法從內容腳本獲取頁面信息"
+    },
+    "errorCannotGetCurrentTab": {
+      "message": "無法獲取當前分頁"
+    },
+    "successTitleGenerated": {
+      "message": "標題生成成功"
+    },
+    "errorGeneratingTitle": {
+      "message": "生成標題失敗，請重試"
+    },
+    "errorGeneratingTitleWithReason": {
+      "message": "生成標題失敗：$1",
+      "placeholders": {
+        "1": {
+          "content": "$1"
+        }
+      }
+    },
+    "unknownError": {
+      "message": "未知錯誤"
+    },
+    "successLlmManagerInitialized": {
+      "message": "LLM 管理器初始化成功"
+    },
+    "errorLlmManagerInitFailed": {
+      "message": "初始化 LLM 管理器失敗："
+    },
+    "systemPromptLabel": {
+      "message": "系統提示詞："
+    },
+    "systemPromptPlaceholder": {
+      "message": "定義 LLM 角色和行為..."
+    },
+    "userPromptLabel": {
+      "message": "用戶提示詞："
+    },
+    "userPromptPlaceholder": {
+      "message": "指定生成任務和語調..."
+    },
+    "promptVariablesHelp": {
+      "message": "提示：您可以在文本中使用 {{title}} 來自動插入當前分頁的標題"
+    },
+    "resetPrompts": {
+      "message": "重置為默認值"
+    },
+    "saveSettings": {
+      "message": "儲存設定"
+    },
+    "apiKeyInvalid": {
+      "message": "API 金鑰無效或已過期"
+    },
+    "apiKeyValid": {
+      "message": "API 金鑰有效"
+    },
+    "settingsSaved": {
+      "message": "設定已成功儲存"
+    },
+    "errorSavingSettings": {
+      "message": "儲存設定失敗"
+    },
+    "promptsReset": {
+      "message": "提示詞已重置為默認值"
+    },
+    "errorResettingPrompts": {
+      "message": "重置提示詞失敗"
+    },
+    "providerSelectLabel": {
+      "message": "選擇提供商："
+    },
+    "providerSelectHelp": {
+      "message": "選擇 AI 服務提供商"
+    },
+    "providerOpenai": {
+      "message": "OpenAI"
+    },
+    "apiKeySaved": {
+      "message": "API 金鑰已儲存"
+    },
+    "errorSavingApiKey": {
+      "message": "儲存 API 金鑰失敗"
+    },
+    "modelSaved": {
+      "message": "模型選擇已儲存"
+    },
+    "errorSavingModel": {
+      "message": "儲存模型選擇失敗"
+    },
+    "promptsSaved": {
+      "message": "提示詞已儲存"
+    },
+    "errorSavingPrompts": {
+      "message": "儲存提示詞失敗"
+    },
+    "providerChanged": {
+      "message": "提供商已更改"
+    },
+    "systemPromptEmpty": {
+      "message": "系統提示詞不能為空"
+    },
+    "userPromptEmpty": {
+      "message": "用戶提示詞不能為空"
+    },
+    "promptTooLong": {
+      "message": "提示詞太長（最多 3000 個字符）"
+    },
+    "errorLoadingSettings": {
+      "message": "載入設定失敗"
+    },
+    "apiKeyCleared": {
+      "message": "API 金鑰已清除"
+    },
+    "switchToLLMTab": {
+      "message": "切換到 AI 設定頁籤"
+    },
+    "receivedMessage": {
+      "message": "收到訊息："
+    },
+    "cannotFindRequiredElements": {
+      "message": "找不到必要的 DOM 元素"
+    },
+    "tryingSwitchToLLMTab": {
+      "message": "嘗試切換到 AI 設定頁籤"
+    },
+    "foundLLMNavButton": {
+      "message": "找到 AI 設定導航按鈕，正在切換"
+    },
+    "llmTabSwitchSuccess": {
+      "message": "AI 設定頁籤切換成功"
+    },
+    "llmNavButtonNotFound": {
+      "message": "找不到 AI 設定導航按鈕"
+    },
+    "llmTabContentNotFound": {
+      "message": "找不到 AI 設定頁籤內容元素"
+    },
+    "loadingModelsFailed": {
+      "message": "載入模型列表失敗"
     }
 }

@@ -200,6 +200,47 @@
   "promptSettings": {
     "message": "Prompt Settings"
   },
+  "generatingTitle": {
+    "message": "Generating title..."
+  },
+  "reinitializingLlmManager": {
+    "message": "Reinitializing LLM manager..."
+  },
+  "errorLlmSettingsNotInitialized": {
+    "message": "LLM settings not initialized"
+  },
+  "errorApiKeyRequired": {
+    "message": "Please configure API key first to use AI generation"
+  },
+  "errorCannotGetPageInfo": {
+    "message": "Cannot get page information from content script"
+  },
+  "errorCannotGetCurrentTab": {
+    "message": "Cannot get current tab"
+  },
+  "successTitleGenerated": {
+    "message": "Title generated successfully"
+  },
+  "errorGeneratingTitle": {
+    "message": "Failed to generate title, please try again"
+  },
+  "errorGeneratingTitleWithReason": {
+    "message": "Failed to generate title: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "unknownError": {
+    "message": "Unknown error"
+  },
+  "successLlmManagerInitialized": {
+    "message": "LLM manager initialized successfully"
+  },
+  "errorLlmManagerInitFailed": {
+    "message": "Failed to initialize LLM manager:"
+  },
   "systemPromptLabel": {
     "message": "System Prompt:"
   },
@@ -213,7 +254,7 @@
     "message": "Specify generation task and tone..."
   },
   "promptVariablesHelp": {
-    "message": "Available variables: {{title}}"
+    "message": "Tip: You can use {{title}} in your text to automatically insert the current tab's title"
   },
   "resetPrompts": {
     "message": "Reset to Default"
@@ -283,5 +324,32 @@
   },
   "apiKeyCleared": {
     "message": "API Key cleared"
+  },
+  "switchToLLMTab": {
+    "message": "Switch to AI Settings tab"
+  },
+  "receivedMessage": {
+    "message": "Received message:"
+  },
+  "cannotFindRequiredElements": {
+    "message": "Cannot find required DOM elements"
+  },
+  "tryingSwitchToLLMTab": {
+    "message": "Trying to switch to AI Settings tab"
+  },
+  "foundLLMNavButton": {
+    "message": "Found AI Settings navigation button, switching"
+  },
+  "llmTabSwitchSuccess": {
+    "message": "AI Settings tab switch successful"
+  },
+  "llmNavButtonNotFound": {
+    "message": "AI Settings navigation button not found"
+  },
+  "llmTabContentNotFound": {
+    "message": "AI Settings tab content element not found"
+  },
+  "loadingModelsFailed": {
+    "message": "Failed to load model list"
   }
 }

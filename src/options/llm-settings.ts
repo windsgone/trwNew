@@ -84,7 +84,7 @@ async function loadSettings(): Promise<void> {
       userPromptTextarea.value = providerSettings.userPrompt;
     }
   } catch (error) {
-    console.error('加载 LLM 设置失败:', error);
+    console.error(getMessage('errorLoadingSettings') + ':', error);
     showNotification(getMessage('errorLoadingSettings'), 'error');
   }
 }
@@ -514,7 +514,7 @@ async function populateModelOptions(): Promise<string | null> {
     
     return firstModelId;
   } catch (error) {
-    console.error('加载模型列表失败:', error);
+    console.error(getMessage('loadingModelsFailed') + ':', error);
     return null;
   }
 }

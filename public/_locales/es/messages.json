@@ -154,5 +154,202 @@
     },
     "matchModePriority3": {
       "message": "Si todo es igual, se elige la regla modificada más recientemente"
+    },
+    "navRules": {
+      "message": "Reglas Guardadas"
+    },
+    "navLLM": {
+      "message": "Configuración de IA"
+    },
+    "llmSettingsTitle": {
+      "message": "Configuración de IA"
+    },
+    "rulesSettingsTitle": {
+      "message": "Reglas Guardadas"
+    },
+    "apiKeySettings": {
+      "message": "Configuración de Clave API"
+    },
+    "apiKeyLabel": {
+      "message": "Clave API:"
+    },
+    "apiKeyPlaceholder": {
+      "message": "sk-..."
+    },
+    "testApiKey": {
+      "message": "Probar"
+    },
+    "clearApiKey": {
+      "message": "Borrar"
+    },
+    "apiKeyHelp": {
+      "message": "La clave API se almacena localmente y se utiliza para la generación de títulos con IA."
+    },
+    "modelSelectLabel": {
+      "message": "Seleccionar Modelo:"
+    },
+    "modelGpt4o": {
+      "message": "GPT-4o"
+    },
+    "modelGpt4oMini": {
+      "message": "GPT-4o-mini"
+    },
+    "modelGpt35Turbo": {
+      "message": "GPT-3.5-turbo"
+    },
+    "promptSettings": {
+      "message": "Configuración de Prompt"
+    },
+    "generatingTitle": {
+      "message": "Generando título..."
+    },
+    "reinitializingLlmManager": {
+      "message": "Reinicializando el gestor de LLM..."
+    },
+    "errorLlmSettingsNotInitialized": {
+      "message": "Configuración de LLM no inicializada"
+    },
+    "errorApiKeyRequired": {
+      "message": "Por favor, configura la clave API primero para usar la generación con IA"
+    },
+    "errorCannotGetPageInfo": {
+      "message": "No se puede obtener información de la página desde el script de contenido"
+    },
+    "errorCannotGetCurrentTab": {
+      "message": "No se puede obtener la pestaña actual"
+    },
+    "successTitleGenerated": {
+      "message": "Título generado con éxito"
+    },
+    "errorGeneratingTitle": {
+      "message": "Error al generar el título, por favor intenta de nuevo"
+    },
+    "errorGeneratingTitleWithReason": {
+      "message": "Error al generar el título: $1",
+      "placeholders": {
+        "1": {
+          "content": "$1"
+        }
+      }
+    },
+    "unknownError": {
+      "message": "Error desconocido"
+    },
+    "successLlmManagerInitialized": {
+      "message": "Gestor de LLM inicializado con éxito"
+    },
+    "errorLlmManagerInitFailed": {
+      "message": "Error al inicializar el gestor de LLM:"
+    },
+    "systemPromptLabel": {
+      "message": "Prompt del Sistema:"
+    },
+    "systemPromptPlaceholder": {
+      "message": "Define el rol y comportamiento del LLM..."
+    },
+    "userPromptLabel": {
+      "message": "Prompt del Usuario:"
+    },
+    "userPromptPlaceholder": {
+      "message": "Especifica la tarea de generación y el tono..."
+    },
+    "promptVariablesHelp": {
+      "message": "Consejo: Puedes usar {{title}} en tu texto para insertar automáticamente el título de la pestaña actual"
+    },
+    "resetPrompts": {
+      "message": "Restablecer por Defecto"
+    },
+    "saveSettings": {
+      "message": "Guardar Configuración"
+    },
+    "apiKeyInvalid": {
+      "message": "La clave API es inválida o ha expirado"
+    },
+    "apiKeyValid": {
+      "message": "La clave API es válida"
+    },
+    "settingsSaved": {
+      "message": "Configuración guardada con éxito"
+    },
+    "errorSavingSettings": {
+      "message": "Error al guardar la configuración"
+    },
+    "promptsReset": {
+      "message": "Prompts restablecidos por defecto"
+    },
+    "errorResettingPrompts": {
+      "message": "Error al restablecer los prompts"
+    },
+    "providerSelectLabel": {
+      "message": "Seleccionar Proveedor:"
+    },
+    "providerSelectHelp": {
+      "message": "Seleccionar proveedor de servicio de IA"
+    },
+    "providerOpenai": {
+      "message": "OpenAI"
+    },
+    "apiKeySaved": {
+      "message": "Clave API guardada"
+    },
+    "errorSavingApiKey": {
+      "message": "Error al guardar la clave API"
+    },
+    "modelSaved": {
+      "message": "Selección de modelo guardada"
+    },
+    "errorSavingModel": {
+      "message": "Error al guardar la selección de modelo"
+    },
+    "promptsSaved": {
+      "message": "Prompts guardados"
+    },
+    "errorSavingPrompts": {
+      "message": "Error al guardar los prompts"
+    },
+    "providerChanged": {
+      "message": "Proveedor cambiado"
+    },
+    "systemPromptEmpty": {
+      "message": "El prompt del sistema no puede estar vacío"
+    },
+    "userPromptEmpty": {
+      "message": "El prompt del usuario no puede estar vacío"
+    },
+    "promptTooLong": {
+      "message": "El prompt es demasiado largo (máximo 3000 caracteres)"
+    },
+    "errorLoadingSettings": {
+      "message": "Error al cargar la configuración"
+    },
+    "apiKeyCleared": {
+      "message": "Clave API borrada"
+    },
+    "switchToLLMTab": {
+      "message": "Cambiar a la pestaña de Configuración de IA"
+    },
+    "receivedMessage": {
+      "message": "Mensaje recibido:"
+    },
+    "cannotFindRequiredElements": {
+      "message": "No se pueden encontrar los elementos DOM requeridos"
+    },
+    "tryingSwitchToLLMTab": {
+      "message": "Intentando cambiar a la pestaña de Configuración de IA"
+    },
+    "foundLLMNavButton": {
+      "message": "Botón de navegación de Configuración de IA encontrado, cambiando"
+    },
+    "llmTabSwitchSuccess": {
+      "message": "Cambio a la pestaña de Configuración de IA exitoso"
+    },
+    "llmNavButtonNotFound": {
+      "message": "Botón de navegación de Configuración de IA no encontrado"
+    },
+    "llmTabContentNotFound": {
+      "message": "Elemento de contenido de la pestaña de Configuración de IA no encontrado"
+    },
+    "loadingModelsFailed": {
+      "message": "Error al cargar la lista de modelos"
     }
 }

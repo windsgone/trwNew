@@ -1,158 +1,355 @@
 {
-    "appName": {
-      "message": "Tab Rename Wiz - Modificar Títulos e Ícones de Abas"
-    },
-    "appDescription": {
-      "message": "Títulos e Ícones de Abas Persistentes: Personalize Seu Navegador."
-    },
-    "popupTitle": {
-      "message": "Tab Rename Wiz"
-    },
-    "exactMatch": {
-      "message": "é"
-    },
-    "startsWithMatch": {
-      "message": "começa com"
-    },
-    "endsWithMatch": {
-      "message": "termina com"
-    },
-    "containsMatch": {
-      "message": "contém"
-    },
-    "urlPattern": {
-      "message": "URL"
-    },
-    "saveRule": {
-      "message": "Salvar"
-    },
-    "errorUrlPatternRequired": {
-      "message": "Por favor, preencha a URL"
-    },
-    "errorTitleRequired": {
-      "message": "Por favor, preencha o título da página"
-    },
-    "successRuleUpdated": {
-      "message": "Regra atualizada com sucesso!"
-    },
-    "successRuleSaved": {
-      "message": "Regra salva com sucesso!"
-    },
-    "errorSavingRule": {
-      "message": "Falha ao salvar a regra"
-    },
-    "errorLoadingFailed": {
-      "message": "Falha ao carregar, por favor, tente novamente"
-    },
-    "errorInitPopupFailed": {
-      "message": "Falha ao inicializar o popup:"
-    },
-    "errorSaveRuleFailed": {
-      "message": "Falha ao salvar a regra:"
-    },
-    "emojiCategoryRecent": {
-      "message": "Usados recentemente"
-    },
-    "emojiCategorySmileys": {
-      "message": "Smileys e pessoas"
-    },
-    "emojiCategoryAnimals": {
-      "message": "Animais e natureza"
-    },
-    "emojiCategoryFood": {
-      "message": "Comida e bebida"
-    },
-    "emojiCategoryActivity": {
-      "message": "Atividade"
-    },
-    "emojiCategoryTravel": {
-      "message": "Viagens e lugares"
-    },
-    "emojiCategoryObjects": {
-      "message": "Objetos"
-    },
-    "emojiCategorySymbols": {
-      "message": "Símbolos"
-    },
-    "emojiCategoryFlags": {
-      "message": "Bandeiras"
-    },
-    "emojiSearchResults": {
-      "message": "Resultados da pesquisa"
-    },
-    "emojiNoResults": {
-      "message": "Nenhum emoji encontrado"
-    },
-    "optionsTitle": {
-      "message": "Tab Rename Wiz - Regras Salvas"
-    },
-    "buyMeCoffee": {
-      "message": "☕️ Me pague um café"
-    },
-    "columnNumber": {
-      "message": "No."
-    },
-    "columnTitle": {
-      "message": "Título"
-    },
-    "columnIcon": {
-      "message": "Ícone"
-    },
-    "columnMatchMode": {
-      "message": "Modo de Correspondência"
-    },
-    "columnUrl": {
-      "message": "Padrão de URL"
-    },
-    "columnActions": {
-      "message": "Ações"
-    },
-    "loading": {
-      "message": "Carregando..."
-    },
-    "noRules": {
-      "message": "Nenhuma regra salva"
-    },
-    "confirmDeleteTitle": {
-      "message": "Confirmar Exclusão"
-    },
-    "confirmDeleteMessage": {
-      "message": "Tem certeza de que deseja excluir esta regra? Esta ação não pode ser desfeita."
-    },
-    "cancelButton": {
-      "message": "Cancelar"
-    },
-    "deleteButton": {
-      "message": "Excluir"
-    },
-    "errorLoadingRules": {
-      "message": "Falha ao carregar as regras, por favor, tente novamente mais tarde."
-    },
-    "exactMatchText": {
-      "message": "é"
-    },
-    "startsWithMatchText": {
-      "message": "começa com"
-    },
-    "endsWithMatchText": {
-      "message": "termina com"
-    },
-    "containsMatchText": {
-      "message": "contém"
-    },
-    "errorUnsupportedPage": {
-      "message": "Esta página não pode ser modificada."
-    },
-      "matchModePriorityDesc": {
-        "message": "Quando várias regras compartilham o mesmo padrão de URL, o plugin seleciona a mais apropriada com base na seguinte prioridade:"
-      },
-      "matchModePriority1": {
-        "message": "Modos de correspondência mais precisos têm prioridade (Exato > Começa com / Termina com > Contém)"
-      },
-      "matchModePriority2": {
-        "message": "Palavras-chave mais longas são consideradas mais específicas e têm maior prioridade"
-      },
-      "matchModePriority3": {
-        "message": "Se tudo for igual, a regra mais recentemente atualizada será escolhida"
+  "appName": {
+    "message": "Tab Rename Wiz - Modificar Títulos e Ícones de Abas"
+  },
+  "appDescription": {
+    "message": "Títulos e Ícones de Abas Persistentes: Personalize Seu Navegador."
+  },
+  "popupTitle": {
+    "message": "Tab Rename Wiz"
+  },
+  "exactMatch": {
+    "message": "é"
+  },
+  "startsWithMatch": {
+    "message": "começa com"
+  },
+  "endsWithMatch": {
+    "message": "termina com"
+  },
+  "containsMatch": {
+    "message": "contém"
+  },
+  "urlPattern": {
+    "message": "URL"
+  },
+  "saveRule": {
+    "message": "Salvar"
+  },
+  "errorUrlPatternRequired": {
+    "message": "Por favor, preencha a URL"
+  },
+  "errorTitleRequired": {
+    "message": "Por favor, preencha o título da página"
+  },
+  "successRuleUpdated": {
+    "message": "Regra atualizada com sucesso!"
+  },
+  "successRuleSaved": {
+    "message": "Regra salva com sucesso!"
+  },
+  "errorSavingRule": {
+    "message": "Falha ao salvar a regra"
+  },
+  "errorLoadingFailed": {
+    "message": "Falha ao carregar, por favor, tente novamente"
+  },
+  "errorInitPopupFailed": {
+    "message": "Falha ao inicializar o popup:"
+  },
+  "errorSaveRuleFailed": {
+    "message": "Falha ao salvar a regra:"
+  },
+  "emojiCategoryRecent": {
+    "message": "Usados recentemente"
+  },
+  "emojiCategorySmileys": {
+    "message": "Smileys e pessoas"
+  },
+  "emojiCategoryAnimals": {
+    "message": "Animais e natureza"
+  },
+  "emojiCategoryFood": {
+    "message": "Comida e bebida"
+  },
+  "emojiCategoryActivity": {
+    "message": "Atividade"
+  },
+  "emojiCategoryTravel": {
+    "message": "Viagens e lugares"
+  },
+  "emojiCategoryObjects": {
+    "message": "Objetos"
+  },
+  "emojiCategorySymbols": {
+    "message": "Símbolos"
+  },
+  "emojiCategoryFlags": {
+    "message": "Bandeiras"
+  },
+  "emojiSearchResults": {
+    "message": "Resultados da pesquisa"
+  },
+  "emojiNoResults": {
+    "message": "Nenhum emoji encontrado"
+  },
+  "optionsTitle": {
+    "message": "Tab Rename Wiz - Configurações"
+  },
+  "buyMeCoffee": {
+    "message": "☕️ Me pague um café"
+  },
+  "columnNumber": {
+    "message": "No."
+  },
+  "columnTitle": {
+    "message": "Título"
+  },
+  "columnIcon": {
+    "message": "Ícone"
+  },
+  "columnMatchMode": {
+    "message": "Modo de Correspondência"
+  },
+  "columnUrl": {
+    "message": "Padrão de URL"
+  },
+  "columnActions": {
+    "message": "Ações"
+  },
+  "loading": {
+    "message": "Carregando..."
+  },
+  "noRules": {
+    "message": "Nenhuma regra salva"
+  },
+  "confirmDeleteTitle": {
+    "message": "Confirmar Exclusão"
+  },
+  "confirmDeleteMessage": {
+    "message": "Tem certeza de que deseja excluir esta regra? Esta ação não pode ser desfeita."
+  },
+  "cancelButton": {
+    "message": "Cancelar"
+  },
+  "deleteButton": {
+    "message": "Excluir"
+  },
+  "errorLoadingRules": {
+    "message": "Falha ao carregar as regras, por favor, tente novamente mais tarde."
+  },
+  "exactMatchText": {
+    "message": "é"
+  },
+  "startsWithMatchText": {
+    "message": "começa com"
+  },
+  "endsWithMatchText": {
+    "message": "termina com"
+  },
+  "containsMatchText": {
+    "message": "contém"
+  },
+  "errorUnsupportedPage": {
+    "message": "Esta página não pode ser modificada."
+  },
+  "matchModePriorityDesc": {
+    "message": "Quando várias regras compartilham o mesmo padrão de URL, o plugin seleciona a mais apropriada com base na seguinte prioridade:"
+  },
+  "matchModePriority1": {
+    "message": "Modos de correspondência mais precisos têm prioridade (Exato > Começa com / Termina com > Contém)"
+  },
+  "matchModePriority2": {
+    "message": "Palavras-chave mais longas são consideradas mais específicas e têm maior prioridade"
+  },
+  "matchModePriority3": {
+    "message": "Se tudo for igual, a regra mais recentemente atualizada será escolhida"
+  },
+  "navRules": {
+    "message": "Regras Salvas"
+  },
+  "navLLM": {
+    "message": "Configurações de IA"
+  },
+  "llmSettingsTitle": {
+    "message": "Configurações de IA"
+  },
+  "rulesSettingsTitle": {
+    "message": "Regras Salvas"
+  },
+  "apiKeySettings": {
+    "message": "Configurações de Chave API"
+  },
+  "apiKeyLabel": {
+    "message": "Chave API:"
+  },
+  "apiKeyPlaceholder": {
+    "message": "sk-..."
+  },
+  "testApiKey": {
+    "message": "Testar"
+  },
+  "clearApiKey": {
+    "message": "Limpar"
+  },
+  "apiKeyHelp": {
+    "message": "Obtenha sua chave API na sua conta OpenAI"
+  },
+  "modelSelectLabel": {
+    "message": "Selecionar Modelo:"
+  },
+  "modelGpt4o": {
+    "message": "GPT-4o"
+  },
+  "modelGpt4oMini": {
+    "message": "GPT-4o-mini"
+  },
+  "modelGpt35Turbo": {
+    "message": "GPT-3.5-turbo"
+  },
+  "promptSettings": {
+    "message": "Configurações de Prompt"
+  },
+  "generatingTitle": {
+    "message": "Gerando título..."
+  },
+  "reinitializingLlmManager": {
+    "message": "Reinicializando gerenciador LLM..."
+  },
+  "errorLlmSettingsNotInitialized": {
+    "message": "Configurações LLM não inicializadas"
+  },
+  "errorApiKeyRequired": {
+    "message": "Por favor, configure a chave API primeiro para usar a geração de IA"
+  },
+  "errorCannotGetPageInfo": {
+    "message": "Não é possível obter informações da página do script de conteúdo"
+  },
+  "errorCannotGetCurrentTab": {
+    "message": "Não é possível obter a aba atual"
+  },
+  "successTitleGenerated": {
+    "message": "Título gerado com sucesso"
+  },
+  "errorGeneratingTitle": {
+    "message": "Falha ao gerar título, por favor tente novamente"
+  },
+  "errorGeneratingTitleWithReason": {
+    "message": "Falha ao gerar título: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
       }
+    }
+  },
+  "unknownError": {
+    "message": "Erro desconhecido"
+  },
+  "successLlmManagerInitialized": {
+    "message": "Gerenciador LLM inicializado com sucesso"
+  },
+  "errorLlmManagerInitFailed": {
+    "message": "Falha ao inicializar o gerenciador LLM:"
+  },
+  "systemPromptLabel": {
+    "message": "Prompt do Sistema:"
+  },
+  "systemPromptPlaceholder": {
+    "message": "Defina o papel e comportamento do LLM..."
+  },
+  "userPromptLabel": {
+    "message": "Prompt do Usuário:"
+  },
+  "userPromptPlaceholder": {
+    "message": "Especifique a tarefa de geração e o tom..."
+  },
+  "promptVariablesHelp": {
+    "message": "Dica: Você pode usar {{title}} em seu texto para inserir automaticamente o título da aba atual"
+  },
+  "resetPrompts": {
+    "message": "Restaurar Padrões"
+  },
+  "saveSettings": {
+    "message": "Salvar Configurações"
+  },
+  "apiKeyInvalid": {
+    "message": "A Chave API é inválida ou expirou"
+  },
+  "apiKeyValid": {
+    "message": "A Chave API é válida"
+  },
+  "settingsSaved": {
+    "message": "Configurações salvas com sucesso"
+  },
+  "errorSavingSettings": {
+    "message": "Falha ao salvar configurações"
+  },
+  "promptsReset": {
+    "message": "Prompts restaurados para o padrão"
+  },
+  "errorResettingPrompts": {
+    "message": "Falha ao restaurar prompts"
+  },
+  "providerSelectLabel": {
+    "message": "Selecionar Provedor:"
+  },
+  "providerSelectHelp": {
+    "message": "Selecionar provedor de serviço de IA"
+  },
+  "providerOpenai": {
+    "message": "OpenAI"
+  },
+  "apiKeySaved": {
+    "message": "Chave API salva"
+  },
+  "errorSavingApiKey": {
+    "message": "Falha ao salvar Chave API"
+  },
+  "modelSaved": {
+    "message": "Seleção de modelo salva"
+  },
+  "errorSavingModel": {
+    "message": "Falha ao salvar seleção de modelo"
+  },
+  "promptsSaved": {
+    "message": "Prompts salvos"
+  },
+  "errorSavingPrompts": {
+    "message": "Falha ao salvar prompts"
+  },
+  "providerChanged": {
+    "message": "Provedor alterado"
+  },
+  "systemPromptEmpty": {
+    "message": "O prompt do sistema não pode estar vazio"
+  },
+  "userPromptEmpty": {
+    "message": "O prompt do usuário não pode estar vazio"
+  },
+  "promptTooLong": {
+    "message": "O prompt é muito longo (máximo de 3000 caracteres)"
+  },
+  "errorLoadingSettings": {
+    "message": "Falha ao carregar configurações"
+  },
+  "apiKeyCleared": {
+    "message": "Chave API limpa"
+  },
+  "switchToLLMTab": {
+    "message": "Mudar para a aba de Configurações de IA"
+  },
+  "receivedMessage": {
+    "message": "Mensagem recebida:"
+  },
+  "cannotFindRequiredElements": {
+    "message": "Não é possível encontrar os elementos DOM necessários"
+  },
+  "tryingSwitchToLLMTab": {
+    "message": "Tentando mudar para a aba de Configurações de IA"
+  },
+  "foundLLMNavButton": {
+    "message": "Botão de navegação de Configurações de IA encontrado, alternando"
+  },
+  "llmTabSwitchSuccess": {
+    "message": "Mudança para a aba de Configurações de IA bem-sucedida"
+  },
+  "llmNavButtonNotFound": {
+    "message": "Botão de navegação de Configurações de IA não encontrado"
+  },
+  "llmTabContentNotFound": {
+    "message": "Elemento de conteúdo da aba de Configurações de IA não encontrado"
+  },
+  "loadingModelsFailed": {
+    "message": "Falha ao carregar lista de modelos"
   }
+}

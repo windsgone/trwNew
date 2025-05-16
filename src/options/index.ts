@@ -9,10 +9,10 @@ let ruleIdToDelete: string | null = null;
  * 切换到LLM设置标签页
  */
 function switchToLLMTab() {
-  console.log('尝试切换到LLM设置标签页');
+  console.log(getMessage('tryingSwitchToLLMTab'));
   const llmNavButton = document.getElementById('nav-llm');
   if (llmNavButton) {
-    console.log('找到LLM导航按钮，点击切换');
+    console.log(getMessage('foundLLMNavButton'));
     // 直接切换标签页，而不是模拟点击
     const llmTab = document.getElementById('llm-tab');
     if (llmTab) {
@@ -23,18 +23,18 @@ function switchToLLMTab() {
       // 更新导航按钮状态
       document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
       llmNavButton.classList.add('active');
-      console.log('LLM标签页切换成功');
+      console.log(getMessage('llmTabSwitchSuccess'));
     } else {
-      console.error('未找到LLM标签页内容元素');
+      console.error(getMessage('llmTabContentNotFound'));
     }
   } else {
-    console.error('未找到LLM导航按钮');
+    console.error(getMessage('llmNavButtonNotFound'));
   }
 }
 
 // 添加消息监听器，用于接收从popup页面发送的消息
 chrome.runtime.onMessage.addListener((message) => {
-  console.log('收到消息:', message);
+  console.log(getMessage('receivedMessage'), message);
   // 保留 return true 如果还有其他消息需要异步响应，否则可以移除整个 listener 如果这是唯一的 action
   // 假设可能还有其他 action，暂时保留框架
   if (message.action === 'someOtherAction') {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   async function loadRules() {
     if (!rulesTable || !rulesTableBody || !loadingState || !emptyState) {
-      console.error('无法找到必要的DOM元素');
+      console.error(getMessage('cannotFindRequiredElements'));
       return;
     }
     rulesTable.style.display = 'none';
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderRules(rules, rulesTableBody);
       }
     } catch (error) {
-      console.error('加载规则失败:', error);
+      console.error(getMessage('errorLoadingRules') + ':', error);
       emptyState.style.display = 'flex';
       emptyState.querySelector('p')!.textContent = getMessage('errorLoadingRules');
     } finally {

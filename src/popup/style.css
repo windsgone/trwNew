@@ -375,11 +375,14 @@ input {
   border-radius: 5px;
   overflow: hidden;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  height: 42px;
 }
 
 .title-input:focus-within {
   border-color: #3498db;
   box-shadow: 0 0 0 1px #3498db;
+  height: auto;
+  min-height: 42px;
 }
 
 /* AI 生成时的彩色渐变边框效果 */
@@ -449,9 +452,9 @@ input {
 
 .title-input textarea {
   width: 100%;
-  min-height: 40px;
+  min-height: 22px;
   border: none;
-  padding: 10px 30px 10px 10px;
+  padding: 9px 30px 9px 10px;
   outline: none;
   font-size: 14px;
   resize: none;

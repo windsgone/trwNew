@@ -1,158 +1,355 @@
 {
-    "appName": {
-      "message": "Tab Rename Wiz - 탭 제목 및 아이콘 변경"
-    },
-    "appDescription": {
-      "message": "영구적인 탭 제목 및 아이콘: 브라우저를 사용자 지정하세요."
-    },
-    "popupTitle": {
-      "message": "Tab Rename Wiz"
-    },
-    "exactMatch": {
-      "message": "일치"
-    },
-    "startsWithMatch": {
-      "message": "으로 시작"
-    },
-    "endsWithMatch": {
-      "message": "으로 끝남"
-    },
-    "containsMatch": {
-      "message": "포함"
-    },
-    "urlPattern": {
-      "message": "URL"
-    },
-    "saveRule": {
-      "message": "저장"
-    },
-    "errorUrlPatternRequired": {
-      "message": "URL을 입력하세요"
-    },
-    "errorTitleRequired": {
-      "message": "페이지 제목을 입력하세요"
-    },
-    "successRuleUpdated": {
-      "message": "규칙이 성공적으로 업데이트되었습니다!"
-    },
-    "successRuleSaved": {
-      "message": "규칙이 성공적으로 저장되었습니다!"
-    },
-    "errorSavingRule": {
-      "message": "규칙 저장 실패"
-    },
-    "errorLoadingFailed": {
-      "message": "로드 실패, 다시 시도해주세요"
-    },
-    "errorInitPopupFailed": {
-      "message": "팝업 초기화 실패:"
-    },
-    "errorSaveRuleFailed": {
-      "message": "규칙 저장 실패:"
-    },
-    "emojiCategoryRecent": {
-      "message": "최근 사용한 이모티콘"
-    },
-    "emojiCategorySmileys": {
-      "message": "스마일리 및 사람"
-    },
-    "emojiCategoryAnimals": {
-      "message": "동물 및 자연"
-    },
-    "emojiCategoryFood": {
-      "message": "음식 및 음료"
-    },
-    "emojiCategoryActivity": {
-      "message": "활동"
-    },
-    "emojiCategoryTravel": {
-      "message": "여행 및 장소"
-    },
-    "emojiCategoryObjects": {
-      "message": "개체"
-    },
-    "emojiCategorySymbols": {
-      "message": "기호"
-    },
-    "emojiCategoryFlags": {
-      "message": "국기"
-    },
-    "emojiSearchResults": {
-      "message": "검색 결과"
-    },
-    "emojiNoResults": {
-      "message": "이모티콘을 찾을 수 없습니다"
-    },
-    "optionsTitle": {
-      "message": "Tab Rename Wiz - 저장된 규칙"
-    },
-    "buyMeCoffee": {
-      "message": "☕️ 커피 한 잔 사주세요"
-    },
-    "columnNumber": {
-      "message": "No."
-    },
-    "columnTitle": {
-      "message": "제목"
-    },
-    "columnIcon": {
-      "message": "아이콘"
-    },
-    "columnMatchMode": {
-      "message": "일치 모드"
-    },
-    "columnUrl": {
-      "message": "URL 키워드"
-    },
-    "columnActions": {
-      "message": "액션"
-    },
-    "loading": {
-      "message": "로드 중..."
-    },
-    "noRules": {
-      "message": "저장된 규칙 없음"
-    },
-    "confirmDeleteTitle": {
-      "message": "삭제 확인"
-    },
-    "confirmDeleteMessage": {
-      "message": "이 규칙을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
-    },
-    "cancelButton": {
-      "message": "취소"
-    },
-    "deleteButton": {
-      "message": "삭제"
-    },
-    "errorLoadingRules": {
-      "message": "규칙 로드 실패, 나중에 다시 시도해주세요."
-    },
-    "exactMatchText": {
-      "message": "정확히 일치"
-    },
-    "startsWithMatchText": {
-      "message": "다음으로 시작"
-    },
-    "endsWithMatchText": {
-      "message": "다음으로 끝"
-    },
-    "containsMatchText": {
-      "message": "다음 포함"
-    },
-    "errorUnsupportedPage": {
-      "message": "이 페이지는 수정할 수 없습니다."
-    },
-      "matchModePriorityDesc": {
-        "message": "여러 규칙에 동일한 URL 패턴이 있을 경우, 다음 우선순위에 따라 가장 적합한 규칙이 선택됩니다:"
-      },
-      "matchModePriority1": {
-        "message": "보다 정확한 일치 방식이 우선됩니다 (정확히 일치 > 시작/끝 일치 > 포함)"
-      },
-      "matchModePriority2": {
-        "message": "키워드가 길수록 더 구체적으로 간주되어 우선됩니다"
-      },
-      "matchModePriority3": {
-        "message": "모든 조건이 동일한 경우, 가장 최근에 수정된 규칙이 우선됩니다"
+  "appName": {
+    "message": "Tab Rename Wiz - 탭 제목 및 아이콘 변경"
+  },
+  "appDescription": {
+    "message": "영구적인 탭 제목 및 아이콘: 브라우저를 사용자 지정하세요."
+  },
+  "popupTitle": {
+    "message": "Tab Rename Wiz"
+  },
+  "exactMatch": {
+    "message": "일치"
+  },
+  "startsWithMatch": {
+    "message": "으로 시작"
+  },
+  "endsWithMatch": {
+    "message": "으로 끝남"
+  },
+  "containsMatch": {
+    "message": "포함"
+  },
+  "urlPattern": {
+    "message": "URL"
+  },
+  "saveRule": {
+    "message": "저장"
+  },
+  "errorUrlPatternRequired": {
+    "message": "URL을 입력하세요"
+  },
+  "errorTitleRequired": {
+    "message": "페이지 제목을 입력하세요"
+  },
+  "successRuleUpdated": {
+    "message": "규칙이 성공적으로 업데이트되었습니다!"
+  },
+  "successRuleSaved": {
+    "message": "규칙이 성공적으로 저장되었습니다!"
+  },
+  "errorSavingRule": {
+    "message": "규칙 저장 실패"
+  },
+  "errorLoadingFailed": {
+    "message": "로드 실패, 다시 시도해주세요"
+  },
+  "errorInitPopupFailed": {
+    "message": "팝업 초기화 실패:"
+  },
+  "errorSaveRuleFailed": {
+    "message": "규칙 저장 실패:"
+  },
+  "emojiCategoryRecent": {
+    "message": "최근 사용한 이모티콘"
+  },
+  "emojiCategorySmileys": {
+    "message": "스마일리 및 사람"
+  },
+  "emojiCategoryAnimals": {
+    "message": "동물 및 자연"
+  },
+  "emojiCategoryFood": {
+    "message": "음식 및 음료"
+  },
+  "emojiCategoryActivity": {
+    "message": "활동"
+  },
+  "emojiCategoryTravel": {
+    "message": "여행 및 장소"
+  },
+  "emojiCategoryObjects": {
+    "message": "개체"
+  },
+  "emojiCategorySymbols": {
+    "message": "기호"
+  },
+  "emojiCategoryFlags": {
+    "message": "국기"
+  },
+  "emojiSearchResults": {
+    "message": "검색 결과"
+  },
+  "emojiNoResults": {
+    "message": "이모티콘을 찾을 수 없습니다"
+  },
+  "optionsTitle": {
+    "message": "Tab Rename Wiz - 설정"
+  },
+  "buyMeCoffee": {
+    "message": "☕️ 커피 한 잔 사주세요"
+  },
+  "columnNumber": {
+    "message": "No."
+  },
+  "columnTitle": {
+    "message": "제목"
+  },
+  "columnIcon": {
+    "message": "아이콘"
+  },
+  "columnMatchMode": {
+    "message": "일치 모드"
+  },
+  "columnUrl": {
+    "message": "URL 패턴"
+  },
+  "columnActions": {
+    "message": "액션"
+  },
+  "loading": {
+    "message": "로드 중..."
+  },
+  "noRules": {
+    "message": "저장된 규칙 없음"
+  },
+  "confirmDeleteTitle": {
+    "message": "삭제 확인"
+  },
+  "confirmDeleteMessage": {
+    "message": "이 규칙을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+  },
+  "cancelButton": {
+    "message": "취소"
+  },
+  "deleteButton": {
+    "message": "삭제"
+  },
+  "errorLoadingRules": {
+    "message": "규칙 로드 실패, 나중에 다시 시도해주세요."
+  },
+  "exactMatchText": {
+    "message": "정확히 일치"
+  },
+  "startsWithMatchText": {
+    "message": "다음으로 시작"
+  },
+  "endsWithMatchText": {
+    "message": "다음으로 끝"
+  },
+  "containsMatchText": {
+    "message": "다음 포함"
+  },
+  "errorUnsupportedPage": {
+    "message": "이 페이지는 수정할 수 없습니다."
+  },
+  "matchModePriorityDesc": {
+    "message": "여러 규칙에 동일한 URL 패턴이 있을 경우, 다음 우선순위에 따라 가장 적합한 규칙이 선택됩니다:"
+  },
+  "matchModePriority1": {
+    "message": "보다 정확한 일치 방식이 우선됩니다 (정확히 일치 > 시작/끝 일치 > 포함)"
+  },
+  "matchModePriority2": {
+    "message": "키워드가 길수록 더 구체적으로 간주되어 우선됩니다"
+  },
+  "matchModePriority3": {
+    "message": "모든 조건이 동일한 경우, 가장 최근에 수정된 규칙이 우선됩니다"
+  },
+  "navRules": {
+    "message": "저장된 규칙"
+  },
+  "navLLM": {
+    "message": "AI 설정"
+  },
+  "llmSettingsTitle": {
+    "message": "AI 설정"
+  },
+  "rulesSettingsTitle": {
+    "message": "저장된 규칙"
+  },
+  "apiKeySettings": {
+    "message": "API 키 설정"
+  },
+  "apiKeyLabel": {
+    "message": "API 키:"
+  },
+  "apiKeyPlaceholder": {
+    "message": "sk-..."
+  },
+  "testApiKey": {
+    "message": "테스트"
+  },
+  "clearApiKey": {
+    "message": "지우기"
+  },
+  "apiKeyHelp": {
+    "message": "API 키는 로컬에 저장되며 AI 제목 생성에 사용됩니다."
+  },
+  "modelSelectLabel": {
+    "message": "모델 선택:"
+  },
+  "modelGpt4o": {
+    "message": "GPT-4o"
+  },
+  "modelGpt4oMini": {
+    "message": "GPT-4o-mini"
+  },
+  "modelGpt35Turbo": {
+    "message": "GPT-3.5-turbo"
+  },
+  "promptSettings": {
+    "message": "프롬프트 설정"
+  },
+  "generatingTitle": {
+    "message": "제목 생성 중..."
+  },
+  "reinitializingLlmManager": {
+    "message": "LLM 관리자 재초기화 중..."
+  },
+  "errorLlmSettingsNotInitialized": {
+    "message": "LLM 설정이 초기화되지 않았습니다"
+  },
+  "errorApiKeyRequired": {
+    "message": "AI 생성을 사용하려면 먼저 API 키를 구성하세요"
+  },
+  "errorCannotGetPageInfo": {
+    "message": "콘텐츠 스크립트에서 페이지 정보를 가져올 수 없습니다"
+  },
+  "errorCannotGetCurrentTab": {
+    "message": "현재 탭을 가져올 수 없습니다"
+  },
+  "successTitleGenerated": {
+    "message": "제목이 성공적으로 생성되었습니다"
+  },
+  "errorGeneratingTitle": {
+    "message": "제목 생성 실패, 다시 시도해주세요"
+  },
+  "errorGeneratingTitleWithReason": {
+    "message": "제목 생성 실패: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
       }
+    }
+  },
+  "unknownError": {
+    "message": "알 수 없는 오류"
+  },
+  "successLlmManagerInitialized": {
+    "message": "LLM 관리자가 성공적으로 초기화되었습니다"
+  },
+  "errorLlmManagerInitFailed": {
+    "message": "LLM 관리자 초기화 실패:"
+  },
+  "systemPromptLabel": {
+    "message": "시스템 프롬프트:"
+  },
+  "systemPromptPlaceholder": {
+    "message": "LLM 역할 및 동작 정의..."
+  },
+  "userPromptLabel": {
+    "message": "사용자 프롬프트:"
+  },
+  "userPromptPlaceholder": {
+    "message": "생성 작업 및 톤 지정..."
+  },
+  "promptVariablesHelp": {
+    "message": "팁: 현재 탭의 제목을 자동으로 삽입하려면 텍스트에 {{title}}을 사용할 수 있습니다"
+  },
+  "resetPrompts": {
+    "message": "기본값으로 재설정"
+  },
+  "saveSettings": {
+    "message": "설정 저장"
+  },
+  "apiKeyInvalid": {
+    "message": "API 키가 유효하지 않거나 만료되었습니다"
+  },
+  "apiKeyValid": {
+    "message": "API 키가 유효합니다"
+  },
+  "settingsSaved": {
+    "message": "설정이 성공적으로 저장되었습니다"
+  },
+  "errorSavingSettings": {
+    "message": "설정 저장 실패"
+  },
+  "promptsReset": {
+    "message": "프롬프트가 기본값으로 재설정되었습니다"
+  },
+  "errorResettingPrompts": {
+    "message": "프롬프트 재설정 실패"
+  },
+  "providerSelectLabel": {
+    "message": "제공자 선택:"
+  },
+  "providerSelectHelp": {
+    "message": "AI 서비스 제공자 선택"
+  },
+  "providerOpenai": {
+    "message": "OpenAI"
+  },
+  "apiKeySaved": {
+    "message": "API 키 저장됨"
+  },
+  "errorSavingApiKey": {
+    "message": "API 키 저장 실패"
+  },
+  "modelSaved": {
+    "message": "모델 선택 저장됨"
+  },
+  "errorSavingModel": {
+    "message": "모델 선택 저장 실패"
+  },
+  "promptsSaved": {
+    "message": "프롬프트 저장됨"
+  },
+  "errorSavingPrompts": {
+    "message": "프롬프트 저장 실패"
+  },
+  "providerChanged": {
+    "message": "제공자 변경됨"
+  },
+  "systemPromptEmpty": {
+    "message": "시스템 프롬프트는 비워둘 수 없습니다"
+  },
+  "userPromptEmpty": {
+    "message": "사용자 프롬프트는 비워둘 수 없습니다"
+  },
+  "promptTooLong": {
+    "message": "프롬프트가 너무 깁니다 (최대 3000자)"
+  },
+  "errorLoadingSettings": {
+    "message": "설정 로드 실패"
+  },
+  "apiKeyCleared": {
+    "message": "API 키 지워짐"
+  },
+  "switchToLLMTab": {
+    "message": "AI 설정 탭으로 전환"
+  },
+  "receivedMessage": {
+    "message": "수신된 메시지:"
+  },
+  "cannotFindRequiredElements": {
+    "message": "필요한 DOM 요소를 찾을 수 없습니다"
+  },
+  "tryingSwitchToLLMTab": {
+    "message": "AI 설정 탭으로 전환 시도 중"
+  },
+  "foundLLMNavButton": {
+    "message": "AI 설정 탐색 버튼을 찾았습니다, 전환 중"
+  },
+  "llmTabSwitchSuccess": {
+    "message": "AI 설정 탭 전환 성공"
+  },
+  "llmNavButtonNotFound": {
+    "message": "AI 설정 탐색 버튼을 찾을 수 없습니다"
+  },
+  "llmTabContentNotFound": {
+    "message": "AI 설정 탭 콘텐츠 요소를 찾을 수 없습니다"
+  },
+  "loadingModelsFailed": {
+    "message": "모델 목록 로드 실패"
   }
+}

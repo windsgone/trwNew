@@ -1,158 +1,355 @@
 {
-    "appName": {
-      "message": "Tab Rename Wiz - タブのタイトルとアイコンを変更"
-    },
-    "appDescription": {
-      "message": "永続的なタブタイトルとアイコン：ブラウザをカスタマイズ。"
-    },
-    "popupTitle": {
-      "message": "Tab Rename Wiz"
-    },
-    "exactMatch": {
-      "message": "は"
-    },
-    "startsWithMatch": {
-      "message": "で始まる"
-    },
-    "endsWithMatch": {
-      "message": "で終わる"
-    },
-    "containsMatch": {
-      "message": "を含む"
-    },
-    "urlPattern": {
-      "message": "URL"
-    },
-    "saveRule": {
-      "message": "保存"
-    },
-    "errorUrlPatternRequired": {
-      "message": "URLを入力してください"
-    },
-    "errorTitleRequired": {
-      "message": "ページタイトルを入力してください"
-    },
-    "successRuleUpdated": {
-      "message": "ルールを更新しました！"
-    },
-    "successRuleSaved": {
-      "message": "ルールを保存しました！"
-    },
-    "errorSavingRule": {
-      "message": "ルールの保存に失敗しました"
-    },
-    "errorLoadingFailed": {
-      "message": "読み込みに失敗しました。もう一度お試しください"
-    },
-    "errorInitPopupFailed": {
-      "message": "ポップアップの初期化に失敗しました："
-    },
-    "errorSaveRuleFailed": {
-      "message": "ルールの保存に失敗しました："
-    },
-    "emojiCategoryRecent": {
-      "message": "最近使用した絵文字"
-    },
-    "emojiCategorySmileys": {
-      "message": "スマイリーと人々"
-    },
-    "emojiCategoryAnimals": {
-      "message": "動物と自然"
-    },
-    "emojiCategoryFood": {
-      "message": "食べ物と飲み物"
-    },
-    "emojiCategoryActivity": {
-      "message": "アクティビティ"
-    },
-    "emojiCategoryTravel": {
-      "message": "旅行と場所"
-    },
-    "emojiCategoryObjects": {
-      "message": "オブジェクト"
-    },
-    "emojiCategorySymbols": {
-      "message": "記号"
-    },
-    "emojiCategoryFlags": {
-      "message": "旗"
-    },
-    "emojiSearchResults": {
-      "message": "検索結果"
-    },
-    "emojiNoResults": {
-      "message": "絵文字が見つかりません"
-    },
-    "optionsTitle": {
-      "message": "Tab Rename Wiz - 保存されたルール"
-    },
-    "buyMeCoffee": {
-      "message": "☕️ コーヒーをおごってください"
-    },
-    "columnNumber": {
-      "message": "No."
-    },
-    "columnTitle": {
-      "message": "タイトル"
-    },
-    "columnIcon": {
-      "message": "アイコン"
-    },
-    "columnMatchMode": {
-      "message": "一致モード"
-    },
-    "columnUrl": {
-      "message": "URLキーワード"
-    },
-    "columnActions": {
-      "message": "アクション"
-    },
-    "loading": {
-      "message": "読み込み中..."
-    },
-    "noRules": {
-      "message": "保存されたルールはありません"
-    },
-    "confirmDeleteTitle": {
-      "message": "削除の確認"
-    },
-    "confirmDeleteMessage": {
-      "message": "このルールを削除してもよろしいですか？この操作は元に戻せません。"
-    },
-    "cancelButton": {
-      "message": "キャンセル"
-    },
-    "deleteButton": {
-      "message": "削除"
-    },
-    "errorLoadingRules": {
-      "message": "ルールの読み込みに失敗しました。後でもう一度お試しください。"
-    },
-    "exactMatchText": {
-      "message": "は"
-    },
-    "startsWithMatchText": {
-      "message": "で始まる"
-    },
-    "endsWithMatchText": {
-      "message": "で終わる"
-    },
-    "containsMatchText": {
-      "message": "を含む"
-    },
-    "errorUnsupportedPage": {
-      "message": "このページは変更できません。"
-    },
-      "matchModePriorityDesc": {
-        "message": "複数のルールが同じURLパターンを持つ場合、次の優先順位に従って最も適切なルールが選ばれます："
-      },
-      "matchModePriority1": {
-        "message": "より厳密な一致モードが優先されます（完全一致 > 前方/後方一致 > 含む）"
-      },
-      "matchModePriority2": {
-        "message": "キーワードが長いほど、より具体的で優先されます"
-      },
-      "matchModePriority3": {
-        "message": "すべてが同じ場合は、最後に更新されたルールが優先されます"
+  "appName": {
+    "message": "Tab Rename Wiz - タブのタイトルとアイコンを変更"
+  },
+  "appDescription": {
+    "message": "永続的なタブタイトルとアイコン：ブラウザをカスタマイズ。"
+  },
+  "popupTitle": {
+    "message": "Tab Rename Wiz"
+  },
+  "exactMatch": {
+    "message": "は"
+  },
+  "startsWithMatch": {
+    "message": "で始まる"
+  },
+  "endsWithMatch": {
+    "message": "で終わる"
+  },
+  "containsMatch": {
+    "message": "を含む"
+  },
+  "urlPattern": {
+    "message": "URL"
+  },
+  "saveRule": {
+    "message": "保存"
+  },
+  "errorUrlPatternRequired": {
+    "message": "URLを入力してください"
+  },
+  "errorTitleRequired": {
+    "message": "ページタイトルを入力してください"
+  },
+  "successRuleUpdated": {
+    "message": "ルールを更新しました！"
+  },
+  "successRuleSaved": {
+    "message": "ルールを保存しました！"
+  },
+  "errorSavingRule": {
+    "message": "ルールの保存に失敗しました"
+  },
+  "errorLoadingFailed": {
+    "message": "読み込みに失敗しました。もう一度お試しください"
+  },
+  "errorInitPopupFailed": {
+    "message": "ポップアップの初期化に失敗しました："
+  },
+  "errorSaveRuleFailed": {
+    "message": "ルールの保存に失敗しました："
+  },
+  "emojiCategoryRecent": {
+    "message": "最近使用した絵文字"
+  },
+  "emojiCategorySmileys": {
+    "message": "スマイリーと人々"
+  },
+  "emojiCategoryAnimals": {
+    "message": "動物と自然"
+  },
+  "emojiCategoryFood": {
+    "message": "食べ物と飲み物"
+  },
+  "emojiCategoryActivity": {
+    "message": "アクティビティ"
+  },
+  "emojiCategoryTravel": {
+    "message": "旅行と場所"
+  },
+  "emojiCategoryObjects": {
+    "message": "オブジェクト"
+  },
+  "emojiCategorySymbols": {
+    "message": "記号"
+  },
+  "emojiCategoryFlags": {
+    "message": "旗"
+  },
+  "emojiSearchResults": {
+    "message": "検索結果"
+  },
+  "emojiNoResults": {
+    "message": "絵文字が見つかりません"
+  },
+  "optionsTitle": {
+    "message": "Tab Rename Wiz - 設定"
+  },
+  "buyMeCoffee": {
+    "message": "☕️ コーヒーをおごってください"
+  },
+  "columnNumber": {
+    "message": "No."
+  },
+  "columnTitle": {
+    "message": "タイトル"
+  },
+  "columnIcon": {
+    "message": "アイコン"
+  },
+  "columnMatchMode": {
+    "message": "一致モード"
+  },
+  "columnUrl": {
+    "message": "URLパターン"
+  },
+  "columnActions": {
+    "message": "アクション"
+  },
+  "loading": {
+    "message": "読み込み中..."
+  },
+  "noRules": {
+    "message": "保存されたルールはありません"
+  },
+  "confirmDeleteTitle": {
+    "message": "削除の確認"
+  },
+  "confirmDeleteMessage": {
+    "message": "このルールを削除してもよろしいですか？この操作は元に戻せません。"
+  },
+  "cancelButton": {
+    "message": "キャンセル"
+  },
+  "deleteButton": {
+    "message": "削除"
+  },
+  "errorLoadingRules": {
+    "message": "ルールの読み込みに失敗しました。後でもう一度お試しください。"
+  },
+  "exactMatchText": {
+    "message": "は"
+  },
+  "startsWithMatchText": {
+    "message": "で始まる"
+  },
+  "endsWithMatchText": {
+    "message": "で終わる"
+  },
+  "containsMatchText": {
+    "message": "を含む"
+  },
+  "errorUnsupportedPage": {
+    "message": "このページは変更できません。"
+  },
+  "matchModePriorityDesc": {
+    "message": "複数のルールが同じURLパターンを持つ場合、次の優先順位に従って最も適切なルールが選ばれます："
+  },
+  "matchModePriority1": {
+    "message": "より厳密な一致モードが優先されます（完全一致 > 前方/後方一致 > 含む）"
+  },
+  "matchModePriority2": {
+    "message": "キーワードが長いほど、より具体的で優先されます"
+  },
+  "matchModePriority3": {
+    "message": "すべてが同じ場合は、最後に更新されたルールが優先されます"
+  },
+  "navRules": {
+    "message": "保存されたルール"
+  },
+  "navLLM": {
+    "message": "AI設定"
+  },
+  "llmSettingsTitle": {
+    "message": "AI設定"
+  },
+  "rulesSettingsTitle": {
+    "message": "保存されたルール"
+  },
+  "apiKeySettings": {
+    "message": "APIキー設定"
+  },
+  "apiKeyLabel": {
+    "message": "APIキー："
+  },
+  "apiKeyPlaceholder": {
+    "message": "sk-..."
+  },
+  "testApiKey": {
+    "message": "テスト"
+  },
+  "clearApiKey": {
+    "message": "クリア"
+  },
+  "apiKeyHelp": {
+    "message": "APIキーはローカルに保存され、AIタイトル生成に使用されます。"
+  },
+  "modelSelectLabel": {
+    "message": "モデルを選択："
+  },
+  "modelGpt4o": {
+    "message": "GPT-4o"
+  },
+  "modelGpt4oMini": {
+    "message": "GPT-4o-mini"
+  },
+  "modelGpt35Turbo": {
+    "message": "GPT-3.5-turbo"
+  },
+  "promptSettings": {
+    "message": "プロンプト設定"
+  },
+  "generatingTitle": {
+    "message": "タイトル生成中..."
+  },
+  "reinitializingLlmManager": {
+    "message": "LLMマネージャーを再初期化中..."
+  },
+  "errorLlmSettingsNotInitialized": {
+    "message": "LLM設定が初期化されていません"
+  },
+  "errorApiKeyRequired": {
+    "message": "AI生成を使用するには、まずAPIキーを設定してください"
+  },
+  "errorCannotGetPageInfo": {
+    "message": "コンテンツスクリプトからページ情報を取得できません"
+  },
+  "errorCannotGetCurrentTab": {
+    "message": "現在のタブを取得できません"
+  },
+  "successTitleGenerated": {
+    "message": "タイトルが正常に生成されました"
+  },
+  "errorGeneratingTitle": {
+    "message": "タイトルの生成に失敗しました。もう一度お試しください"
+  },
+  "errorGeneratingTitleWithReason": {
+    "message": "タイトルの生成に失敗しました：$1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
       }
+    }
+  },
+  "unknownError": {
+    "message": "不明なエラー"
+  },
+  "successLlmManagerInitialized": {
+    "message": "LLMマネージャーが正常に初期化されました"
+  },
+  "errorLlmManagerInitFailed": {
+    "message": "LLMマネージャーの初期化に失敗しました："
+  },
+  "systemPromptLabel": {
+    "message": "システムプロンプト："
+  },
+  "systemPromptPlaceholder": {
+    "message": "LLMの役割と動作を定義..."
+  },
+  "userPromptLabel": {
+    "message": "ユーザープロンプト："
+  },
+  "userPromptPlaceholder": {
+    "message": "生成タスクとトーンを指定..."
+  },
+  "promptVariablesHelp": {
+    "message": "ヒント：テキスト内で{{title}}を使用すると、現在のタブのタイトルが自動的に挿入されます"
+  },
+  "resetPrompts": {
+    "message": "デフォルトにリセット"
+  },
+  "saveSettings": {
+    "message": "設定を保存"
+  },
+  "apiKeyInvalid": {
+    "message": "APIキーが無効または期限切れです"
+  },
+  "apiKeyValid": {
+    "message": "APIキーは有効です"
+  },
+  "settingsSaved": {
+    "message": "設定が正常に保存されました"
+  },
+  "errorSavingSettings": {
+    "message": "設定の保存に失敗しました"
+  },
+  "promptsReset": {
+    "message": "プロンプトがデフォルトにリセットされました"
+  },
+  "errorResettingPrompts": {
+    "message": "プロンプトのリセットに失敗しました"
+  },
+  "providerSelectLabel": {
+    "message": "プロバイダーを選択："
+  },
+  "providerSelectHelp": {
+    "message": "AIサービスプロバイダーを選択"
+  },
+  "providerOpenai": {
+    "message": "OpenAI"
+  },
+  "apiKeySaved": {
+    "message": "APIキーが保存されました"
+  },
+  "errorSavingApiKey": {
+    "message": "APIキーの保存に失敗しました"
+  },
+  "modelSaved": {
+    "message": "モデル選択が保存されました"
+  },
+  "errorSavingModel": {
+    "message": "モデル選択の保存に失敗しました"
+  },
+  "promptsSaved": {
+    "message": "プロンプトが保存されました"
+  },
+  "errorSavingPrompts": {
+    "message": "プロンプトの保存に失敗しました"
+  },
+  "providerChanged": {
+    "message": "プロバイダーが変更されました"
+  },
+  "systemPromptEmpty": {
+    "message": "システムプロンプトを空にすることはできません"
+  },
+  "userPromptEmpty": {
+    "message": "ユーザープロンプトを空にすることはできません"
+  },
+  "promptTooLong": {
+    "message": "プロンプトが長すぎます（最大3000文字）"
+  },
+  "errorLoadingSettings": {
+    "message": "設定の読み込みに失敗しました"
+  },
+  "apiKeyCleared": {
+    "message": "APIキーがクリアされました"
+  },
+  "switchToLLMTab": {
+    "message": "AI設定タブに切り替える"
+  },
+  "receivedMessage": {
+    "message": "受信したメッセージ："
+  },
+  "cannotFindRequiredElements": {
+    "message": "必要なDOM要素が見つかりません"
+  },
+  "tryingSwitchToLLMTab": {
+    "message": "AI設定タブへの切り替えを試みています"
+  },
+  "foundLLMNavButton": {
+    "message": "AI設定ナビゲーションボタンが見つかりました、切り替えています"
+  },
+  "llmTabSwitchSuccess": {
+    "message": "AI設定タブへの切り替えが成功しました"
+  },
+  "llmNavButtonNotFound": {
+    "message": "AI設定ナビゲーションボタンが見つかりません"
+  },
+  "llmTabContentNotFound": {
+    "message": "AI設定タブのコンテンツ要素が見つかりません"
+  },
+  "loadingModelsFailed": {
+    "message": "モデルリストの読み込みに失敗しました"
   }
+}

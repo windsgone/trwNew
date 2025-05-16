@@ -1,158 +1,355 @@
 {
-    "appName": {
-      "message": "Tab Rename Wiz - Modifier les titres et les icônes des onglets"
-    },
-    "appDescription": {
-      "message": "Titres et icônes d'onglet persistants : Personnalisez votre navigateur."
-    },
-    "popupTitle": {
-      "message": "Tab Rename Wiz"
-    },
-    "exactMatch": {
-      "message": "est"
-    },
-    "startsWithMatch": {
-      "message": "commence par"
-    },
-    "endsWithMatch": {
-      "message": "finit par"
-    },
-    "containsMatch": {
-      "message": "contient"
-    },
-    "urlPattern": {
-      "message": "URL"
-    },
-    "saveRule": {
-      "message": "Enregistrer"
-    },
-    "errorUrlPatternRequired": {
-      "message": "Veuillez remplir l'URL"
-    },
-    "errorTitleRequired": {
-      "message": "Veuillez remplir le titre de la page"
-    },
-    "successRuleUpdated": {
-      "message": "Règle mise à jour avec succès !"
-    },
-    "successRuleSaved": {
-      "message": "Règle enregistrée avec succès !"
-    },
-    "errorSavingRule": {
-      "message": "Échec de l'enregistrement de la règle"
-    },
-    "errorLoadingFailed": {
-      "message": "Le chargement a échoué, veuillez réessayer"
-    },
-    "errorInitPopupFailed": {
-      "message": "Échec de l'initialisation de la fenêtre contextuelle :"
-    },
-    "errorSaveRuleFailed": {
-      "message": "Échec de l'enregistrement de la règle :"
-    },
-    "emojiCategoryRecent": {
-      "message": "Récemment utilisés"
-    },
-    "emojiCategorySmileys": {
-      "message": "Smileys et personnes"
-    },
-    "emojiCategoryAnimals": {
-      "message": "Animaux et nature"
-    },
-    "emojiCategoryFood": {
-      "message": "Nourriture et boissons"
-    },
-    "emojiCategoryActivity": {
-      "message": "Activité"
-    },
-    "emojiCategoryTravel": {
-      "message": "Voyages et lieux"
-    },
-    "emojiCategoryObjects": {
-      "message": "Objets"
-    },
-    "emojiCategorySymbols": {
-      "message": "Symboles"
-    },
-    "emojiCategoryFlags": {
-      "message": "Drapeaux"
-    },
-    "emojiSearchResults": {
-      "message": "Résultats de la recherche"
-    },
-    "emojiNoResults": {
-      "message": "Aucun emoji trouvé"
-    },
-    "optionsTitle": {
-      "message": "Tab Rename Wiz - Règles enregistrées"
-    },
-    "buyMeCoffee": {
-      "message": "☕️ Offrez-moi un café"
-    },
-    "columnNumber": {
-      "message": "N°"
-    },
-    "columnTitle": {
-      "message": "Titre"
-    },
-    "columnIcon": {
-      "message": "Icône"
-    },
-    "columnMatchMode": {
-      "message": "Mode de correspondance"
-    },
-    "columnUrl": {
-      "message": "Modèle d’URL"
-    },
-    "columnActions": {
-      "message": "Actions"
-    },
-    "loading": {
-      "message": "Chargement..."
-    },
-    "noRules": {
-      "message": "Aucune règle enregistrée"
-    },
-    "confirmDeleteTitle": {
-      "message": "Confirmer la suppression"
-    },
-    "confirmDeleteMessage": {
-      "message": "Êtes-vous sûr de vouloir supprimer cette règle ? Cette action est irréversible."
-    },
-    "cancelButton": {
-      "message": "Annuler"
-    },
-    "deleteButton": {
-      "message": "Supprimer"
-    },
-    "errorLoadingRules": {
-      "message": "Échec du chargement des règles, veuillez réessayer ultérieurement."
-    },
-    "exactMatchText": {
-      "message": "est"
-    },
-    "startsWithMatchText": {
-      "message": "commence par"
-    },
-    "endsWithMatchText": {
-      "message": "finit par"
-    },
-    "containsMatchText": {
-      "message": "contient"
-    },
-    "errorUnsupportedPage": {
-      "message": "Cette page ne peut pas être modifiée."
-    },
-      "matchModePriorityDesc": {
-        "message": "Lorsqu'il existe plusieurs règles avec le même modèle d'URL, le plugin sélectionne la plus appropriée selon l'ordre de priorité suivant :"
-      },
-      "matchModePriority1": {
-        "message": "Les modes de correspondance plus précis sont prioritaires (Correspondance exacte > Commence par / Se termine par > Contient)"
-      },
-      "matchModePriority2": {
-        "message": "Les mots-clés plus longs sont considérés comme plus spécifiques et sont donc prioritaires"
-      },
-      "matchModePriority3": {
-        "message": "En cas d’égalité, la règle la plus récemment modifiée est prioritaire"
+  "appName": {
+    "message": "Tab Rename Wiz - Modifier les titres et les icônes des onglets"
+  },
+  "appDescription": {
+    "message": "Titres et icônes d'onglet persistants : Personnalisez votre navigateur."
+  },
+  "popupTitle": {
+    "message": "Tab Rename Wiz"
+  },
+  "exactMatch": {
+    "message": "est"
+  },
+  "startsWithMatch": {
+    "message": "commence par"
+  },
+  "endsWithMatch": {
+    "message": "finit par"
+  },
+  "containsMatch": {
+    "message": "contient"
+  },
+  "urlPattern": {
+    "message": "URL"
+  },
+  "saveRule": {
+    "message": "Enregistrer"
+  },
+  "errorUrlPatternRequired": {
+    "message": "Veuillez remplir l'URL"
+  },
+  "errorTitleRequired": {
+    "message": "Veuillez remplir le titre de la page"
+  },
+  "successRuleUpdated": {
+    "message": "Règle mise à jour avec succès !"
+  },
+  "successRuleSaved": {
+    "message": "Règle enregistrée avec succès !"
+  },
+  "errorSavingRule": {
+    "message": "Échec de l'enregistrement de la règle"
+  },
+  "errorLoadingFailed": {
+    "message": "Le chargement a échoué, veuillez réessayer"
+  },
+  "errorInitPopupFailed": {
+    "message": "Échec de l'initialisation de la fenêtre contextuelle :"
+  },
+  "errorSaveRuleFailed": {
+    "message": "Échec de l'enregistrement de la règle :"
+  },
+  "emojiCategoryRecent": {
+    "message": "Récemment utilisés"
+  },
+  "emojiCategorySmileys": {
+    "message": "Smileys et personnes"
+  },
+  "emojiCategoryAnimals": {
+    "message": "Animaux et nature"
+  },
+  "emojiCategoryFood": {
+    "message": "Nourriture et boissons"
+  },
+  "emojiCategoryActivity": {
+    "message": "Activité"
+  },
+  "emojiCategoryTravel": {
+    "message": "Voyages et lieux"
+  },
+  "emojiCategoryObjects": {
+    "message": "Objets"
+  },
+  "emojiCategorySymbols": {
+    "message": "Symboles"
+  },
+  "emojiCategoryFlags": {
+    "message": "Drapeaux"
+  },
+  "emojiSearchResults": {
+    "message": "Résultats de la recherche"
+  },
+  "emojiNoResults": {
+    "message": "Aucun emoji trouvé"
+  },
+  "optionsTitle": {
+    "message": "Tab Rename Wiz - Paramètres"
+  },
+  "buyMeCoffee": {
+    "message": "☕️ Offrez-moi un café"
+  },
+  "columnNumber": {
+    "message": "N°"
+  },
+  "columnTitle": {
+    "message": "Titre"
+  },
+  "columnIcon": {
+    "message": "Icône"
+  },
+  "columnMatchMode": {
+    "message": "Mode de correspondance"
+  },
+  "columnUrl": {
+    "message": "Modèle d'URL"
+  },
+  "columnActions": {
+    "message": "Actions"
+  },
+  "loading": {
+    "message": "Chargement..."
+  },
+  "noRules": {
+    "message": "Aucune règle enregistrée"
+  },
+  "confirmDeleteTitle": {
+    "message": "Confirmer la suppression"
+  },
+  "confirmDeleteMessage": {
+    "message": "Êtes-vous sûr de vouloir supprimer cette règle ? Cette action est irréversible."
+  },
+  "cancelButton": {
+    "message": "Annuler"
+  },
+  "deleteButton": {
+    "message": "Supprimer"
+  },
+  "errorLoadingRules": {
+    "message": "Échec du chargement des règles, veuillez réessayer ultérieurement."
+  },
+  "exactMatchText": {
+    "message": "est"
+  },
+  "startsWithMatchText": {
+    "message": "commence par"
+  },
+  "endsWithMatchText": {
+    "message": "finit par"
+  },
+  "containsMatchText": {
+    "message": "contient"
+  },
+  "errorUnsupportedPage": {
+    "message": "Cette page ne peut pas être modifiée."
+  },
+  "matchModePriorityDesc": {
+    "message": "Lorsqu'il existe plusieurs règles avec le même modèle d'URL, le plugin sélectionne la plus appropriée selon l'ordre de priorité suivant :"
+  },
+  "matchModePriority1": {
+    "message": "Les modes de correspondance plus précis sont prioritaires (Correspondance exacte > Commence par / Se termine par > Contient)"
+  },
+  "matchModePriority2": {
+    "message": "Les mots-clés plus longs sont considérés comme plus spécifiques et sont donc prioritaires"
+  },
+  "matchModePriority3": {
+    "message": "En cas d'égalité, la règle la plus récemment modifiée est prioritaire"
+  },
+  "navRules": {
+    "message": "Règles enregistrées"
+  },
+  "navLLM": {
+    "message": "Paramètres IA"
+  },
+  "llmSettingsTitle": {
+    "message": "Paramètres IA"
+  },
+  "rulesSettingsTitle": {
+    "message": "Règles enregistrées"
+  },
+  "apiKeySettings": {
+    "message": "Paramètres de clé API"
+  },
+  "apiKeyLabel": {
+    "message": "Clé API :"
+  },
+  "apiKeyPlaceholder": {
+    "message": "sk-..."
+  },
+  "testApiKey": {
+    "message": "Tester"
+  },
+  "clearApiKey": {
+    "message": "Effacer"
+  },
+  "apiKeyHelp": {
+    "message": "La clé API est stockée localement et utilisée pour la génération de titres par IA."
+  },
+  "modelSelectLabel": {
+    "message": "Sélectionner le modèle :"
+  },
+  "modelGpt4o": {
+    "message": "GPT-4o"
+  },
+  "modelGpt4oMini": {
+    "message": "GPT-4o-mini"
+  },
+  "modelGpt35Turbo": {
+    "message": "GPT-3.5-turbo"
+  },
+  "promptSettings": {
+    "message": "Paramètres d'invite"
+  },
+  "generatingTitle": {
+    "message": "Génération du titre..."
+  },
+  "reinitializingLlmManager": {
+    "message": "Réinitialisation du gestionnaire LLM..."
+  },
+  "errorLlmSettingsNotInitialized": {
+    "message": "Paramètres LLM non initialisés"
+  },
+  "errorApiKeyRequired": {
+    "message": "Veuillez configurer la clé API pour utiliser la génération IA"
+  },
+  "errorCannotGetPageInfo": {
+    "message": "Impossible d'obtenir les informations de la page depuis le script de contenu"
+  },
+  "errorCannotGetCurrentTab": {
+    "message": "Impossible d'obtenir l'onglet actuel"
+  },
+  "successTitleGenerated": {
+    "message": "Titre généré avec succès"
+  },
+  "errorGeneratingTitle": {
+    "message": "Échec de la génération du titre, veuillez réessayer"
+  },
+  "errorGeneratingTitleWithReason": {
+    "message": "Échec de la génération du titre : $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
       }
+    }
+  },
+  "unknownError": {
+    "message": "Erreur inconnue"
+  },
+  "successLlmManagerInitialized": {
+    "message": "Gestionnaire LLM initialisé avec succès"
+  },
+  "errorLlmManagerInitFailed": {
+    "message": "Échec de l'initialisation du gestionnaire LLM :"
+  },
+  "systemPromptLabel": {
+    "message": "Invite système :"
+  },
+  "systemPromptPlaceholder": {
+    "message": "Définir le rôle et le comportement du LLM..."
+  },
+  "userPromptLabel": {
+    "message": "Invite utilisateur :"
+  },
+  "userPromptPlaceholder": {
+    "message": "Spécifier la tâche de génération et le ton..."
+  },
+  "promptVariablesHelp": {
+    "message": "Astuce : Vous pouvez utiliser {{title}} dans votre texte pour insérer automatiquement le titre de l'onglet actuel"
+  },
+  "resetPrompts": {
+    "message": "Réinitialiser par défaut"
+  },
+  "saveSettings": {
+    "message": "Enregistrer les paramètres"
+  },
+  "apiKeyInvalid": {
+    "message": "La clé API est invalide ou expirée"
+  },
+  "apiKeyValid": {
+    "message": "La clé API est valide"
+  },
+  "settingsSaved": {
+    "message": "Paramètres enregistrés avec succès"
+  },
+  "errorSavingSettings": {
+    "message": "Échec de l'enregistrement des paramètres"
+  },
+  "promptsReset": {
+    "message": "Invites réinitialisées par défaut"
+  },
+  "errorResettingPrompts": {
+    "message": "Échec de la réinitialisation des invites"
+  },
+  "providerSelectLabel": {
+    "message": "Sélectionner le fournisseur :"
+  },
+  "providerSelectHelp": {
+    "message": "Sélectionner le fournisseur de service IA"
+  },
+  "providerOpenai": {
+    "message": "OpenAI"
+  },
+  "apiKeySaved": {
+    "message": "Clé API enregistrée"
+  },
+  "errorSavingApiKey": {
+    "message": "Échec de l'enregistrement de la clé API"
+  },
+  "modelSaved": {
+    "message": "Sélection du modèle enregistrée"
+  },
+  "errorSavingModel": {
+    "message": "Échec de l'enregistrement de la sélection du modèle"
+  },
+  "promptsSaved": {
+    "message": "Invites enregistrées"
+  },
+  "errorSavingPrompts": {
+    "message": "Échec de l'enregistrement des invites"
+  },
+  "providerChanged": {
+    "message": "Fournisseur modifié"
+  },
+  "systemPromptEmpty": {
+    "message": "L'invite système ne peut pas être vide"
+  },
+  "userPromptEmpty": {
+    "message": "L'invite utilisateur ne peut pas être vide"
+  },
+  "promptTooLong": {
+    "message": "L'invite est trop longue (maximum 3000 caractères)"
+  },
+  "errorLoadingSettings": {
+    "message": "Échec du chargement des paramètres"
+  },
+  "apiKeyCleared": {
+    "message": "Clé API effacée"
+  },
+  "switchToLLMTab": {
+    "message": "Passer à l'onglet Paramètres IA"
+  },
+  "receivedMessage": {
+    "message": "Message reçu :"
+  },
+  "cannotFindRequiredElements": {
+    "message": "Impossible de trouver les éléments DOM requis"
+  },
+  "tryingSwitchToLLMTab": {
+    "message": "Tentative de passage à l'onglet Paramètres IA"
+  },
+  "foundLLMNavButton": {
+    "message": "Bouton de navigation Paramètres IA trouvé, changement en cours"
+  },
+  "llmTabSwitchSuccess": {
+    "message": "Passage à l'onglet Paramètres IA réussi"
+  },
+  "llmNavButtonNotFound": {
+    "message": "Bouton de navigation Paramètres IA non trouvé"
+  },
+  "llmTabContentNotFound": {
+    "message": "Élément de contenu de l'onglet Paramètres IA non trouvé"
+  },
+  "loadingModelsFailed": {
+    "message": "Échec du chargement de la liste des modèles"
   }
+}

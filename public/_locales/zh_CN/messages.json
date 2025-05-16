@@ -159,16 +159,19 @@
     "message": "规则管理"
   },
   "navLLM": {
-    "message": "LLM 设置"
+    "message": "AI 设置"
   },
   "llmSettingsTitle": {
-    "message": "LLM 设置"
+    "message": "AI 设置"
+  },
+  "rulesSettingsTitle": {
+    "message": "已保存规则"
   },
   "apiKeySettings": {
     "message": "API Key 设置"
   },
   "apiKeyLabel": {
-    "message": "OpenAI API Key:"
+    "message": "API Key:"
   },
   "apiKeyPlaceholder": {
     "message": "sk-..."
@@ -197,6 +200,47 @@
   "promptSettings": {
     "message": "Prompt 设置"
   },
+  "generatingTitle": {
+    "message": "正在生成标题..."
+  },
+  "reinitializingLlmManager": {
+    "message": "正在重新初始化 AI 管理器..."
+  },
+  "errorLlmSettingsNotInitialized": {
+    "message": "AI 设置未初始化"
+  },
+  "errorApiKeyRequired": {
+    "message": "请先配置 API Key 以使用 AI 生成功能"
+  },
+  "errorCannotGetPageInfo": {
+    "message": "无法从内容脚本获取页面信息"
+  },
+  "errorCannotGetCurrentTab": {
+    "message": "无法获取当前标签页"
+  },
+  "successTitleGenerated": {
+    "message": "标题生成成功"
+  },
+  "errorGeneratingTitle": {
+    "message": "生成标题失败，请重试"
+  },
+  "errorGeneratingTitleWithReason": {
+    "message": "生成标题失败: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "unknownError": {
+    "message": "未知错误"
+  },
+  "successLlmManagerInitialized": {
+    "message": "AI 管理器初始化成功"
+  },
+  "errorLlmManagerInitFailed": {
+    "message": "初始化 AI 管理器失败:"
+  },
   "systemPromptLabel": {
     "message": "System Prompt:"
   },
@@ -210,7 +254,7 @@
     "message": "明确生成任务与语气..."
   },
   "promptVariablesHelp": {
-    "message": "可用变量: {{title}}, {{url}}, {{descriptions}}"
+    "message": "提示：您可以在文本中使用 {{title}} 自动插入当前标签页的标题"
   },
   "resetPrompts": {
     "message": "恢复默认"
@@ -280,5 +324,32 @@
   },
   "apiKeyCleared": {
     "message": "API Key 已清除"
+  },
+  "switchToLLMTab": {
+    "message": "切换到 AI 设置标签页"
+  },
+  "receivedMessage": {
+    "message": "收到消息:"
+  },
+  "cannotFindRequiredElements": {
+    "message": "找不到所需的 DOM 元素"
+  },
+  "tryingSwitchToLLMTab": {
+    "message": "尝试切换到 AI 设置标签页"
+  },
+  "foundLLMNavButton": {
+    "message": "找到 AI 设置导航按钮，正在切换"
+  },
+  "llmTabSwitchSuccess": {
+    "message": "AI 设置标签页切换成功"
+  },
+  "llmNavButtonNotFound": {
+    "message": "未找到 AI 设置导航按钮"
+  },
+  "llmTabContentNotFound": {
+    "message": "未找到 AI 设置标签页内容元素"
+  },
+  "loadingModelsFailed": {
+    "message": "加载模型列表失败"
   }
 }
