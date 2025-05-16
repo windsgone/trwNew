@@ -17,6 +17,7 @@ import { OpenAIService } from '../utils/llm/providers/openai-provider';
 import { getMessage } from '../utils/i18nUtils';
 
 // DOM 元素
+const providerSelect = document.getElementById('provider-select') as HTMLSelectElement;
 const apiKeyInput = document.getElementById('api-key') as HTMLInputElement;
 const modelSelect = document.getElementById('model-select') as HTMLSelectElement;
 const systemPromptTextarea = document.getElementById('system-prompt') as HTMLTextAreaElement;
@@ -24,16 +25,19 @@ const userPromptTextarea = document.getElementById('user-prompt') as HTMLTextAre
 const testApiKeyBtn = document.getElementById('test-api-key') as HTMLButtonElement;
 const clearApiKeyBtn = document.getElementById('clear-api-key') as HTMLButtonElement;
 const resetPromptsBtn = document.getElementById('reset-prompts') as HTMLButtonElement;
-const saveLlmSettingsBtn = document.getElementById('save-llm-settings') as HTMLButtonElement;
 
 // 状态变量
 let currentSettings: LLMSettings | null = null;
 let isApiKeyTesting = false;
+let saveTimeouts: Record<string, number> = {};
 
 /**
  * 初始化 LLM 设置页面
  */
 export async function initLLMSettings(): Promise<void> {
+  // 填充提供商列表
+  await populateProviderOptions();
+  
   // 加载当前设置
   await loadSettings();
   
@@ -48,16 +52,32 @@ async function loadSettings(): Promise<void> {
   try {
     currentSettings = await getLLMSettings();
     
+    // 设置提供商选择框的值
+    if (providerSelect.querySelector(`option[value="${currentSettings.activeProvider}"]`)) {
+      providerSelect.value = currentSettings.activeProvider;
+    }
+    
     // 显示当前活跃提供商的设置
     const activeProvider = currentSettings.activeProvider;
     const providerSettings = currentSettings.providers[activeProvider];
     
     if (providerSettings) {
       // 设置 API Key (显示为掩码)
-      apiKeyInput.value = providerSettings.apiKey ? '••••••••••••••••••••••' : '';
+      apiKeyInput.value = providerSettings.apiKey ? '••••••••••••••••••••' : '';
       
-      // 设置选中的模型
-      modelSelect.value = providerSettings.selectedModel;
+      // 动态生成模型选项
+      const firstModelId = await populateModelOptions();
+      
+      // 设置选中的模型，如果没有已选模型则使用第一个模型
+      if (providerSettings.selectedModel && modelSelect.querySelector(`option[value="${providerSettings.selectedModel}"]`)) {
+        modelSelect.value = providerSettings.selectedModel;
+      } else if (firstModelId) {
+        modelSelect.value = firstModelId;
+        // 更新设置中的选中模型
+        if (currentSettings.providers[activeProvider]) {
+          currentSettings.providers[activeProvider]!.selectedModel = firstModelId;
+        }
+      }
       
       // 设置提示词
       systemPromptTextarea.value = providerSettings.systemPrompt;
@@ -70,9 +90,86 @@ async function loadSettings(): Promise<void> {
 }
 
 /**
+ * 填充提供商选项
+ */
+async function populateProviderOptions(): Promise<void> {
+  // 清空当前选项
+  providerSelect.innerHTML = '';
+  
+  // 获取所有提供商类型
+  const providerTypes = Object.values(LLMProviderType);
+  
+  // 生成选项
+  providerTypes.forEach(providerType => {
+    const option = document.createElement('option');
+    option.value = providerType;
+    
+    // 设置显示名称
+    switch (providerType) {
+      case LLMProviderType.OPENAI:
+        option.textContent = 'OpenAI';
+        break;
+      // 未来可能添加的其他提供商
+      // case LLMProviderType.CLAUDE:
+      //   option.textContent = 'Anthropic Claude';
+      //   break;
+      // case LLMProviderType.GEMINI:
+      //   option.textContent = 'Google Gemini';
+      //   break;
+      default:
+        option.textContent = providerType;
+    }
+    
+    // 尝试查找对应的国际化键
+    const i18nKey = `provider${providerType.charAt(0).toUpperCase() + providerType.slice(1)}`;
+    option.setAttribute('data-i18n', i18nKey);
+    
+    providerSelect.appendChild(option);
+  });
+}
+
+/**
  * 设置事件监听器
  */
 function setupEventListeners(): void {
+  // 提供商切换 - 立即保存
+  providerSelect.addEventListener('change', async () => {
+    if (!currentSettings) return;
+    
+    const selectedProvider = providerSelect.value as LLMProviderType;
+    
+    // 如果选择了不同的提供商，更新活跃提供商并重新加载设置
+    if (selectedProvider !== currentSettings.activeProvider) {
+      // 更新活跃提供商
+      await setActiveProvider(selectedProvider);
+      
+      // 确保提供商设置存在
+      if (!currentSettings.providers[selectedProvider]) {
+        // 创建一个新的提供商设置对象
+        const newProviderSettings: ProviderSettings = {
+          apiKey: '',
+          models: [],
+          selectedModel: '',
+          systemPrompt: '',
+          userPrompt: ''
+        };
+        
+        // 使用索引签名更新提供商设置
+        currentSettings.providers = {
+          ...currentSettings.providers,
+          [selectedProvider]: newProviderSettings
+        };
+        
+        // 保存新的提供商设置
+        await updateProviderSettings(selectedProvider, newProviderSettings);
+      }
+      
+      // 重新加载设置
+      await loadSettings();
+      showNotification(getMessage('providerChanged'), 'success');
+    }
+  });
+  
   // 测试 API Key
   testApiKeyBtn.addEventListener('click', async () => {
     await testApiKey();
@@ -88,11 +185,6 @@ function setupEventListeners(): void {
     await resetPrompts();
   });
   
-  // 保存设置
-  saveLlmSettingsBtn.addEventListener('click', async () => {
-    await saveSettings();
-  });
-  
   // 当输入 API Key 时，如果是新输入（非掩码），则保存原始值
   apiKeyInput.addEventListener('input', () => {
     const value = apiKeyInput.value;
@@ -100,10 +192,38 @@ function setupEventListeners(): void {
       // 验证 API Key 格式
       if (value.startsWith('sk-')) {
         apiKeyInput.classList.remove('invalid');
+        // 使用防抖保存 API Key
+        debounceSave('apiKey', async () => {
+          await saveApiKey(value);
+        });
       } else {
         apiKeyInput.classList.add('invalid');
       }
     }
+  });
+  
+  // 模型选择 - 立即保存
+  modelSelect.addEventListener('change', () => {
+    const selectedModel = modelSelect.value;
+    if (selectedModel && currentSettings) {
+      debounceSave('model', async () => {
+        await saveSelectedModel(selectedModel);
+      });
+    }
+  });
+  
+  // System Prompt 输入 - 防抖保存
+  systemPromptTextarea.addEventListener('input', () => {
+    debounceSave('systemPrompt', async () => {
+      await savePrompts();
+    });
+  });
+  
+  // User Prompt 输入 - 防抖保存
+  userPromptTextarea.addEventListener('input', () => {
+    debounceSave('userPrompt', async () => {
+      await savePrompts();
+    });
   });
 }
 
@@ -115,13 +235,22 @@ async function testApiKey(): Promise<void> {
   
   const apiKey = apiKeyInput.value;
   
-  // 如果是掩码，则使用存储的 API Key
+  // 获取当前选中的提供商
+  const selectedProvider = providerSelect.value as LLMProviderType;
+  
+  // 如果是掌码，则使用存储的 API Key
   const actualApiKey = apiKey.includes('•') && currentSettings 
-    ? currentSettings.providers[currentSettings.activeProvider]?.apiKey || ''
+    ? currentSettings.providers[selectedProvider]?.apiKey || ''
     : apiKey;
   
-  // 验证 API Key 格式
-  if (!actualApiKey || !actualApiKey.startsWith('sk-')) {
+  // 验证 API Key 格式（根据不同提供商可能有不同的格式）
+  if (!actualApiKey) {
+    showNotification(getMessage('invalidApiKeyFormat'), 'error');
+    return;
+  }
+  
+  // 针对不同提供商的 API Key 格式验证
+  if (selectedProvider === LLMProviderType.OPENAI && !actualApiKey.startsWith('sk-')) {
     showNotification(getMessage('invalidApiKeyFormat'), 'error');
     return;
   }
@@ -131,9 +260,24 @@ async function testApiKey(): Promise<void> {
     testApiKeyBtn.disabled = true;
     testApiKeyBtn.textContent = getMessage('loading'); // 使用已存在的 'loading' 消息键代替不存在的 'testing'
     
-    // 创建 OpenAI 服务实例并验证 API Key
-    const openaiService = new OpenAIService(actualApiKey);
-    const isValid = await openaiService.validateApiKey();
+    let isValid = false;
+    
+    // 根据不同提供商创建相应的服务实例并验证 API Key
+    switch (selectedProvider) {
+      case LLMProviderType.OPENAI:
+        const openaiService = new OpenAIService(actualApiKey);
+        isValid = await openaiService.validateApiKey();
+        break;
+      // 未来可能添加的其他提供商
+      // case LLMProviderType.CLAUDE:
+      //   const claudeService = new ClaudeService(actualApiKey);
+      //   isValid = await claudeService.validateApiKey();
+      //   break;
+      default:
+        // 默认使用 OpenAI
+        const defaultService = new OpenAIService(actualApiKey);
+        isValid = await defaultService.validateApiKey();
+    }
     
     if (isValid) {
       showNotification(getMessage('apiKeyValid'), 'success');
@@ -157,10 +301,12 @@ function clearApiKey(): void {
   apiKeyInput.value = '';
   apiKeyInput.classList.remove('invalid');
   
-  if (currentSettings && currentSettings.activeProvider) {
-    const activeProvider = currentSettings.activeProvider;
-    if (currentSettings.providers[activeProvider]) {
-      currentSettings.providers[activeProvider]!.apiKey = '';
+  if (currentSettings) {
+    // 获取当前选中的提供商
+    const selectedProvider = providerSelect.value as LLMProviderType;
+    
+    if (currentSettings.providers[selectedProvider]) {
+      currentSettings.providers[selectedProvider]!.apiKey = '';
     }
   }
   
@@ -188,15 +334,90 @@ async function resetPrompts(): Promise<void> {
 }
 
 /**
- * 保存 LLM 设置
+ * 保存 API Key
  */
-async function saveSettings(): Promise<void> {
+async function saveApiKey(apiKey: string): Promise<void> {
   if (!currentSettings) return;
   
   try {
     const activeProvider = currentSettings.activeProvider as LLMProviderType;
-    const apiKey = apiKeyInput.value;
-    const selectedModel = modelSelect.value;
+    if (!activeProvider) return;
+    
+    // 获取当前提供商设置
+    const providerSettings = currentSettings.providers[activeProvider] || {
+      apiKey: '',
+      models: [],
+      selectedModel: '',
+      systemPrompt: '',
+      userPrompt: ''
+    };
+    
+    // 更新 API Key
+    const updatedSettings: ProviderSettings = {
+      ...providerSettings,
+      apiKey
+    };
+    
+    // 更新提供商设置
+    await updateProviderSettings(activeProvider, updatedSettings);
+    
+    // 更新当前设置
+    if (currentSettings.providers[activeProvider]) {
+      currentSettings.providers[activeProvider]!.apiKey = apiKey;
+    } else {
+      currentSettings.providers[activeProvider] = updatedSettings;
+    }
+    
+    showNotification(getMessage('apiKeySaved'), 'success');
+  } catch (error) {
+    console.error('保存 API Key 失败:', error);
+    showNotification(getMessage('errorSavingApiKey'), 'error');
+  }
+}
+
+/**
+ * 保存选中的模型
+ */
+async function saveSelectedModel(selectedModel: string): Promise<void> {
+  if (!currentSettings) return;
+  
+  try {
+    const activeProvider = currentSettings.activeProvider as LLMProviderType;
+    if (!activeProvider) return;
+    
+    // 获取当前提供商设置
+    const providerSettings = currentSettings.providers[activeProvider];
+    if (!providerSettings) return;
+    
+    // 更新选中的模型
+    const updatedSettings: ProviderSettings = {
+      ...providerSettings,
+      selectedModel
+    };
+    
+    // 更新提供商设置
+    await updateProviderSettings(activeProvider, updatedSettings);
+    
+    // 更新当前设置
+    currentSettings.providers[activeProvider]!.selectedModel = selectedModel;
+    
+    showNotification(getMessage('modelSaved'), 'success');
+  } catch (error) {
+    console.error('保存模型选择失败:', error);
+    showNotification(getMessage('errorSavingModel'), 'error');
+  }
+}
+
+/**
+ * 保存提示词
+ */
+async function savePrompts(): Promise<void> {
+  if (!currentSettings) return;
+  
+  try {
+    const activeProvider = currentSettings.activeProvider as LLMProviderType;
+    if (!activeProvider) return;
+    
     const systemPrompt = systemPromptTextarea.value;
     const userPrompt = userPromptTextarea.value;
     
@@ -217,30 +438,84 @@ async function saveSettings(): Promise<void> {
       return;
     }
     
-    // 准备提供商设置
-    const providerSettings: ProviderSettings = {
-      apiKey: apiKey.includes('•') && currentSettings.providers[activeProvider]
-        ? currentSettings.providers[activeProvider]!.apiKey
-        : apiKey,
-      models: currentSettings.providers[activeProvider]?.models || ['gpt-4o', 'gpt-4o-mini', 'gpt-3.5-turbo'],
-      selectedModel,
+    // 获取当前提供商设置
+    const providerSettings = currentSettings.providers[activeProvider];
+    if (!providerSettings) return;
+    
+    // 更新提示词
+    const updatedSettings: ProviderSettings = {
+      ...providerSettings,
       systemPrompt,
       userPrompt
     };
     
     // 更新提供商设置
-    await updateProviderSettings(activeProvider, providerSettings);
+    await updateProviderSettings(activeProvider, updatedSettings);
     
-    // 设置活跃提供商
-    await setActiveProvider(activeProvider);
+    // 更新当前设置
+    currentSettings.providers[activeProvider]!.systemPrompt = systemPrompt;
+    currentSettings.providers[activeProvider]!.userPrompt = userPrompt;
     
-    // 重新加载设置
-    await loadSettings();
-    
-    showNotification(getMessage('settingsSaved'), 'success');
+    showNotification(getMessage('promptsSaved'), 'success');
   } catch (error) {
-    console.error('保存 LLM 设置失败:', error);
-    showNotification(getMessage('errorSavingSettings'), 'error');
+    console.error('保存提示词失败:', error);
+    showNotification(getMessage('errorSavingPrompts'), 'error');
+  }
+}
+
+/**
+ * 防抖函数 - 避免频繁保存
+ */
+function debounceSave(key: string, callback: () => Promise<void>, delay: number = 1000): void {
+  // 清除之前的定时器
+  if (saveTimeouts[key]) {
+    window.clearTimeout(saveTimeouts[key]);
+  }
+  
+  // 设置新的定时器
+  saveTimeouts[key] = window.setTimeout(async () => {
+    await callback();
+    delete saveTimeouts[key];
+  }, delay);
+}
+
+/**
+ * 动态生成模型选项
+ * @returns 返回第一个模型的ID（如果有的话）
+ */
+async function populateModelOptions(): Promise<string | null> {
+  try {
+    // 清空当前选项
+    modelSelect.innerHTML = '';
+    
+    // 创建 OpenAI 服务实例获取模型列表
+    const openaiService = new OpenAIService('');
+    const models = await openaiService.getAvailableModels();
+    
+    if (models.length === 0) {
+      return null;
+    }
+    
+    // 记录第一个模型的ID
+    const firstModelId = models[0].id;
+    
+    // 生成选项
+    models.forEach(model => {
+      const option = document.createElement('option');
+      option.value = model.id;
+      option.textContent = model.name;
+      
+      // 尝试查找对应的国际化键
+      const i18nKey = `model${model.id.replace(/[-.]/g, '').split('').map((c, i) => i === 0 ? c.toUpperCase() : c).join('')}`;
+      option.setAttribute('data-i18n', i18nKey);
+      
+      modelSelect.appendChild(option);
+    });
+    
+    return firstModelId;
+  } catch (error) {
+    console.error('加载模型列表失败:', error);
+    return null;
   }
 }
 

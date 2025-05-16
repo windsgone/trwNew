@@ -164,11 +164,14 @@
   "llmSettingsTitle": {
     "message": "AI Settings"
   },
+  "rulesSettingsTitle": {
+    "message": "Saved Rules"
+  },
   "apiKeySettings": {
     "message": "API Key Settings"
   },
   "apiKeyLabel": {
-    "message": "OpenAI API Key:"
+    "message": "API Key:"
   },
   "apiKeyPlaceholder": {
     "message": "sk-..."
@@ -210,7 +213,7 @@
     "message": "Specify generation task and tone..."
   },
   "promptVariablesHelp": {
-    "message": "Available variables: {{title}}, {{url}}, {{descriptions}}"
+    "message": "Available variables: {{title}}"
   },
   "resetPrompts": {
     "message": "Reset to Default"
@@ -235,5 +238,50 @@
   },
   "errorResettingPrompts": {
     "message": "Failed to reset prompts"
+  },
+  "providerSelectLabel": {
+    "message": "Select Provider:"
+  },
+  "providerSelectHelp": {
+    "message": "Select AI service provider"
+  },
+  "providerOpenai": {
+    "message": "OpenAI"
+  },
+  "apiKeySaved": {
+    "message": "API Key saved"
+  },
+  "errorSavingApiKey": {
+    "message": "Failed to save API Key"
+  },
+  "modelSaved": {
+    "message": "Model selection saved"
+  },
+  "errorSavingModel": {
+    "message": "Failed to save model selection"
+  },
+  "promptsSaved": {
+    "message": "Prompts saved"
+  },
+  "errorSavingPrompts": {
+    "message": "Failed to save prompts"
+  },
+  "providerChanged": {
+    "message": "Provider changed"
+  },
+  "systemPromptEmpty": {
+    "message": "System prompt cannot be empty"
+  },
+  "userPromptEmpty": {
+    "message": "User prompt cannot be empty"
+  },
+  "promptTooLong": {
+    "message": "Prompt is too long (max 3000 characters)"
+  },
+  "errorLoadingSettings": {
+    "message": "Failed to load settings"
+  },
+  "apiKeyCleared": {
+    "message": "API Key cleared"
   }
 }

@@ -245,6 +245,10 @@ function setupMessageListener() {
       if (message.type === 'APPLY_TAB_RULE') {
         applyTabRule(message.payload);
         sendResponse({ success: true });
+      } else if (message.type === 'GET_PAGE_INFO') {
+        // 获取页面信息并返回给弹出窗口
+        const pageInfo = getPageInfoWithTimestamp();
+        sendResponse({ success: true, pageInfo });
       } else {
         return false; 
       }

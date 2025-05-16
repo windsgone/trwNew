@@ -229,5 +229,56 @@
   },
   "errorSavingSettings": {
     "message": "保存设置失败"
+  },
+  "promptsReset": {
+    "message": "提示词已重置为默认值"
+  },
+  "errorResettingPrompts": {
+    "message": "重置提示词失败"
+  },
+  "providerSelectLabel": {
+    "message": "选择提供商:"
+  },
+  "providerSelectHelp": {
+    "message": "选择 AI 服务提供商"
+  },
+  "providerOpenai": {
+    "message": "OpenAI"
+  },
+  "apiKeySaved": {
+    "message": "API Key 已保存"
+  },
+  "errorSavingApiKey": {
+    "message": "保存 API Key 失败"
+  },
+  "modelSaved": {
+    "message": "模型选择已保存"
+  },
+  "errorSavingModel": {
+    "message": "保存模型选择失败"
+  },
+  "promptsSaved": {
+    "message": "提示词已保存"
+  },
+  "errorSavingPrompts": {
+    "message": "保存提示词失败"
+  },
+  "providerChanged": {
+    "message": "提供商已更改"
+  },
+  "systemPromptEmpty": {
+    "message": "System Prompt 不能为空"
+  },
+  "userPromptEmpty": {
+    "message": "User Prompt 不能为空"
+  },
+  "promptTooLong": {
+    "message": "提示词过长（最多3000字符）"
+  },
+  "errorLoadingSettings": {
+    "message": "加载设置失败"
+  },
+  "apiKeyCleared": {
+    "message": "API Key 已清除"
   }
 }

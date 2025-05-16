@@ -8,18 +8,13 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1 data-i18n="optionsTitle">Tab Rename Wiz - Options</h1>
-      <div class="bmc-container">
-        <a href="https://www.buymeacoffee.com/johnnyfan" target="_blank" class="bmc-button" data-i18n="buyMeCoffee">
-          ☕️ Buy me a coffee
-        </a>
-      </div>
-    </header>
     
     <div class="options-layout">
       <!-- 左侧导航栏 -->
       <nav class="sidebar">
+        <div class="sidebar-header">
+          <h1>Tab Rename Wiz</h1>
+        </div>
         <ul class="nav-menu">
           <li>
             <button id="nav-rules" class="nav-button active" data-tab="rules-tab" data-i18n="navRules">规则管理</button>
@@ -34,6 +29,14 @@
       <main class="content-area">
         <!-- 规则管理标签页 -->
         <div id="rules-tab" class="tab-content active">
+          <div class="tab-header">
+            <h2 data-i18n="rulesSettingsTitle">规则管理</h2>
+            <div class="bmc-container">
+              <a href="https://www.buymeacoffee.com/johnnyfan" target="_blank" class="bmc-button" data-i18n="buyMeCoffee">
+                ☕️ Buy me a coffee
+              </a>
+            </div>
+          </div>
           <div class="rules-table-container">
             <table id="rules-table">
               <thead>
@@ -71,8 +74,17 @@
             
             <div class="settings-section">
               <h3 data-i18n="apiKeySettings">API Key 设置</h3>
+              
               <div class="form-group">
-                <label for="api-key" data-i18n="apiKeyLabel">OpenAI API Key:</label>
+                <label for="provider-select" data-i18n="providerSelectLabel">选择提供商:</label>
+                <select id="provider-select">
+                  <!-- 提供商选项将通过 JavaScript 动态生成 -->
+                </select>
+                <p class="help-text" data-i18n="providerSelectHelp">选择 AI 服务提供商</p>
+              </div>
+              
+              <div class="form-group">
+                <label for="api-key" data-i18n="apiKeyLabel">API Key:</label>
                 <div class="input-with-buttons">
                   <input type="password" id="api-key" placeholder="sk-..." data-i18n-placeholder="apiKeyPlaceholder">
                   <button id="test-api-key" class="secondary-btn" data-i18n="testApiKey">测试</button>
@@ -84,9 +96,7 @@
               <div class="form-group">
                 <label for="model-select" data-i18n="modelSelectLabel">选择模型:</label>
                 <select id="model-select">
-                  <option value="gpt-4o" data-i18n="modelGpt4o">GPT-4o</option>
-                  <option value="gpt-4o-mini" data-i18n="modelGpt4oMini">GPT-4o-mini</option>
-                  <option value="gpt-3.5-turbo" data-i18n="modelGpt35Turbo">GPT-3.5-turbo</option>
+                  <!-- 模型选项将通过 JavaScript 动态生成 -->
                 </select>
               </div>
             </div>
@@ -102,15 +112,13 @@
               <div class="form-group">
                 <label for="user-prompt" data-i18n="userPromptLabel">User Prompt:</label>
                 <textarea id="user-prompt" rows="4" placeholder="明确生成任务与语气..." data-i18n-placeholder="userPromptPlaceholder"></textarea>
-                <p class="help-text" data-i18n="promptVariablesHelp">可用变量: {{title}}, {{url}}, {{descriptions}}</p>
+                <p class="help-text" data-i18n="promptVariablesHelp">可用变量: {{title}}</p>
               </div>
               
               <button id="reset-prompts" class="secondary-btn" data-i18n="resetPrompts">恢复默认</button>
             </div>
             
-            <div class="form-actions">
-              <button id="save-llm-settings" class="primary-btn" data-i18n="saveSettings">保存设置</button>
-            </div>
+
           </div>
         </div>
       </main>

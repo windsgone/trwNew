@@ -7,7 +7,7 @@
  */
 export enum LLMProviderType {
   OPENAI = 'openai',
-  CLAUDE = 'claude',
+  // CLAUDE = 'claude',
   // 未来可能支持的其他提供商
   // GEMINI = 'gemini',
 }
@@ -116,5 +116,5 @@ export const DEFAULT_SYSTEM_PROMPT =
  * 默认用户提示词
  */
 export const DEFAULT_USER_PROMPT = 
-  'Generate a short and descriptive tab title based on the {{title}} {{url}} {{descriptions}}. ' +
+  'Generate a short and descriptive tab title based on the {{title}}. ' +
   'Prioritize clarity and recognizability.';

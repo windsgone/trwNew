@@ -81,7 +81,7 @@ export abstract class BaseLLMService implements ILLMService {
     return prompt
       .replace(/{{title}}/g, pageInfo.title || '')
       .replace(/{{url}}/g, pageInfo.url || '')
-      .replace(/{{descriptions}}/g, pageInfo.description || '');
+      .replace(/{{description}}/g, pageInfo.description || '');
   }
   
   /**

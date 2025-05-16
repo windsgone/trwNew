@@ -52,10 +52,22 @@ const OPENAI_MODELS: LLMModel[] = [
     description: 'GPT-4o 的轻量版，更经济实惠'
   },
   {
-    id: 'gpt-3.5-turbo',
-    name: 'GPT-3.5 Turbo',
-    maxTokens: 16385,
-    description: '价格实惠的高性能模型'
+    id: 'gpt-4.1',
+    name: 'GPT-4.1',
+    maxTokens: 128000,
+    description: '新一代 GPT-4.1 模型，性能卓越'
+  },
+  {
+    id: 'gpt-4.1-mini',
+    name: 'GPT-4.1 Mini',
+    maxTokens: 64000,
+    description: 'GPT-4.1 的轻量版，平衡性能与成本'
+  },
+  {
+    id: 'gpt-4.1-nano',
+    name: 'GPT-4.1 Nano',
+    maxTokens: 32000,
+    description: 'GPT-4.1 的超轻量版，速度快且经济实惠'
   }
 ];
 

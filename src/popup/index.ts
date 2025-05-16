@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   applyLocalization();
   const form = document.getElementById('rule-form') as HTMLFormElement;
   const unsupportedPageNotice = document.getElementById('unsupported-page-notice') as HTMLDivElement;
-  const titleInput = document.getElementById('title') as HTMLInputElement;
+  const titleInput = document.getElementById('title') as HTMLTextAreaElement;
   const urlPatternInput = document.getElementById('urlPattern') as HTMLInputElement;
   const urlDisplay = document.getElementById('url-display') as HTMLDivElement;
   const matchModeDisplay = document.getElementById('match-mode-display') as HTMLDivElement;
@@ -398,6 +398,40 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 设置按钮的事件监听器已移至页面加载初始化阶段
 
+  // 自动调整textarea高度的函数
+  function autoResizeTextarea(textarea: HTMLTextAreaElement) {
+    // 重置高度，以便在内容减少时也能正确计算
+    textarea.style.height = 'auto';
+    // 设置高度为scrollHeight
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
+
+  // 重置为单行高度的函数
+  function resetTextareaHeight(textarea: HTMLTextAreaElement) {
+    // 恢复到默认高度
+    textarea.style.height = '';
+  }
+
+  // 为标题输入框添加自动调整高度的事件
+  titleInput.addEventListener('input', () => {
+    autoResizeTextarea(titleInput);
+  });
+
+  // 在获得焦点时调整高度
+  titleInput.addEventListener('focus', () => {
+    autoResizeTextarea(titleInput);
+  });
+
+  // 在失去焦点时恢复单行高度
+  titleInput.addEventListener('blur', () => {
+    resetTextareaHeight(titleInput);
+  });
+
+  // 初始化时调整一次高度（如果有初始内容）
+  if (titleInput.value) {
+    autoResizeTextarea(titleInput);
+  }
+
   // 初始化LLM管理器
   try {
     await llmManager.initialize();
@@ -418,6 +452,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       // 设置生成中状态
       aiGenerateBtn.classList.add('generating');
       aiGenerateBtn.disabled = true;
+      
+      // 添加多彩渐变流动效果到标题输入框
+      const titleInputContainer = document.querySelector('.title-input') as HTMLElement;
+      titleInputContainer.classList.add('ai-generating');
+      
       showStatus('正在生成标题...', 'success');
 
       // 检查LLM管理器是否初始化
@@ -448,21 +487,47 @@ document.addEventListener('DOMContentLoaded', async () => {
         return; // 提前返回，不再继续执行
       }
 
-      // 构建页面信息
-      const pageInfo: PageInfo = {
-        url: urlPatternInput.value,
-        title: titleInput.value || document.title || '',
-        description: ''
-      };
+      // 获取当前活动标签页的完整页面信息
+      let pageInfo: PageInfo;
+      try {
+        // 尝试从当前标签页获取完整页面信息
+        const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        if (activeTab?.id) {
+          // 向内容脚本请求页面信息
+          const response = await new Promise<{pageInfo?: any}>((resolve) => {
+            chrome.tabs.sendMessage(activeTab.id!, { type: 'GET_PAGE_INFO' }, (result) => {
+              resolve(result || {});
+            });
+          });
+          
+          if (response?.pageInfo) {
+            // 使用从内容脚本获取的完整页面信息
+            pageInfo = {
+              url: urlPatternInput.value, // 使用用户输入的URL模式
+              title: titleInput.value || response.pageInfo.title || '',
+              description: response.pageInfo.description || ''
+            };
+          } else {
+            throw new Error('无法从内容脚本获取页面信息');
+          }
+        } else {
+          throw new Error('无法获取当前标签页');
+        }
+      } catch (error) {
+        // 如果无法获取完整页面信息，则使用默认值
+        pageInfo = {
+          url: urlPatternInput.value,
+          title: titleInput.value || document.title || '',
+          description: ''
+        };
+      }
 
       // 调用LLM生成标题
-      console.log('开始生成标题...');
       const response = await llmManager.generateText(pageInfo, {
         maxTokens: 50,
         temperature: 0.7,
         timeoutMs: 15000
       });
-      console.log('生成标题成功:', response);
 
       // 填充生成的标题到标题输入框
       if (response && response.content) {
@@ -472,12 +537,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         showStatus('生成标题失败，请重试', 'error');
       }
     } catch (error) {
-      console.error('生成标题时出错:', error);
       showStatus('生成标题失败: ' + (error instanceof Error ? error.message : '未知错误'), 'error');
     } finally {
       // 恢复按钮状态
       aiGenerateBtn.classList.remove('generating');
       aiGenerateBtn.disabled = false;
+      
+      // 移除标题输入框的多彩渐变流动效果
+      const titleInputContainer = document.querySelector('.title-input') as HTMLElement;
+      titleInputContainer.classList.remove('ai-generating');
     }
   });
 
