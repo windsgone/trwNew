@@ -379,8 +379,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       
       const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true }); 
-      if (activeTab?.id) {
-        chrome.tabs.reload(activeTab.id);
+      if (activeTab?.id && savedOrUpdatedRule) {
+        // 使用 APPLY_RULE_NOW 消息类型直接应用规则，而不是刷新整个页面
+        chrome.runtime.sendMessage({
+          type: 'APPLY_RULE_NOW',
+          payload: {
+            tabId: activeTab.id,
+            rule: savedOrUpdatedRule
+          }
+        });
       }
 
       setTimeout(() => {
