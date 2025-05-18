@@ -8,7 +8,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "zip": "node zip-plugin.js",
+    "release": "npm run build && npm run zip"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "puppeteer": "^24.7.2",
     "ts-jest": "^29.3.2",
     "typescript": "^5.4.5",
-    "vite": "^2.9.18"
+    "vite": "^2.9.18",
+    "zip-a-folder": "^3.1.9"
   }
 }
