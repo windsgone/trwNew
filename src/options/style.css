@@ -39,9 +39,10 @@ body {
   left: 0;
   top: 0;
   bottom: 0;
-  overflow-y: auto;
   z-index: 10;
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 侧边栏头部样式 */
@@ -59,6 +60,7 @@ body {
 
 .nav-menu {
   list-style: none;
+  flex: 1;
 }
 
 .nav-button {
@@ -116,11 +118,7 @@ body {
   margin: 0 auto;
 }
 
-.llm-settings-container h2 {
-  font-size: 20px;
-  color: #3498DB;
-  margin-bottom: 20px;
-}
+/* 移除特定的 llm-settings-container h2 样式，使用通用的 tab-header h2 样式 */
 
 .settings-section {
   background-color: #f9f9f9;
@@ -255,11 +253,14 @@ body {
   color: black;
   text-decoration: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   transition: background-color 0.3s ease;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .bmc-button:hover {
@@ -552,4 +553,11 @@ h1 {
 
 .tooltip-content li {
   margin-bottom: 5px;
+}
+
+/* 侧边栏底部 */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 15px 0;
+  border-top: 1px solid #e0e0e0;
 }

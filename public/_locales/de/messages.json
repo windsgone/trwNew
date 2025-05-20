@@ -351,5 +351,48 @@
   },
   "loadingModelsFailed": {
     "message": "Fehler beim Laden der Modellliste"
+  },
+  "requestCancelled": {
+    "message": "Anfrage wurde abgebrochen"
+  },
+  "networkConnectionError": {
+    "message": "Netzwerkverbindungsfehler, bitte überprüfe deine Verbindung"
+  },
+  "requestTimeout": {
+    "message": "Zeitüberschreitung bei der Anfrage, bitte versuche es später erneut"
+  },
+  "unknownErrorWithMessage": {
+    "message": "Unbekannter Fehler: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noErrorMessage": {
+    "message": "Keine Fehlermeldung"
+  },
+  "apiRequestFailed": {
+    "message": "API-Anfrage fehlgeschlagen ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "invalidApiKeyOrExpired": {
+    "message": "API-Schlüssel ist ungültig oder abgelaufen"
+  },
+  "rateLimitExceeded": {
+    "message": "API-Ratenlimit überschritten, bitte versuche es später erneut"
+  },
+  "contextLengthExceeded": {
+    "message": "Eingabe ist zu lang und überschreitet das Kontextlängenlimit des Modells"
+  },
+  "apiRequestTimedOut": {
+    "message": "Zeitüberschreitung bei der API-Anfrage"
+  },
+  "apiValidationError": {
+    "message": "API-Validierungsfehler"
   }
 }

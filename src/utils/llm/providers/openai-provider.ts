@@ -11,6 +11,7 @@ import {
   LLMErrorType 
 } from '../types';
 import { BaseLLMService } from '../llm-service';
+import { getMessage } from '../../i18nUtils';
 
 /**
  * OpenAI API 响应类型
@@ -42,32 +43,27 @@ const OPENAI_MODELS: LLMModel[] = [
   {
     id: 'gpt-4o',
     name: 'GPT-4o',
-    maxTokens: 128000,
-    description: '最新的 GPT-4o 模型，功能强大且响应速度快'
+    maxTokens: 128000
   },
   {
     id: 'gpt-4o-mini',
     name: 'GPT-4o Mini',
-    maxTokens: 128000,
-    description: 'GPT-4o 的轻量版，更经济实惠'
+    maxTokens: 128000
   },
   {
     id: 'gpt-4.1',
     name: 'GPT-4.1',
-    maxTokens: 128000,
-    description: '新一代 GPT-4.1 模型，性能卓越'
+    maxTokens: 128000
   },
   {
     id: 'gpt-4.1-mini',
     name: 'GPT-4.1 Mini',
-    maxTokens: 64000,
-    description: 'GPT-4.1 的轻量版，平衡性能与成本'
+    maxTokens: 64000
   },
   {
     id: 'gpt-4.1-nano',
     name: 'GPT-4.1 Nano',
-    maxTokens: 32000,
-    description: 'GPT-4.1 的超轻量版，速度快且经济实惠'
+    maxTokens: 32000
   }
 ];
 
@@ -130,12 +126,12 @@ export class OpenAIService extends BaseLLMService {
       
       // 处理超时错误
       if (error.name === 'AbortError') {
-        console.error('API 请求超时');
+        console.error(getMessage('apiRequestTimedOut'));
         return false;
       }
       
       // 处理网络错误
-      console.error('API 验证错误:', error);
+      console.error(getMessage('apiValidationError') + ':', error);
       
       // 其他错误可能是网络问题，不一定是 API Key 无效
       // 为了避免误判，这里返回 false

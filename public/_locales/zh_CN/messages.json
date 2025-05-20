@@ -351,5 +351,48 @@
   },
   "loadingModelsFailed": {
     "message": "加载模型列表失败"
-  }
+  },
+  "requestCancelled": {
+    "message": "请求已被取消"
+  },
+  "networkConnectionError": {
+    "message": "网络连接错误，请检查您的网络连接"
+  },
+  "requestTimeout": {
+    "message": "请求超时，请稍后重试"
+  },
+  "unknownErrorWithMessage": {
+    "message": "未知错误: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noErrorMessage": {
+    "message": "没有错误信息"
+  },
+  "apiRequestFailed": {
+    "message": "API请求失败 ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "invalidApiKeyOrExpired": {
+    "message": "API密钥无效或已过期"
+  },
+  "rateLimitExceeded": {
+    "message": "API速率限制已超出，请稍后重试"
+  },
+  "contextLengthExceeded": {
+    "message": "输入内容过长，超出模型上下文长度限制"
+  },
+  "apiRequestTimedOut": {
+    "message": "API请求超时"
+  },
+  "apiValidationError": {
+    "message": "API验证错误"
+  } 
 }

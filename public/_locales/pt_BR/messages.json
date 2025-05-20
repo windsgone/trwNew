@@ -351,5 +351,48 @@
   },
   "loadingModelsFailed": {
     "message": "Falha ao carregar lista de modelos"
+  },
+  "requestCancelled": {
+    "message": "A solicitação foi cancelada"
+  },
+  "networkConnectionError": {
+    "message": "Erro de conexão de rede, por favor verifique sua conexão"
+  },
+  "requestTimeout": {
+    "message": "Tempo limite da solicitação esgotado, por favor tente novamente mais tarde"
+  },
+  "unknownErrorWithMessage": {
+    "message": "Erro desconhecido: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noErrorMessage": {
+    "message": "Sem mensagem de erro"
+  },
+  "apiRequestFailed": {
+    "message": "Falha na solicitação API ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "invalidApiKeyOrExpired": {
+    "message": "A Chave API é inválida ou expirou"
+  },
+  "rateLimitExceeded": {
+    "message": "Limite de taxa da API excedido, por favor tente novamente mais tarde"
+  },
+  "contextLengthExceeded": {
+    "message": "A entrada é muito longa, excedendo o limite de comprimento de contexto do modelo"
+  },
+  "apiRequestTimedOut": {
+    "message": "Tempo limite da solicitação API esgotado"
+  },
+  "apiValidationError": {
+    "message": "Erro de validação da API"
   }
 }

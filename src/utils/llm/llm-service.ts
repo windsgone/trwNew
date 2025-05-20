@@ -10,6 +10,7 @@ import {
   LLMError, 
   LLMErrorType 
 } from './types';
+import { getMessage } from '../i18nUtils';
 
 /**
  * LLM 服务接口
@@ -91,21 +92,24 @@ export abstract class BaseLLMService implements ILLMService {
   protected handleNetworkError(error: any): never {
     // 处理请求被中止的情况
     if (error.name === 'AbortError') {
-      throw new LLMError('请求已被取消', LLMErrorType.TIMEOUT);
+      throw new LLMError(getMessage('requestCancelled'), LLMErrorType.TIMEOUT);
     }
     
     // 处理网络错误
     if (error.message && error.message.includes('network')) {
-      throw new LLMError('网络连接错误，请检查您的网络连接', LLMErrorType.NETWORK_ERROR);
+      throw new LLMError(getMessage('networkConnectionError'), LLMErrorType.NETWORK_ERROR);
     }
     
     // 处理超时错误
     if (error.message && error.message.includes('timeout')) {
-      throw new LLMError('请求超时，请稍后重试', LLMErrorType.TIMEOUT);
+      throw new LLMError(getMessage('requestTimeout'), LLMErrorType.TIMEOUT);
     }
     
     // 处理其他未知错误
-    throw new LLMError(`未知错误: ${error.message || '无错误信息'}`, LLMErrorType.UNKNOWN);
+    throw new LLMError(
+      getMessage('unknownErrorWithMessage', error.message || getMessage('noErrorMessage')), 
+      LLMErrorType.UNKNOWN
+    );
   }
   
   /**
@@ -114,7 +118,7 @@ export abstract class BaseLLMService implements ILLMService {
    */
   protected async handleApiError(response: Response): Promise<never> {
     const statusCode = response.status;
-    let errorMessage = `API 请求失败 (${statusCode})`;
+    let errorMessage = getMessage('apiRequestFailed', statusCode.toString());
     let errorType = LLMErrorType.UNKNOWN;
     
     try {
@@ -124,13 +128,13 @@ export abstract class BaseLLMService implements ILLMService {
       // 根据状态码和错误信息判断错误类型
       if (statusCode === 401) {
         errorType = LLMErrorType.INVALID_API_KEY;
-        errorMessage = 'API Key 无效或已过期';
+        errorMessage = getMessage('invalidApiKeyOrExpired');
       } else if (statusCode === 429) {
         errorType = LLMErrorType.RATE_LIMIT;
-        errorMessage = '已超过 API 调用限制，请稍后重试';
+        errorMessage = getMessage('rateLimitExceeded');
       } else if (statusCode === 400 && errorMessage.includes('context length')) {
         errorType = LLMErrorType.CONTEXT_LENGTH;
-        errorMessage = '输入内容过长，超出模型上下文长度限制';
+        errorMessage = getMessage('contextLengthExceeded');
       }
     } catch (e) {
       // 无法解析错误响应

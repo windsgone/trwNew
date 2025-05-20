@@ -351,5 +351,48 @@
   },
   "loadingModelsFailed": {
     "message": "Échec du chargement de la liste des modèles"
+  },
+  "requestCancelled": {
+    "message": "La demande a été annulée"
+  },
+  "networkConnectionError": {
+    "message": "Erreur de connexion réseau, veuillez vérifier votre connexion"
+  },
+  "requestTimeout": {
+    "message": "Délai d'attente de la demande dépassé, veuillez réessayer plus tard"
+  },
+  "unknownErrorWithMessage": {
+    "message": "Erreur inconnue : $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noErrorMessage": {
+    "message": "Aucun message d'erreur"
+  },
+  "apiRequestFailed": {
+    "message": "Échec de la requête API ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "invalidApiKeyOrExpired": {
+    "message": "La clé API est invalide ou expirée"
+  },
+  "rateLimitExceeded": {
+    "message": "Limite de débit API dépassée, veuillez réessayer plus tard"
+  },
+  "contextLengthExceeded": {
+    "message": "L'entrée est trop longue, dépassant la limite de longueur de contexte du modèle"
+  },
+  "apiRequestTimedOut": {
+    "message": "Délai d'attente de la requête API dépassé"
+  },
+  "apiValidationError": {
+    "message": "Erreur de validation API"
   }
 }

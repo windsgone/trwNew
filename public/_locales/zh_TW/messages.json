@@ -351,5 +351,48 @@
     },
     "loadingModelsFailed": {
       "message": "載入模型列表失敗"
+    },
+    "requestCancelled": {
+      "message": "請求已被取消"
+    },
+    "networkConnectionError": {
+      "message": "網絡連接錯誤，請檢查您的網絡連接"
+    },
+    "requestTimeout": {
+      "message": "請求逾時，請稍後重試"
+    },
+    "unknownErrorWithMessage": {
+      "message": "未知錯誤: $1",
+      "placeholders": {
+        "1": {
+          "content": "$1"
+        }
+      }
+    },
+    "noErrorMessage": {
+      "message": "沒有錯誤訊息"
+    },
+    "apiRequestFailed": {
+      "message": "API請求失敗 ($1)",
+      "placeholders": {
+        "1": {
+          "content": "$1"
+        }
+      }
+    },
+    "invalidApiKeyOrExpired": {
+      "message": "API金鑰無效或已過期"
+    },
+    "rateLimitExceeded": {
+      "message": "API速率限制已超出，請稍後重試"
+    },
+    "contextLengthExceeded": {
+      "message": "輸入內容過長，超出模型上下文長度限制"
+    },
+    "apiRequestTimedOut": {
+      "message": "API請求逾時"
+    },
+    "apiValidationError": {
+      "message": "API驗證錯誤"
     }
 }

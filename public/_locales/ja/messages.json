@@ -351,5 +351,48 @@
   },
   "loadingModelsFailed": {
     "message": "モデルリストの読み込みに失敗しました"
+  },
+  "requestCancelled": {
+    "message": "リクエストがキャンセルされました"
+  },
+  "networkConnectionError": {
+    "message": "ネットワーク接続エラー、接続を確認してください"
+  },
+  "requestTimeout": {
+    "message": "リクエストがタイムアウトしました、後で再試行してください"
+  },
+  "unknownErrorWithMessage": {
+    "message": "不明なエラー: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noErrorMessage": {
+    "message": "エラーメッセージなし"
+  },
+  "apiRequestFailed": {
+    "message": "APIリクエスト失敗 ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "invalidApiKeyOrExpired": {
+    "message": "APIキーが無効または期限切れです"
+  },
+  "rateLimitExceeded": {
+    "message": "APIレート制限を超えました、後で再試行してください"
+  },
+  "contextLengthExceeded": {
+    "message": "入力が長すぎます、モデルのコンテキスト長さ制限を超えています"
+  },
+  "apiRequestTimedOut": {
+    "message": "APIリクエストがタイムアウトしました"
+  },
+  "apiValidationError": {
+    "message": "API検証エラー"
   }
 }

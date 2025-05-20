@@ -14,18 +14,13 @@ export default defineConfig(({ command }) => {
     },
     plugins: [crx({ manifest })],
     build: {
-      minify: isProduction,
+      minify: 'esbuild',
       sourcemap: !isProduction,
       rollupOptions: {
         output: {
           manualChunks: {},
         },
-      },
-      terserOptions: {
-        compress: {
-          drop_console: isProduction,
-        },
-      },
+      }
     },
     esbuild: {
       drop: isProduction ? ['console'] : [],

@@ -273,8 +273,8 @@ input {
 }
 
 .favicon-preview {
-  width: 40px;
-  height: 42px;
+  width: 42px;
+  height: 43.5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -349,7 +349,7 @@ input {
 }
 
 #ai-generate-btn.generating svg {
-  opacity: 0.3;
+  display: none;
 }
 
 #ai-generate-btn.generating::after {
@@ -375,14 +375,12 @@ input {
   border-radius: 5px;
   overflow: hidden;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  height: 42px;
+  min-height: 42px;
 }
 
 .title-input:focus-within {
   border-color: #3498db;
   box-shadow: 0 0 0 1px #3498db;
-  height: auto;
-  min-height: 42px;
 }
 
 /* AI 生成时的彩色渐变边框效果 */

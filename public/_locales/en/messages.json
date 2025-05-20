@@ -351,5 +351,48 @@
   },
   "loadingModelsFailed": {
     "message": "Failed to load model list"
+  },
+  "requestCancelled": {
+    "message": "Request has been cancelled"
+  },
+  "networkConnectionError": {
+    "message": "Network connection error, please check your connection"
+  },
+  "requestTimeout": {
+    "message": "Request timed out, please try again later"
+  },
+  "unknownErrorWithMessage": {
+    "message": "Unknown error: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "noErrorMessage": {
+    "message": "No error message"
+  },
+  "apiRequestFailed": {
+    "message": "API request failed ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "invalidApiKeyOrExpired": {
+    "message": "API Key is invalid or expired"
+  },
+  "rateLimitExceeded": {
+    "message": "API rate limit exceeded, please try again later"
+  },
+  "contextLengthExceeded": {
+    "message": "Input is too long, exceeding model context length limit"
+  },
+  "apiRequestTimedOut": {
+    "message": "API request timed out"
+  },
+  "apiValidationError": {
+    "message": "API validation error"
   }
 }
