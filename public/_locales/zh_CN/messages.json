@@ -403,5 +403,8 @@
   },
   "contactEmail": {
     "message": "邮箱地址："
+  },
+  "getApiKey": {
+    "message": "获取 API Key"
   }
 }

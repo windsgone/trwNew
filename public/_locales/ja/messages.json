@@ -403,5 +403,8 @@
   },
   "contactEmail": {
     "message": "メールアドレス:"
+  },
+  "getApiKey": {
+    "message": "Get an API key."
   }
 }
