@@ -394,5 +394,14 @@
   },
   "apiValidationError": {
     "message": "API検証エラー"
+  },
+  "navContact": {
+    "message": "お問い合わせ"
+  },
+  "contactTitle": {
+    "message": "お問い合わせ"
+  },
+  "contactEmail": {
+    "message": "メールアドレス:"
   }
 }

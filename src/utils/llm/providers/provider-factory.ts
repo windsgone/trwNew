@@ -25,8 +25,6 @@ export function createLLMService(
     // 未来可以添加其他提供商的支持
     // case LLMProviderType.CLAUDE:
     //   return new ClaudeService(apiKey, selectedModel);
-    // case LLMProviderType.GEMINI:
-    //   return new GeminiService(apiKey, selectedModel);
     default:
       throw new Error(`不支持的 LLM 提供商: ${provider}`);
   }

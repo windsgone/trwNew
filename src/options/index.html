@@ -22,14 +22,10 @@
           <li>
             <button id="nav-llm" class="nav-button" data-tab="llm-tab" data-i18n="navLLM">LLM 设置</button>
           </li>
+          <li>
+            <button id="nav-contact" class="nav-button" data-tab="contact-tab" data-i18n="navContact">联系我</button>
+          </li>
         </ul>
-        <div class="sidebar-footer">
-          <div class="bmc-container">
-            <a href="https://www.buymeacoffee.com/johnnyfan" target="_blank" class="bmc-button" data-i18n="buyMeCoffee">
-              ☕️ Buy me a coffee
-            </a>
-          </div>
-        </div>
       </nav>
       
       <!-- 主内容区域 -->
@@ -80,17 +76,16 @@
               <h3 data-i18n="apiKeySettings">API Key 设置</h3>
               
               <div class="form-group">
-                <label for="provider-select" data-i18n="providerSelectLabel">选择提供商:</label>
-                <select id="provider-select">
+                <label data-i18n="providerSelectLabel">选择提供商:</label>
+                <div class="radio-group" id="provider-radio-group">
                   <!-- 提供商选项将通过 JavaScript 动态生成 -->
-                </select>
-                <p class="help-text" data-i18n="providerSelectHelp">选择 AI 服务提供商</p>
+                </div>
               </div>
               
               <div class="form-group">
                 <label for="api-key" data-i18n="apiKeyLabel">API Key:</label>
                 <div class="input-with-buttons">
-                  <input type="password" id="api-key" placeholder="sk-..." data-i18n-placeholder="apiKeyPlaceholder">
+                  <input type="password" id="api-key" >
                   <button id="test-api-key" class="secondary-btn" data-i18n="testApiKey">测试</button>
                   <button id="clear-api-key" class="secondary-btn danger" data-i18n="clearApiKey">清除</button>
                 </div>
@@ -123,6 +118,27 @@
             </div>
             
 
+          </div>
+        </div>
+        
+        <!-- 联系我标签页 -->
+        <div id="contact-tab" class="tab-content">
+          <div class="contact-container">
+            <div class="tab-header">
+              <h2 data-i18n="contactTitle">联系我</h2>
+            </div>
+            
+            <div class="settings-section">
+              <div class="contact-info">
+                <p><span data-i18n="contactEmail">邮箱地址：</span> <a href="mailto:fzywind@gmail.com">fzywind@gmail.com</a></p>
+              </div>
+              
+              <div class="bmc-container">
+                <a href="https://www.buymeacoffee.com/johnnyfan" target="_blank" class="bmc-button" data-i18n="buyMeCoffee">
+                  ☕️ Buy me a coffee
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </main>

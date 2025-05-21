@@ -185,6 +185,29 @@ body {
   margin-top: 4px;
 }
 
+/* Radio 按钮组样式 */
+.radio-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 6px;
+}
+
+.radio-option label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
 .primary-btn {
   background-color: #3498DB;
   color: white;
@@ -260,7 +283,6 @@ body {
   justify-content: center;
   transition: background-color 0.3s ease;
   width: 85%;
-  margin: 0 auto;
 }
 
 .bmc-button:hover {
@@ -560,4 +582,33 @@ h1 {
   margin-top: auto;
   padding: 15px 0;
   border-top: 1px solid #e0e0e0;
+}
+
+/* 联系我页面样式 */
+.contact-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-info a {
+  color: #3498DB;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.bmc-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: left;
+  width: 300px;
 }

@@ -9,7 +9,6 @@ export enum LLMProviderType {
   OPENAI = 'openai',
   // CLAUDE = 'claude',
   // 未来可能支持的其他提供商
-  // GEMINI = 'gemini',
 }
 
 /**

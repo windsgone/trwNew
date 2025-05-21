@@ -394,5 +394,14 @@
   },
   "apiValidationError": {
     "message": "API 유효성 검사 오류"
+  },
+  "navContact": {
+    "message": "문의"
+  },
+  "contactTitle": {
+    "message": "문의"
+  },
+  "contactEmail": {
+    "message": "이메일 주소:"
   }
 }

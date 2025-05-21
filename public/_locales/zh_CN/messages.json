@@ -394,5 +394,14 @@
   },
   "apiValidationError": {
     "message": "API验证错误"
-  } 
+  },
+  "navContact": {
+    "message": "联系我"
+  },
+  "contactTitle": {
+    "message": "联系我"
+  },
+  "contactEmail": {
+    "message": "邮箱地址："
+  }
 }

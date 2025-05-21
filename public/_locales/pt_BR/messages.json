@@ -394,5 +394,14 @@
   },
   "apiValidationError": {
     "message": "Erro de validação da API"
+  },
+  "navContact": {
+    "message": "Entre em contato"
+  },
+  "contactTitle": {
+    "message": "Entre em contato"
+  },
+  "contactEmail": {
+    "message": "Endereço de e-mail:"
   }
 }

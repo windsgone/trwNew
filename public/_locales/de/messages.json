@@ -394,5 +394,14 @@
   },
   "apiValidationError": {
     "message": "API-Validierungsfehler"
+  },
+  "navContact": {
+    "message": "Kontaktiere mich"
+  },
+  "contactTitle": {
+    "message": "Kontaktiere mich"
+  },
+  "contactEmail": {
+    "message": "E-Mail-Adresse:"
   }
 }
